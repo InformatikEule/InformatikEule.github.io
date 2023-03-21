@@ -86,3 +86,14 @@ section img{
 #earth{
   z-index: 1;
 }
+
+@media (max-width:980px) {
+  #title {
+      text-align: center;
+  }
+  
+  .title-img {
+      position: static;
+      transform: rotate(0);
+  }
+}

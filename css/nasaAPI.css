@@ -37,4 +37,14 @@
   .modal-title{
     color: #000;
   }
-  
+
+  @media (max-width:980px) {
+    #title {
+        text-align: center;
+    }
+    
+    .title-img {
+        position: static;
+        transform: rotate(0);
+    }
+}

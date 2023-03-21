@@ -170,7 +170,7 @@ p {
 .social-icon {
     margin: 40px 10px;
 }
-
+*/
 @media (max-width:980px) {
     #title {
         text-align: center;
@@ -180,4 +180,4 @@ p {
         position: static;
         transform: rotate(0);
     }
-}*/
+}
