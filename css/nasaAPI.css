@@ -40,6 +40,11 @@
     color: #000;
   }
 
+  .apodcaption{
+    font-size: 1.3rem;
+    color: #fff;
+  }
+
   @media (max-width:980px) {
     #title {
         text-align: center;
@@ -48,6 +53,10 @@
     .modal{
       orientation: landscape;
     }
+
+    .apodcaption{
+      font-size: 1rem;
+    } 
 
     .apod{
         font-size: 2rem;
