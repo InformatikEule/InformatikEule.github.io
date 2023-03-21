@@ -10,17 +10,17 @@
   <link rel="stylesheet" href="css/nasaAPI.css">
 
 </head>
-<h1 class="text-center containerüberschrift">Astronomy Picture of the Day (APOD):</h1>
+<h1 class="apod">Astronomy Picture of the Day (APOD):</h1>
 <br>
 <div class="container">
   <div class="row">
     <div class="col">
-	  <h5 class="containerüberschrift">Pick a Date <input class="body" type="date" name="date" id="date"> to see the APOD. <button class="body btn btn-secondary" name="submit" id="submit" type="submit">Send</button></input><!--<input class="body btn btn-dark" type="submit" id="submit" placeholder="Show me">--></h5>
+	  <h5 class="containerüberschrift">Pick a Date <input class="body" type="date" name="date" id="date"> and hit send to see the APOD. <button class="body btn btn-secondary" name="submit" id="submit" type="submit">Send</button></input><!--<input class="body btn btn-dark" type="submit" id="submit" placeholder="Show me">--></h5>
 	  <div class="container">
 		  <div class="col">
-			<h5 class="containerüberschrift" id="titleAPOD"></h5>
-			<p class="caption containerüberschrift" id="caption"></p>
-			<p class="caption containerüberschrift" id="mediaType"></p>
+			<h5 class="apodelement" id="titleAPOD"></h5>
+			<p class="caption apodelement" id="caption"></p>
+			<p class="caption apodelement" id="mediaType"></p>
 			<img class="caption containerüberschrift" src="" id="link"><a data-toggle="modal" data-bs-toggle="modal" data-bs-target="#myModal" href="#myModal"><img src="" alt="" id="apod_pic" class="img-fluid picFull"></a> 
 
 		  </div>

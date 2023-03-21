@@ -7,13 +7,20 @@
     margin-left: 10px;
   }
   
+  .apod{
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .apodelement{
+    color: #fff;
+    text-align: left;
+    font-size: 2.5rem;
+  }
+
   .containerüberschrift{
     color: #fff;
-  }
-  
-  .navbar{
-    position: sticky;
-    width: 100%;
   }
   
   .picFull:hover{
@@ -23,11 +30,6 @@
   .picFull{
     transition: transform .5s;
     margin-bottom: 20px;
-  }
-  
-  
-  .img-title{
-    color: #000;
   }
   
   .modal-content{
@@ -42,9 +44,12 @@
     #title {
         text-align: center;
     }
-    
-    .title-img {
-        position: static;
-        transform: rotate(0);
+
+    .apod{
+        font-size: 2rem;
+    }
+
+    .apodelement{
+        font-size: 1rem;
     }
 }
