@@ -15,7 +15,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-	  <h5 class="containerüberschrift">Pick a Date <input class="body" type="date" name="date" id="date"> and hit send to see the APOD. <button class="body btn btn-secondary" name="submit" id="submit" type="submit">Send</button></input><!--<input class="body btn btn-dark" type="submit" id="submit" placeholder="Show me">--></h5>
+	  <h5 class="containerüberschrift">Pick a Date <input class="body" type="date" name="date" id="date"> and hit send to see the APOD. <button class="body btn btn-secondary" name="submit" id="submit" type="submit">Send</button></input></h5>
 	  <div class="container">
 		  <div class="col">
 			<h5 class="apodelement" id="titleAPOD"></h5>
@@ -53,13 +53,27 @@
     let searchB = document.querySelector("#submit")
 
     searchB.addEventListener("click", ()=>{
-      console.log("button pressed")
       req()
     })
 
     function getDate(){
-      return document.getElementById("date").value;
-    }
+	    //leider gibt Date() den Monat nur als Zahl von 0-11 aus. Nur Tag und Jahr bekommen wir im richtigen Format
+	    const dateAll = new Date();
+	    //also schreiben wir ein Array mit den passenden Zahlen.
+	    const month = ["01","02","03","04","05","06","07","08","09","10","11","12"];
+	    //und lassen ihn die Zahl an der Array stelle ausgeben. Aus "0" wird also "01"
+	    const month2 = month[dateAll.getMonth()];
+	    //zum schluss nur noch alles zusammenfügen und wir erhalten ein Datum im gleichen Format wie im Input.
+	    const dateToday = dateAll.getUTCFullYear() + '-' + month2 + '-' + dateAll.getUTCDate();
+	    //welches wir dann prüfen können ob es in der Zukunft/Vergangenheit liegt.
+	    if(document.getElementById('date').value > dateToday || document.getElementById('date').value < "1995-03-05"){
+	      alert('Date must be between Jun 16, 1995 and Today!')
+	      throw new Error('Unfortunately, iam not able to predict the Future. sadface.jpg');
+	    }else {
+	      console.log(document.getElementById('date').value);
+	      return document.getElementById("date").value;
+	    }
+  }
 
     async function req(){
       //let API_KEY = "DEMO_KEY"
