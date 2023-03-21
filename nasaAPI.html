@@ -10,19 +10,45 @@
   <link rel="stylesheet" href="css/nasaApi.css">
 
 </head>
+<h1 class="text-center containerüberschrift">Astronomy Picture of the Day (APOD):</h1>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+	  <h5 class="containerüberschrift">Pick a Date <input class="body" type="date" name="date" id="date"> to see the APOD.<input class="body btn btn-dark" type="submit" id="submit"></h5>
+	  <div class="container">
+		  <div class="col">
+			<h5 class="containerüberschrift" id="titleAPOD"></h5>
+			<p class="caption containerüberschrift" id="caption"></p>
+			<p class="caption containerüberschrift" id="mediaType"></p>
+			<img class="caption containerüberschrift" src="" id="link"><a data-toggle="modal" data-bs-toggle="modal" data-bs-target="#myModal" href="#myModal"><img src="" alt="" id="apod_pic" class="img-fluid picFull"></a> 
 
-<body>
-  <div class="search">
-    <h1>Get the Astronomy Picture of the Day from the Nasa API</h1>
-    <input type="text" id="date" placeholder="YYYY-mm-dd">
-    <button id="submit">Search</button>
-    <p id="desc"></p>
-    <img id="pic" src="" alt="Astronomy Picture of the day"></img>
+		  </div>
+	  </div>
+	</div>
   </div>
-  <div id="content">
+  <footer>
+	<p class="text-center containerüberschrift">Made with ❤️ by KomischerKauz.</p>
+  </footer>
 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="" id="apod_pic_modal" class="img-fluid picFull">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
-
+</div>
   <script>
     let searchB = document.querySelector("#submit")
 
@@ -46,11 +72,18 @@
     }
 
     function useData(data){
-      document.querySelector("#desc").innerHTML = data.explanation
-      document.querySelector("#pic").src = data.url
+      document.querySelector("#caption").innerHTML = data.explanation
+      document.querySelector("#link").innerHTML = data.url
+      document.querySelector("#mediaType").innerHTML = data.media_type
+      document.querySelector("#titleAPOD").innerHTML = data.title
+      document.querySelector("#modalLabel").innerHTML = data.title
+      document.querySelector("#apod_pic_modal").src = data.url
+      document.querySelector("#apod_pic").src = data.url
     }
 
 
   </script>
 
 </body>
+
+</html>

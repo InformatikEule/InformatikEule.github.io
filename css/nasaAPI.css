@@ -1,0 +1,40 @@
+  body {
+    background-color: #212121;
+  }
+  
+  .überschrift{
+    color: #000;
+    margin-left: 10px;
+  }
+  
+  .containerüberschrift{
+    color: #fff;
+  }
+  
+  .navbar{
+    position: sticky;
+    width: 100%;
+  }
+  
+  .picFull:hover{
+    transform: scale(1.01);
+  }
+  
+  .picFull{
+    transition: transform .5s;
+    margin-bottom: 20px;
+  }
+  
+  
+  .img-title{
+    color: #000;
+  }
+  
+  .modal-content{
+    background-color: #212121;  
+  }
+  
+  .modal-title{
+    color: #000;
+  }
+  
