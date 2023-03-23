@@ -57,15 +57,16 @@
     })
 
     function getDate(){
-	    //leider gibt Date() den Monat nur als Zahl von 0-11 aus. Nur Tag und Jahr bekommen wir im richtigen Format
+	    //Funktion zum überprüfen ob das eingegebene Datum in der Zukunft/Vergangenheit liegt.
+      //Date() gibt Monate leider nur als Zahl zwischen 0-11 aus. 
 	    const dateAll = new Date();
 	    //also schreiben wir ein Array mit den passenden Zahlen.
 	    const month = ["01","02","03","04","05","06","07","08","09","10","11","12"];
 	    //und lassen ihn die Zahl an der Array stelle ausgeben. Aus "0" wird also "01"
 	    const month2 = month[dateAll.getMonth()];
-	    //zum schluss nur noch alles zusammenfügen und wir erhalten ein Datum im gleichen Format wie im Input.
+	    //alle teile des Datums zusammenfügen mit "-" und wir erhalten ein Datum im gleichen Format wie im Input.
 	    const dateToday = dateAll.getUTCFullYear() + '-' + month2 + '-' + dateAll.getUTCDate();
-	    //welches wir dann prüfen können ob es in der Zukunft/Vergangenheit liegt.
+	    //welches wir dann nutzen können ob das Datum passt oder nicht.
 	    if(document.getElementById('date').value > dateToday || document.getElementById('date').value < "1995-03-05"){
 	      alert('Date must be between Jun 16, 1995 and Today!')
 	      throw new Error('Unfortunately, iam not able to predict the Future. sadface.jpg');

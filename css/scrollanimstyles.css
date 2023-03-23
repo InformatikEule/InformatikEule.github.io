@@ -4,9 +4,9 @@
   padding: 0;
 }
 
-body{
+#scrollAnim{
   background: #000;
-  min-height: 1500px;
+  min-height: 100vh;
 }
 
 section:before{
