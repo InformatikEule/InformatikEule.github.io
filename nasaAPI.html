@@ -22,7 +22,7 @@
 			<p class="caption apodcaption" id="caption"></p>
 			<p class="caption apodcaption" id="mediaType"></p>
 			<img class="caption containerüberschrift" src="" id="link"><a data-toggle="modal" data-bs-toggle="modal" data-bs-target="#myModal" href="#myModal"><img src="" alt="" id="apod_pic" class="img-fluid picFull"></a> 
-
+      <iframe id="apod_vid" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 		  </div>
 	  </div>
 	</div>
@@ -67,7 +67,7 @@
 	    //alle teile des Datums zusammenfügen mit "-" und wir erhalten ein Datum im gleichen Format wie im Input.
 	    const dateToday = dateAll.getUTCFullYear() + '-' + month2 + '-' + dateAll.getUTCDate();
 	    //welches wir dann nutzen können ob das Datum passt oder nicht.
-	    if(document.getElementById('date').value > dateToday || document.getElementById('date').value < "1995-03-05"){
+	    if(document.getElementById('date').value > dateToday || document.getElementById('date').value < "1995-06-15"){
 	      alert('Date must be between Jun 16, 1995 and Today!')
 	      throw new Error('Unfortunately, iam not able to predict the Future. sadface.jpg');
 	    }else {
@@ -87,13 +87,25 @@
     }
 
     function useData(data){
-      document.querySelector("#caption").innerHTML = data.explanation
-      document.querySelector("#link").innerHTML = data.url
-      document.querySelector("#mediaType").innerHTML = data.media_type
-      document.querySelector("#titleAPOD").innerHTML = data.title
-      document.querySelector("#modalLabel").innerHTML = data.title
-      document.querySelector("#apod_pic_modal").src = data.url
-      document.querySelector("#apod_pic").src = data.url
+
+      if(data.media_type == "image"){
+        document.querySelector("#mediaType").innerHTML = data.media_type
+        document.querySelector("#caption").innerHTML = data.explanation
+        document.querySelector("#link").innerHTML = data.url
+        document.querySelector("#titleAPOD").innerHTML = data.title
+        document.querySelector("#modalLabel").innerHTML = data.title
+        document.querySelector("#apod_pic_modal").src = data.url
+        document.querySelector("#apod_pic").src = data.url
+      }else{
+        document.querySelector("#mediaType").innerHTML = data.media_type
+        document.querySelector("#caption").innerHTML = data.explanation
+        document.querySelector("#apod_vid").src = data.url
+        document.querySelector("#titleAPOD").innerHTML = data.title
+        document.querySelector("#modalLabel").innerHTML = data.title
+        document.querySelector("#apod_pic_modal").src = data.url
+        document.querySelector("#apod_pic").src = data.url
+      }
+
     }
 
 
