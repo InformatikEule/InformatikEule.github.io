@@ -86,8 +86,17 @@
       useData(data)
     }
 
-    function useData(data){
+    
 
+    function useData(data){
+      const houstonTime = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
+      const berlinTime = new Date().toLocaleString('en-US', { timeZone: 'Europe/Berlin' });
+
+      console.log(`The current time in Houston is: ${houstonTime}`);
+      console.log("hallo");
+      console.log(`The current time in Berlin is: ${berlinTime}`);
+      /*if(houstonTime == "00");*/
+      //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen der jeweiligen elemente.
       if(data.media_type == "image"){
         document.querySelector("#mediaType").innerHTML = data.media_type
         document.querySelector("#caption").innerHTML = data.explanation
