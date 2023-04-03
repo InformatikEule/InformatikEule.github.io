@@ -1,17 +1,16 @@
-*
-{
+* {
   margin: 0;
   padding: 0;
 }
 
-#scrollAnim{
+#scrollAnim {
   background: #000;
   min-height: 100vh;
 }
 
 
 
-section:before{
+section:before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -21,7 +20,7 @@ section:before{
   z-index: 10000;
 }
 
-section:after{
+section:after {
   content: '';
   position: absolute;
   top: 0;
@@ -33,7 +32,7 @@ section:after{
   /*mix-blend-mode: color;*/
 }
 
-section{
+section {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -43,7 +42,7 @@ section{
   align-items: center;
 }
 
-section img{
+section img {
   position: absolute;
   top: 0;
   left: 0;
@@ -53,49 +52,49 @@ section img{
   pointer-events: none;
 }
 
-#text{
+#text {
   position: relative;
   color: #fff;
   font-size: 1em;
-  z-index: 2;  
+  z-index: 2;
   padding-right: 10px;
 }
 
-#text2{
+#text2 {
   position: relative;
   color: #fff;
   font-size: 1em;
-  z-index: 2;  
+  z-index: 2;
   padding-right: 10px;
 }
 
-#text3{
+#text3 {
   position: relative;
   color: #fff;
   font-size: 1em;
-  z-index: 2;  
+  z-index: 2;
   padding-right: 10px;
 }
 
-#text4{
+#text4 {
   position: relative;
   color: #fff;
   font-size: 1em;
-  z-index: 2;  
+  z-index: 2;
   padding-right: 10px;
 }
 
-#earth{
+#earth {
   z-index: 1;
 }
 
 @media (max-width:980px) {
   #title {
-      text-align: center;
+    text-align: center;
   }
-  
+
   .title-img {
-      position: static;
-      transform: rotate(0);
+    position: static;
+    transform: rotate(0);
   }
 }
