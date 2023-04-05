@@ -1,73 +1,91 @@
 .Montserrat {
-    font-family: "Montserrat-Black";
+  font-family: "Montserrat-Black";
 }
 
 #title {
-    background-color: #212121;
-    color: #fff;
+  background-color: #212121;
+  color: #fff;
 }
 
 #cards {
-    height: 500px;
-    background-color: #212121;
+  height: 1000px;
+  background-color: #212121;
 }
 
 .container-fluid {
-    padding: 3% 15% 25%;
+  padding: 3% 15% 25%;
 }
 
 .navbar {
-    padding: 0 0 4.5rem;
+  padding: 0 0 4.5rem;
 }
 
 .navbar-brand {
-    font-family: "Ubuntu";
-    font-size: 2.5rem;
-    font-weight: bold;
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .nav-item {
-    padding: 0 18px;
+  padding: 0 18px;
 }
 
 .nav-link {
-    font-size: 1.2rem;
-    font-family: "Montserrat-Light"
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
 }
 
-
 .title-img {
-    transform: rotate(25deg);
-    width: 40%;
-    position: absolute;
-    margin-left: 1px;
-    border-radius: 20%;
+  transform: rotate(25deg);
+  width: 40%;
+  position: absolute;
+  margin-left: 1px;
+  border-radius: 20%;
 }
 
 #features {
-    display: grid;
-    place-items: center;
-    align-content: center;
-    min-height: 100vh;
-    /*padding: 7% 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  /*padding: 7% 15%;
   background-color: #fff;
   position: relative;*/
 }
 
 .hidden {
-    font-size: 1.1rem;
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(-100%);
-    transition: all 1s;
+  font-size: 1.1rem;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
 }
 
 .show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
 
+.card {
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.15);
+}
+
+.card-img-top {
+  overflow: hidden;
+}
+
+.card-img-top {
+  transition: all 1.3s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.2);
+}
 
 /*.cards{
     margin: 0;
@@ -94,22 +112,22 @@
     display: inline-block;
 }*/
 
-@media (max-width:980px) {
-    #features {
-        min-height: 70vh;
-    }
+@media (max-width: 980px) {
+  #features {
+    min-height: 70vh;
+  }
 
-    .hidden {
-        font-size: 0.5rem;
-        filter: blur(0.5px);
-    }
+  .hidden {
+    font-size: 0.5rem;
+    filter: blur(0.5px);
+  }
 
-    #title {
-        text-align: center;
-    }
+  #title {
+    text-align: center;
+  }
 
-    .title-img {
-        position: static;
-        transform: rotate(0);
-    }
+  .title-img {
+    position: static;
+    transform: rotate(0);
+  }
 }
