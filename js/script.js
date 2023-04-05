@@ -84,6 +84,10 @@ function buttonAnimation(currentKey) {
 ////
 // nasaAPI.html
 ////
+/*let buttons = document.querySelectorAll(".next");
+for(let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", yourFunction);
+}*/
 
 let searchB = document.querySelector("#submit");
 
