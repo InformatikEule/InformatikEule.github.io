@@ -166,7 +166,8 @@ function useData(data) {
   /*if(houstonTime == "00");*/
   //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen der jeweiligen elemente.
   if (data.media_type == "image") {
-    document.querySelector("#mediaType").innerHTML = data.media_type;
+    document.querySelector("#mediaType").innerHTML =
+      "Media-Type: " + data.media_type;
     document.querySelector("#caption").innerHTML = data.explanation;
     document.querySelector("#link").innerHTML = data.url;
     document.querySelector("#titleAPOD").innerHTML = data.title;

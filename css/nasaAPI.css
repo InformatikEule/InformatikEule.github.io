@@ -7,6 +7,10 @@ body {
   margin-left: 10px;
 }
 
+.mediaType {
+  color: #fff;
+}
+
 .apod {
   color: #fff;
   text-align: center;
