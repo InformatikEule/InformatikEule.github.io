@@ -67,16 +67,20 @@
   transform: translateX(0);
 }
 
-.card {
-  transition: all 0.3s;
-}
-
 .card:hover {
-  transform: scale(1.15);
+  transform: scale(1.05);
+  box-shadow: 1rem 1rem 1rem 1rem rgba(22, 161, 10, 0.15);
 }
 
 .card-img-top {
-  overflow: hidden;
+  height: 300px;
+  object-position: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-img-top:hover {
+  transition: transform 0.2s ease-in-out;
+  z-index: 1;
 }
 /*
 .card-img-top {
