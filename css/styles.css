@@ -1,10 +1,8 @@
+body {
+  background-color: #212121;
+}
 .Montserrat {
   font-family: "Montserrat-Black";
-}
-
-#title {
-  background-color: #212121;
-  color: #fff;
 }
 
 #cards {
@@ -12,38 +10,8 @@
   background-color: #212121;
 }
 
-.container-fluid {
-  padding: 3% 15% 25%;
-}
-
-.navbar {
-  padding: 0 0 4.5rem;
-}
-
-.navbar-brand {
-  font-family: "Ubuntu";
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.nav-item {
-  padding: 0 18px;
-}
-
-.nav-link {
-  font-size: 1.2rem;
-  font-family: "Montserrat-Light";
-}
-
-.title-img {
-  transform: rotate(25deg);
-  width: 40%;
-  position: absolute;
-  margin-left: 1px;
-  border-radius: 20%;
-}
-
 #features {
+  background-color: #fff;
   display: grid;
   place-items: center;
   align-content: center;
@@ -78,47 +46,9 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.card-img-top:hover {
-  transition: transform 0.2s ease-in-out;
-  z-index: 1;
-}
-
 .card-black {
   background-color: black;
 }
-/*
-.card-img-top {
-  transition: all 1.3s ease;
-}
-
-.card-img-top:hover {
-  transform: scale(1.2);
-}*/
-
-/*.cards{
-    margin: 0;
-    padding: 0;
-    background: #262626;
-    font-family: sans-serif;
-}
-
-.cards .cardcontainer{
-    width: 1280px;
-    margin: 70px auto 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.cards .cardcontainer .box{
-    position: relative;
-    width: 300px;
-    height: 300px;
-    background: #ff0;
-    margin: 10px;
-    box-sizing: border-box;
-    display: inline-block;
-}*/
 
 @media (max-width: 980px) {
   #features {
@@ -128,10 +58,6 @@
   .hidden {
     font-size: 0.5rem;
     filter: blur(0.5px);
-  }
-
-  #title {
-    text-align: center;
   }
 
   .title-img {
