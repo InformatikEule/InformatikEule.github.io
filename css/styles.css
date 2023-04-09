@@ -63,6 +63,10 @@ a {
     min-height: 70vh;
   }
 
+  .cards {
+    min-height: 100vh;
+  }
+
   .hidden {
     font-size: 0.5rem;
     filter: blur(0.5px);
