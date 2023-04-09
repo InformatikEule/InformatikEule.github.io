@@ -12,7 +12,8 @@ a {
 
 #cards {
   background-image: url("/imgs/bg-cards.jpg");
-  min-height: 900px;
+  height: 100vh;
+  width: 100vw;
 }
 
 #features {
@@ -42,7 +43,7 @@ a {
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0rem 0rem 1rem 1rem rgba(175, 7, 72, 0.15);
+  box-shadow: 0rem 0rem 1rem 1rem rgba(236, 7, 95, 0.15);
 }
 
 .card-img-top {
