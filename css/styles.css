@@ -1,11 +1,18 @@
 body {
   background-color: #212121;
+  background-image: url("/imgs/bg-cards.jpg");
 }
+
 .Montserrat {
   font-family: "Montserrat-Black";
 }
 
+a {
+  text-decoration: none;
+}
+
 #cards {
+  background-image: url("/imgs/bg-cards.jpg");
   min-height: 900px;
 }
 
