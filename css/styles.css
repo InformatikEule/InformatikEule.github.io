@@ -1,5 +1,5 @@
 body {
-  background-color: #212121;
+  background-color: black;
 }
 
 .Montserrat {
@@ -12,8 +12,8 @@ a {
 
 #cards {
   background-image: url("/imgs/bg-cards.jpg");
-  height: 100vh;
-  width: 100vw;
+  background-color: #212121;
+  min-height: 900px;
   z-index: 1;
 }
 
