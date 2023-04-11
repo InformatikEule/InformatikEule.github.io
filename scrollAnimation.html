@@ -25,6 +25,7 @@
 		<h2 id="text4">Nerd</h2>
 	</section>
 
+
 	<!-- Features -->
 	<section id="features">
 		<div class="row">
@@ -44,25 +45,36 @@
 				<p>Sie wollen mir direkt einen Job geben wenn sie dies hier Lesen!</p>
 			</div>
 		</div>
-		<script>
-			//TODO Blutmond am 26.9.!
-			//let bg = document.getElementById("bg");
-			let earth = document.getElementById("earth");
-			let text = document.getElementById("text");
-			let moon = document.getElementById("moon");
+	</section>
+	<!--Video UZrXGbjSL9Y-->
+	<section id="video">
+		<h1 class="text-center">Ich mache auch Videos! Much Wow!</h1>
+		<div class="ratio ratio-16x9">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/UZrXGbjSL9Y"
+				title="YouTube video player" frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
+		</div>
+	</section>
+	<script>
+		//TODO Blutmond am 26.9.!
+		//let bg = document.getElementById("bg");
+		let earth = document.getElementById("earth");
+		let text = document.getElementById("text");
+		let moon = document.getElementById("moon");
 
-			window.addEventListener('scroll', function () {
-				var value = window.scrollY;
+		window.addEventListener('scroll', function () {
+			var value = window.scrollY;
 
-				text.style.bottom = value * 0.5 + 'px';
-				text2.style.bottom = value * 0.5 + 'px';
-				text3.style.bottom = value * 0.5 + 'px';
-				text4.style.bottom = value * 0.5 + 'px';
-				//bg.style.top = -value * 1.9 + 'px';
-				earth.style.top = -value * 1.4 + 'px';
-				moon.style.left = -value * 0.5 + 'px';
-			});
+			text.style.bottom = value * 0.5 + 'px';
+			text2.style.bottom = value * 0.5 + 'px';
+			text3.style.bottom = value * 0.5 + 'px';
+			text4.style.bottom = value * 0.5 + 'px';
+			//bg.style.top = -value * 1.9 + 'px';
+			earth.style.top = -value * 1.4 + 'px';
+			moon.style.left = -value * 0.5 + 'px';
+		});
 
 
-		</script>
+	</script>
 </body>

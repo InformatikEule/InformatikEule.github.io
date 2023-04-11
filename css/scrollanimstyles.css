@@ -8,10 +8,8 @@
   min-height: 100vh;
 }
 
-
-
 section:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -21,7 +19,7 @@ section:before {
 }
 
 section:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +86,32 @@ section img {
   z-index: 1;
 }
 
-@media (max-width:980px) {
+#features {
+  background-color: #fff;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  /*padding: 7% 15%;
+  background-color: #fff;
+  position: relative;*/
+}
+
+.hidden {
+  font-size: 1.1rem;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+@media (max-width: 980px) {
   #title {
     text-align: center;
   }
@@ -96,5 +119,17 @@ section img {
   .title-img {
     position: static;
     transform: rotate(0);
+  }
+  #features {
+    min-height: 100vh;
+  }
+
+  .card-img-top {
+    height: 100px;
+  }
+
+  .hidden {
+    font-size: 0.5rem;
+    filter: blur(0.5px);
   }
 }

@@ -1,5 +1,9 @@
 body {
-  background-color: black;
+  background-image: url("../imgs/bg-cards.jpg");
+}
+
+.welcMsg {
+  color: #fff;
 }
 
 .Montserrat {
@@ -11,35 +15,10 @@ a {
 }
 
 #cards {
-  background-image: url("/imgs/bg-cards.jpg");
-  background-color: #212121;
+  /*background-image: url("/imgs/bg-cards.jpg");*/
+  /*background-color: #212121;*/
   min-height: 900px;
   z-index: 1;
-}
-
-#features {
-  background-color: #fff;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  min-height: 100vh;
-  /*padding: 7% 15%;
-  background-color: #fff;
-  position: relative;*/
-}
-
-.hidden {
-  font-size: 1.1rem;
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateX(-100%);
-  transition: all 1s;
-}
-
-.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateX(0);
 }
 
 .card:hover {
@@ -59,18 +38,13 @@ a {
 }
 
 @media (max-width: 980px) {
-  #features {
-    min-height: 70vh;
+  .card-img-top {
+    height: 100px;
   }
 
-  .cards {
-    min-height: 100vh;
-  }
-
-  .hidden {
-    font-size: 0.5rem;
-    filter: blur(0.5px);
-  }
+  /*#cards {
+    max-height: 200px;
+  }*/
 
   .title-img {
     position: static;
