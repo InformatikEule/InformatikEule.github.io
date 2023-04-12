@@ -19,95 +19,104 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="css/styles.css" />
-  <script defer src="js/script.js"></script>
 </head>
 
 <body>
-  <nav>
-    <div class="welcMsg text-center fs-2 text">Welcome to my Website!</div>
-  </nav>
-  <div id="cards">
-    <div class="container mt-5">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="col">
-          <a href="https://github.com/InformatikEule" class="card-link">
-            <div class="card bg-dark text-white">
-              <img src="imgs/code-pic-neu001.png" class="card-img-top img-fluid ratio-16x9" alt="Placeholder image">
-              <div class="card-body">
-                <h5 class="card-title text-center Montserrat">My Github</h5>
-                <p class="card-text text-center Montserrat">See my Code and some Projects</p>
+  <header class="d-flex justify-content-center py-3">
+    <div class="welcMsg text-center fs-3 text">Welcome to my Website!</div>
+    <p class="headerMsg text-center fs-6 text-white">header missing for now. sadface.jpg</p>
+  </header>
+  <div>
+    <div id="cards">
+      <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <a href="https://github.com/InformatikEule" class="card-link">
+              <div class="card bg-dark text-white">
+                <!-- class="card-img-top img-fluid ratio-16x9 mx-auto"-->
+                <img src="imgs/code-pic-neu001.png" class="img-fluid" alt="Placeholder image">
+                <div class="card-body">
+                  <h5 class="card-title text-center Montserrat">My Github</h5>
+                  <p class="card-text text-center Montserrat">See my Code and some Projects</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
+            </a>
+          </div>
 
-        <div class="col">
-          <a href="nasaAPI.html" class="card-link">
-            <div class="card bg-dark text-white">
-              <img src="imgs/launch-pad.jpg" class="card-img-top img-fluid ratio-16x9" alt="Placeholder image">
-              <div class="card-body">
-                <h5 class="card-title text-center Montserrat">NASA API</h5>
-                <p class="card-text text-center Montserrat">Get Data directly from the NASA</p>
+          <div class="col">
+            <a href="nasaAPI.html" class="card-link">
+              <div class="card bg-dark text-white">
+                <!--class="card-img-top img-fluid ratio-16x9"-->
+                <img src="imgs/launch-pad.jpg" class="img-fluid" alt="Placeholder image">
+                <div class="card-body">
+                  <h5 class="card-title text-center Montserrat">NASA API</h5>
+                  <p class="card-text text-center Montserrat">Get Data directly from the NASA</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
-        <div class="col">
-          <a href="404.html" class="card-link">
-            <div class="card bg-dark text-white">
-              <img src="imgs/DSC_4021.JPG" class="card-img-top img-fluid ratio-16x9" alt="Placeholder image">
-              <div class="card-body">
-                <h5 class="card-title text-center Montserrat">About me</h5>
-                <p class="card-text text-center Montserrat">A "Blog-like" creative Space</p>
+            </a>
+          </div>
+          <div class="col">
+            <a href="404.html" class="card-link">
+              <div class="card bg-dark text-white">
+                <!--class="card-img-top img-fluid ratio-16x9"-->
+                <img src="imgs/DSC_4021.JPG" class="img-fluid" alt="Placeholder image">
+                <div class="card-body">
+                  <h5 class="card-title text-center Montserrat">About me</h5>
+                  <p class="card-text text-center Montserrat">A "Blog-like" creative Space</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
+            </a>
+          </div>
 
-        <div class="col">
-          <a href="scrollAnimation.html" class="card-link">
-            <div class="card bg-dark text-white">
-              <img src="imgs/code.png" class="card-img-top img-fluid ratio-16x9" alt="Placeholder image">
-              <div class="card-body">
-                <h5 class="card-title text-center Montserrat">Scroll Animation</h5>
-                <p class="card-text text-center Montserrat">Trying some CSS-Magic o.O</p>
-              </div>
-            </div>
-          </a>
-        </div>
+          <div class="col">
+            <a href="scrollAnimation.html" class="card-link">
+              <div class="card bg-dark text-white">
+                <div class="ratio ratio-16x9 card-img-top img-fluid">
+                  <iframe src="https://www.youtube.com/embed/UZrXGbjSL9Y" title="YouTube video player"
+                    frameborder="0"></iframe>
+                </div>
 
-        <div class="col">
-          <a href="drumKit.html" class="card-link">
-            <div class="card text-white bg-dark">
-              <img src="imgs/earth.png" class="card-img-top img-fluid card-black ratio-16x9" alt="Placeholder image">
-              <div class="card-body">
-                <h5 class="card-title text-center Montserrat">Drumkit</h5>
-                <p class="card-text text-center Montserrat">"1, 2, 3..."</p>
+                <div class="card-body">
+                  <h5 class="card-title text-center Montserrat">Scroll Animation</h5>
+                  <p class="card-text text-center Montserrat">Trying some CSS-Magic o.O</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
+            </a>
+          </div>
 
-        <div class="col">
-          <a href="https://www.youtube.com/@kaingott/videos" class="card-link">
-            <div class="card bg-dark text-white">
-              <div class="ratio ratio-16x9 card-img-top img-fluid">
-                <iframe src="https://www.youtube.com/embed/UZrXGbjSL9Y" title="YouTube video player"
-                  frameborder="0"></iframe>
+          <div class="col">
+            <a href="drumKit.html" class="card-link">
+              <div class="card text-white bg-dark">
+                <img src="imgs/earth.png" class="card-img-top img-fluid card-black ratio-16x9" alt="Placeholder image">
+                <div class="card-body">
+                  <h5 class="card-title text-center Montserrat">Drumkit</h5>
+                  <p class="card-text text-center Montserrat">"1, 2, 3..."</p>
+                </div>
               </div>
-              <!--<img src="imgs/moon.png" class="card-img-top img-fluid" alt="Placeholder image">-->
-              <div class="card-body">
-                <h5 class="card-title text-center Montserrat">Youtube</h5>
-                <p class="card-text card-title text-center Montserrat">I make Videos as well! Much WOW!!!</p>
+            </a>
+          </div>
+
+          <div class="col">
+            <a href="https://www.youtube.com/@kaingott/videos" class="card-link">
+              <div class="card bg-dark text-white">
+                <img src="imgs/code.png" class="card-img-top img-fluid ratio-16x9" alt="Placeholder image">
+                <!--<img src="imgs/moon.png" class="card-img-top img-fluid" alt="Placeholder image">-->
+                <div class="card-body">
+                  <h5 class="card-title text-center Montserrat">Youtube</h5>
+                  <p class="card-text card-title text-center Montserrat">I make Videos as well! Much WOW!!!</p>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <footer>
-
+  <footer class="py-3 my-4">
+    <!--<footer class="footer mt-auto py-3 bg-light">-->
+    <div class="firstFooter">
+      <div class="byeMsg text-center fs-2 text">Here should be a footer!</div>
+    </div>
   </footer>
 </body>
 
