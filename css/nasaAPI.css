@@ -7,6 +7,10 @@ body {
   margin-left: 10px;
 }
 
+.userInput {
+  text-align: center;
+}
+
 .mediaType {
   color: #fff;
 }
