@@ -14,6 +14,8 @@ header {
 
 footer {
   background-color: rgba(236, 7, 95, 0.55);
+  margin-top: 40px;
+  opacity: 100;
 }
 
 .byeMsg {
