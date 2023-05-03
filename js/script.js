@@ -129,7 +129,6 @@ function getDate() {
       "Unfortunately, iam not able to predict the Future. sadface.jpg"
     );
   } else {
-    console.log(document.getElementById("date").value);
     return document.getElementById("date").value;
   }
 }
