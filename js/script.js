@@ -79,10 +79,12 @@ async function req() {
       getDate()
   );
   if (resp.status >= 200 && resp.status < 400) {
-    console.log("hallöle" + resp);
     let data = await resp.json();
     console.log(data);
     useData(data);
+  } else {
+    console.log("Error, Status code: " + resp.status);
+    alert("Error, Server returns status-code: " + resp.status);
   }
 }
 
