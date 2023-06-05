@@ -78,6 +78,7 @@ async function req() {
       "&date=" +
       getDate()
   );
+  console.log(resp);
   if (resp.status >= 200 && resp.status < 400) {
     let data = await resp.json();
     console.log(data);
@@ -103,7 +104,7 @@ function useData(data) {
   console.log(`The current time in Houston is: ${houstonTime}`);
   console.log(`The current time in Berlin is: ${berlinTime}`);
   /*if(houstonTime == "00");*/
-  //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen der jeweiligen elemente.
+  //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen und füllen der jeweiligen elemente.
   if (data.media_type == "image") {
     document.querySelector("#mediaType").innerHTML =
       "Media-Type: " + data.media_type;
