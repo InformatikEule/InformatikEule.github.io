@@ -126,9 +126,9 @@ function useData(data) {
 /////
 ///Nasa-Rover-API
 /////
-let serachBRov = document.querySelector("#submitRov");
+let searchBRov = document.querySelector("#submitRov");
 
-serachBRov.addEventListener("click", () => {
+searchBRov.addEventListener("click", () => {
   reqRov();
 });
 
