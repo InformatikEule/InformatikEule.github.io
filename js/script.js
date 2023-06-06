@@ -132,13 +132,13 @@ searchBRov.addEventListener("click", () => {
   reqRov();
 });
 
-function rovCam() {
-  if (document.getElementById("fhaz").checked) {
-    return "FHAZ";
-  } else {
-    return "RHAZ";
-  }
-}
+//function rovCam() {
+//if (document.getElementById("fhaz").checked) {
+//return "FHAZ";
+//} else {
+//return "RHAZ";
+//}
+//}
 
 async function reqRov() {
   let respRov = await fetch(
