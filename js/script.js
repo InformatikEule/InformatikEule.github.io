@@ -19,10 +19,6 @@ hiddenElements.forEach((el) => observer.observe(el));
 ////
 // nasaAPI.html
 ////
-/*let buttons = document.querySelectorAll(".next");
-for(let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", yourFunction);
-}*/
 
 let searchB = document.querySelector("#submit");
 
@@ -69,12 +65,11 @@ function getDate() {
 }
 
 async function req() {
-  //let API_KEY = "DEMO_KEY"
   //https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2022-11-22
   let resp = await fetch(
-    //if(req.status >= 200 && req.status < 400)
     "https://api.nasa.gov/planetary/apod?" +
-      "api_key=DEMO_KEY" +
+      "api_key=" +
+      returnSecrets() +
       "&date=" +
       getDate()
   );
@@ -96,14 +91,10 @@ function useData(data) {
   const berlinTime = new Date().toLocaleString("en-US", {
     timeZone: "Europe/Berlin",
   });
-  //const timeError = new Date();
-
-  //var today = new Date();
-  //today.setHours(today.getHours() + 4);
 
   console.log(`The current time in Houston is: ${houstonTime}`);
   console.log(`The current time in Berlin is: ${berlinTime}`);
-  /*if(houstonTime == "00");*/
+
   //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen und füllen der jeweiligen elemente.
   if (data.media_type == "image") {
     document.querySelector("#mediaType").innerHTML =
@@ -114,7 +105,7 @@ function useData(data) {
     document.querySelector("#modalLabel").innerHTML = data.title;
     document.querySelector("#apod_pic_modal").src = data.url;
     document.querySelector("#apod_pic").src = data.url;
-  } else {
+  } else if (data.media_type == "video") {
     document.querySelector("#mediaType").innerHTML = data.media_type;
     document.querySelector("#caption").innerHTML = data.explanation;
     document.querySelector("#apod_vid").src = data.url;
@@ -122,5 +113,12 @@ function useData(data) {
     document.querySelector("#modalLabel").innerHTML = data.title;
     document.querySelector("#apod_pic_modal").src = data.url;
     document.querySelector("#apod_pic").src = data.url;
+  } else {
+    console.log("unknown media format: " + data.media_type);
+    alert(
+      "unknown media type. Server returns: " +
+        data.media_type +
+        ". Dont know what to do with that."
+    );
   }
 }
