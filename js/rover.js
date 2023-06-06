@@ -26,6 +26,6 @@ async function reqRov() {
 }
 
 function useDataRov(dataRov) {
-  document.querySelector("#rov_cam").text = dataRov.camera;
+  document.querySelector("#rov_desc").text = dataRov.desc;
   document.querySelector("#rov_pic").src = dataRov.photos[0].img_src;
 }
