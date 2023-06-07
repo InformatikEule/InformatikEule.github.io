@@ -10,7 +10,7 @@ searchBRov.addEventListener("click", () => {
 function rovCam() {
   if (document.getElementById("fhaz").checked) {
     return "FHAZ";
-  } else if (documentgetElementById("rhaz").checked) {
+  } else if (document.getElementById("rhaz").checked) {
     return "RHAZ";
   } else {
     alert("cmon, click a button....");
