@@ -17,9 +17,17 @@ function rovCam() {
   }
 }
 
+function rovSol() {
+  var sol = document.getElementById("sol");
+  return sol;
+}
+
 async function reqRov() {
   let respRov = await fetch(
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=" +
+    //das letzte " im oberen string ist falsch
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=" +
+      rovSol() +
+      "&camera=" +
       rovCam() +
       "&api_key=DEMO_KEY"
   );
