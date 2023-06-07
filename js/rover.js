@@ -7,18 +7,21 @@ searchBRov.addEventListener("click", () => {
   reqRov();
 });
 
-//function rovCam() {
-//if (document.getElementById("fhaz").checked) {
-//return "FHAZ";
-//} else {
-//return "RHAZ";
-//}
-//}
+function rovCam() {
+  if (document.getElementById("fhaz").checked) {
+    return "FHAZ";
+  } else if (documentgetElementById("rhaz").checked) {
+    return "RHAZ";
+  } else {
+    alert("cmon, click a button....");
+  }
+}
 
 async function reqRov() {
   let respRov = await fetch(
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=FHAZ&api_key=DEMO_KEY"
-    //+ rovCam();
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=" +
+      rovCam() +
+      "&api_key=DEMO_KEY"
   );
   console.log("respRov" + respRov.toString());
   let dataRov = await respRov.json();
