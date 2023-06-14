@@ -69,7 +69,7 @@ async function req() {
   let resp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
       "api_key=" +
-      apikey.returnSecrets() +
+      "BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0" +
       "&date=" +
       getDate()
   );

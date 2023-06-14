@@ -23,15 +23,22 @@ function rovSol() {
 }
 
 async function reqRov() {
+  const sol = rovSol();
+  const cam = rovCam();
   let respRov = await fetch(
+    //if (foo !== undefined && foo !== null) {
+    // Now we know that foo is defined, we are good to go.
+    //}
     //das letzte " im oberen string ist falsch
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=" +
-      rovSol() +
-      "&camera=" +
-      rovCam() +
-      "&api_key=DEMO_KEY"
+    //working string:
+    //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=900&camera=fhaz&api_key=DEMO_KEY
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=${cam}&api_key=DEMO_KEY`
+    //rovSol() +
+    //"&camera=" +
+    //rovCam() +
+    //"&api_key=DEMO_KEY"
   );
-  console.log("respRov" + respRov.toString());
+  //console.log("respRov" + respRov.json());
   let dataRov = await respRov.json();
   console.log("dataRov hier: " + dataRov);
   useDataRov(dataRov);
