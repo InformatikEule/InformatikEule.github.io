@@ -7,6 +7,11 @@ body {
   margin-left: 10px;
 }
 
+#pic {
+  height: 100%;
+  width: 100%;
+}
+
 .userInput {
   text-align: center;
 }

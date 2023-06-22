@@ -19,11 +19,18 @@ hiddenElements.forEach((el) => observer.observe(el));
 ////
 // nasaAPI.html
 ////
-
-let searchB = document.querySelector("#submit");
+const apodArr = [];
+const title = document.createElement("h3");
+const caption = document.createElement("p");
+const img = document.createElement("img");
+const mediaType = document.createElement("p");
+const vid = document.createElement("iframe");
+const copy = document.createElement("p");
+const searchB = document.querySelector("#submit");
+img.setAttribute("id", "pic");
 
 searchB.addEventListener("click", () => {
-  req();
+  fetchApod();
 });
 
 function getDate() {
@@ -64,7 +71,7 @@ function getDate() {
   }
 }
 
-async function req() {
+async function fetchApod() {
   //https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2022-11-22
   let resp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
@@ -86,25 +93,19 @@ async function req() {
 }
 
 function useData(data) {
-  const houstonTime = new Date().toLocaleString("en-US", {
-    timeZone: "America/Chicago",
-  });
-  const berlinTime = new Date().toLocaleString("en-US", {
-    timeZone: "Europe/Berlin",
-  });
-
-  console.log(`The current time in Houston is: ${houstonTime}`);
-  console.log(`The current time in Berlin is: ${berlinTime}`);
+  ///// WIP:
+  //const houstonTime = new Date().toLocaleString("en-US", {
+  //timeZone: "America/Chicago",
+  //});
+  //const berlinTime = new Date().toLocaleString("en-US", {
+  //timeZone: "Europe/Berlin",
+  //});
+  //console.log(`The current time in Houston is: ${houstonTime}`);
+  //console.log(`The current time in Berlin is: ${berlinTime}`);
+  /////
 
   //routine zum prüfen ob ein bild oder video zurückkommt.
   //anlegen der Elemente und zu einem Array zufügen.
-  const apodArr = [];
-  const title = document.createElement("h5");
-  const caption = document.createElement("p");
-  const img = document.createElement("img");
-  const mediaType = document.createElement("p");
-  const vid = document.createElement("iframe");
-  const copy = document.createElement("p");
   title.innerHTML = data.title;
   caption.innerHTML = data.explanation;
   img.src = data.url;
@@ -112,12 +113,12 @@ function useData(data) {
   vid.src = data.url;
   copy.innerHTML = "Copyright: " + data.copyright;
   if (data.media_type == "image") {
-    apodArr.push(title, caption, img, mediaType, copy);
+    apodArr.push(title, img, caption, copy, mediaType);
     apodArr.forEach((element) => {
       document.getElementById("apodPic").appendChild(element);
     });
   } else if (data.media_type == "video") {
-    apodArr.push(title, caption, vid, mediaType, copy);
+    apodArr.push(title, vid, caption, copy, mediaType);
     apodArr.forEach((element) => {
       document.getElementById("apodPic").appendChild(element);
     });
