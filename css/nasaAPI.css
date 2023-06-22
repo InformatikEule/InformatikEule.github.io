@@ -12,36 +12,6 @@ body {
   width: 100%;
 }
 
-.userInput {
-  text-align: center;
-}
-
-.mediaType {
-  color: #fff;
-}
-
-.apod {
-  color: #fff;
-  text-align: center;
-  font-size: 3rem;
-}
-
-.desc {
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.apodelement {
-  color: #fff;
-  text-align: left;
-  font-size: 2.5rem;
-}
-
-.containerüberschrift {
-  color: #fff;
-}
-
 .picFull:hover {
   transform: scale(1.01);
 }
