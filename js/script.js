@@ -73,6 +73,7 @@ async function req() {
       "&date=" +
       getDate()
   );
+  //prüfen ob der server einen fehler meldet:
   console.log(resp);
   if (resp.status >= 200 && resp.status < 400) {
     let data = await resp.json();
@@ -95,7 +96,8 @@ function useData(data) {
   console.log(`The current time in Houston is: ${houstonTime}`);
   console.log(`The current time in Berlin is: ${berlinTime}`);
 
-  //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen und füllen der jeweiligen elemente.
+  //routine zum prüfen ob ein bild oder video zurückkommt.
+  //anlegen der Elemente und zu einem Array zufügen.
   const apodArr = [];
   const title = document.createElement("h5");
   const caption = document.createElement("p");
@@ -108,33 +110,17 @@ function useData(data) {
   img.src = data.url;
   mediaType.innerHTML = "Media-Type: " + data.media_type;
   vid.src = data.url;
-  copy.innerHTML = data.copyright;
-  console.log(apodArr);
+  copy.innerHTML = "Copyright: " + data.copyright;
   if (data.media_type == "image") {
     apodArr.push(title, caption, img, mediaType, copy);
     apodArr.forEach((element) => {
       document.getElementById("apodPic").appendChild(element);
     });
-    //document.querySelector("#caption").innerHTML = data.explanation;
-    //document.querySelector("#link").innerHTML = data.url;
-    //document.querySelector("#titleAPOD").innerHTML = data.title;
-    //document.querySelector("#modalLabel").innerHTML = data.title;
-    //document.querySelector("#apod_pic_modal").src = data.url;
-    //document.querySelector("#apod_pic").src = data.url;
-    //document.querySelector("#copyright").innerHTML =
-    //"Copyright: " + data.copyright;
   } else if (data.media_type == "video") {
     apodArr.push(title, caption, vid, mediaType, copy);
     apodArr.forEach((element) => {
       document.getElementById("apodPic").appendChild(element);
     });
-    //document.querySelector("#mediaType").innerHTML = data.media_type;
-    //document.querySelector("#caption").innerHTML = data.explanation;
-    //document.querySelector("#apod_vid").src = data.url;
-    //document.querySelector("#titleAPOD").innerHTML = data.title;
-    //document.querySelector("#modalLabel").innerHTML = data.title;
-    //document.querySelector("#apod_pic_modal").src = data.url;
-    //document.querySelector("#apod_pic").src = data.url;
   } else {
     console.log("unknown media format: " + data.media_type);
     alert(
