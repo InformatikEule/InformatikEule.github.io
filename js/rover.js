@@ -26,10 +26,6 @@ async function reqRov() {
   const sol = rovSol();
   const cam = rovCam();
   let respRov = await fetch(
-    //if (foo !== undefined && foo !== null) {
-    // Now we know that foo is defined, we are good to go.
-    //}
-    //das letzte " im oberen string ist falsch
     //working string:
     //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=900&camera=fhaz&api_key=DEMO_KEY
     `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=${cam}&api_key=DEMO_KEY`
@@ -45,7 +41,5 @@ async function reqRov() {
 }
 
 function useDataRov(dataRov) {
-  //document.querySelector("#rov_name").innerHTML =
-  //dataRov.manifests.rover_name.name;
   document.querySelector("#rov_pic").src = dataRov.photos[0].img_src;
 }

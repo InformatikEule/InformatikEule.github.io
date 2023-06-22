@@ -96,23 +96,45 @@ function useData(data) {
   console.log(`The current time in Berlin is: ${berlinTime}`);
 
   //routine zum prüfen ob ein bild oder video zurückkommt. Anlegen und füllen der jeweiligen elemente.
+  const apodArr = [];
+  const title = document.createElement("h5");
+  const caption = document.createElement("p");
+  const img = document.createElement("img");
+  const mediaType = document.createElement("p");
+  const vid = document.createElement("iframe");
+  const copy = document.createElement("p");
+  title.innerHTML = data.title;
+  caption.innerHTML = data.explanation;
+  img.src = data.url;
+  mediaType.innerHTML = "Media-Type: " + data.media_type;
+  vid.src = data.url;
+  copy.innerHTML = data.copyright;
+  console.log(apodArr);
   if (data.media_type == "image") {
-    document.querySelector("#mediaType").innerHTML =
-      "Media-Type: " + data.media_type;
-    document.querySelector("#caption").innerHTML = data.explanation;
-    document.querySelector("#link").innerHTML = data.url;
-    document.querySelector("#titleAPOD").innerHTML = data.title;
-    document.querySelector("#modalLabel").innerHTML = data.title;
-    document.querySelector("#apod_pic_modal").src = data.url;
-    document.querySelector("#apod_pic").src = data.url;
+    apodArr.push(title, caption, img, mediaType, copy);
+    apodArr.forEach((element) => {
+      document.getElementById("apodPic").appendChild(element);
+    });
+    //document.querySelector("#caption").innerHTML = data.explanation;
+    //document.querySelector("#link").innerHTML = data.url;
+    //document.querySelector("#titleAPOD").innerHTML = data.title;
+    //document.querySelector("#modalLabel").innerHTML = data.title;
+    //document.querySelector("#apod_pic_modal").src = data.url;
+    //document.querySelector("#apod_pic").src = data.url;
+    //document.querySelector("#copyright").innerHTML =
+    //"Copyright: " + data.copyright;
   } else if (data.media_type == "video") {
-    document.querySelector("#mediaType").innerHTML = data.media_type;
-    document.querySelector("#caption").innerHTML = data.explanation;
-    document.querySelector("#apod_vid").src = data.url;
-    document.querySelector("#titleAPOD").innerHTML = data.title;
-    document.querySelector("#modalLabel").innerHTML = data.title;
-    document.querySelector("#apod_pic_modal").src = data.url;
-    document.querySelector("#apod_pic").src = data.url;
+    apodArr.push(title, caption, vid, mediaType, copy);
+    apodArr.forEach((element) => {
+      document.getElementById("apodPic").appendChild(element);
+    });
+    //document.querySelector("#mediaType").innerHTML = data.media_type;
+    //document.querySelector("#caption").innerHTML = data.explanation;
+    //document.querySelector("#apod_vid").src = data.url;
+    //document.querySelector("#titleAPOD").innerHTML = data.title;
+    //document.querySelector("#modalLabel").innerHTML = data.title;
+    //document.querySelector("#apod_pic_modal").src = data.url;
+    //document.querySelector("#apod_pic").src = data.url;
   } else {
     console.log("unknown media format: " + data.media_type);
     alert(
