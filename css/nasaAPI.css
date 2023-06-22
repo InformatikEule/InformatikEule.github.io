@@ -2,11 +2,6 @@ body {
   background-color: #212121;
 }
 
-.überschrift {
-  color: #000;
-  margin-left: 10px;
-}
-
 #pic {
   height: 100%;
   width: 100%;
@@ -27,11 +22,6 @@ body {
 
 .modal-title {
   color: #000;
-}
-
-.apodcaption {
-  font-size: 1.3rem;
-  color: #fff;
 }
 
 @media (max-width: 980px) {

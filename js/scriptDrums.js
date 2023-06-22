@@ -13,6 +13,22 @@ for (let i = 0; i < numberOfDrums; i++) {
   });
 }
 
+//Detecting Keyboard Press
+document.addEventListener("keydown", function (event) {
+  console.log(event);
+  makeSound(event.key);
+  buttonAnimation(event.key);
+});
+
+function buttonAnimation(currentKey) {
+  let activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
+
+//adding the sounds to button/keyboard-press
 function makeSound(key) {
   switch (key) {
     case "w":
@@ -47,19 +63,4 @@ function makeSound(key) {
     default:
       console.log(buttonInnerHTML);
   }
-}
-
-//Detecting Keyboard Press
-document.addEventListener("keydown", function (event) {
-  console.log(event);
-  makeSound(event.key);
-  buttonAnimation(event.key);
-});
-
-function buttonAnimation(currentKey) {
-  let activeButton = document.querySelector("." + currentKey);
-  activeButton.classList.add("pressed");
-  setTimeout(function () {
-    activeButton.classList.remove("pressed");
-  }, 100);
 }
