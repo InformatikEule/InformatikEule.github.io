@@ -70,7 +70,12 @@ async function fetchApod() {
     useData(data);
   } else {
     console.log("Error, Status code: " + resp.status);
-    alert("Error, Server returns status-code: " + resp.status);
+    alert(
+      "Error, Server returns status-code: " +
+        resp.status +
+        "! Status-Text: " +
+        resp.statusText
+    );
   }
 }
 
