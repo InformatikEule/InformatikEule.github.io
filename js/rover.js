@@ -9,8 +9,10 @@ searchBRov.addEventListener("click", () => {
 
 function rovCam() {
   if (document.getElementById("fhaz").checked) {
+    //console.log("Fhaz");
     return "FHAZ";
   } else if (document.getElementById("rhaz").checked) {
+    //console.log("Rhaz");
     return "RHAZ";
   } else {
     alert("cmon, click a button....");
@@ -18,7 +20,8 @@ function rovCam() {
 }
 
 function rovSol() {
-  var sol = document.getElementById("sol");
+  var sol = document.getElementById("sol").value;
+  //console.log(sol);
   return sol;
 }
 

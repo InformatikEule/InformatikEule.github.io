@@ -5,11 +5,11 @@ const apodArr = [];
 const title = document.createElement("h3");
 const caption = document.createElement("p");
 const img = document.createElement("img");
+img.setAttribute("id", "pic");
 const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
 const searchB = document.querySelector("#submit");
-img.setAttribute("id", "pic");
 
 searchB.addEventListener("click", () => {
   fetchApod();
