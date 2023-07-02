@@ -37,12 +37,31 @@ async function reqRov() {
     //rovCam() +
     //"&api_key=DEMO_KEY"
   );
-  //console.log("respRov" + respRov.json());
-  let dataRov = await respRov.json();
-  console.log("dataRov hier: " + dataRov);
-  useDataRov(dataRov);
+  if (respRov.status >= 200 && respRov.status < 400) {
+    let dataRov = await respRov.json();
+    console.log(dataRov);
+    useDataRov(dataRov);
+  } else {
+    console.log("Error, Status code: " + respRov.status);
+    alert(
+      "Error, Server returns status-code: " +
+        respRov.status +
+        "! Status-Text: " +
+        respRov.statusText
+    );
+  }
 }
 
 function useDataRov(dataRov) {
+  const rov_pic_arr = [];
+  rov_pic_arr.forEach((element) => {
+    document.getElementById("apodPic").appendChild(element);
+  });
+  if (data.media_type == "image") {
+    apodArr.push(title, img, caption, copy, mediaType);
+    apodArr.forEach((element) => {
+      document.getElementById("apodPic").appendChild(element);
+    });
+  }
   document.querySelector("#rov_pic").src = dataRov.photos[0].img_src;
 }
