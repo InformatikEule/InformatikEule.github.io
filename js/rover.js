@@ -8,7 +8,9 @@ searchBRov.addEventListener("click", () => {
 });
 
 function rovCam() {
-  return "MAHLI";
+  //sol 2553 auf cam "MAHLI" lohnt! (panoramaaufnahme)
+  //sol 0 cam MARDI!
+  return "MARDI";
   // if (document.getElementById("fhaz").checked) {
   //   //console.log("Fhaz");
   //   return "FHAZ";
