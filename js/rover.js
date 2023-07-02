@@ -38,8 +38,7 @@ async function reqRov() {
     //"&api_key=DEMO_KEY"
   );
   if (respRov.status >= 200 && respRov.status < 400) {
-    let dataRov = await respRov.json();
-    console.log(dataRov);
+    const dataRov = await respRov.json();
     useDataRov(dataRov);
   } else {
     console.log("Error, Status code: " + respRov.status);
@@ -53,15 +52,15 @@ async function reqRov() {
 }
 
 function useDataRov(dataRov) {
-  const rov_pic_arr = [];
-  rov_pic_arr.forEach((element) => {
-    document.getElementById("apodPic").appendChild(element);
+  const results = dataRov.photos;
+  results.map((result) => {
+    const img = document.createElement("img");
+    img.src = result.img_src;
+    const imgLink = document.createElement("a");
+    imgLink.href = result.img_src;
+    imgLink.target = "_blank";
+
+    imgLink.appendChild(img);
+    bla.appendChild(imgLink);
   });
-  if (data.media_type == "image") {
-    apodArr.push(title, img, caption, copy, mediaType);
-    apodArr.forEach((element) => {
-      document.getElementById("apodPic").appendChild(element);
-    });
-  }
-  document.querySelector("#rov_pic").src = dataRov.photos[0].img_src;
 }
