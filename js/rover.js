@@ -8,15 +8,16 @@ searchBRov.addEventListener("click", () => {
 });
 
 function rovCam() {
-  if (document.getElementById("fhaz").checked) {
-    //console.log("Fhaz");
-    return "FHAZ";
-  } else if (document.getElementById("rhaz").checked) {
-    //console.log("Rhaz");
-    return "RHAZ";
-  } else {
-    alert("cmon, click a button....");
-  }
+  return "MAHLI";
+  // if (document.getElementById("fhaz").checked) {
+  //   //console.log("Fhaz");
+  //   return "FHAZ";
+  // } else if (document.getElementById("rhaz").checked) {
+  //   //console.log("Rhaz");
+  //   return "RHAZ";
+  // } else {
+  //   alert("cmon, click a button....");
+  // }
 }
 
 function rovSol() {
@@ -54,8 +55,10 @@ async function reqRov() {
 function useDataRov(dataRov) {
   const results = dataRov.photos;
   results.map((result) => {
+    console.log(results);
     const img = document.createElement("img");
     img.src = result.img_src;
+    //der anchor macht das bild klcikbar
     const imgLink = document.createElement("a");
     imgLink.href = result.img_src;
     imgLink.target = "_blank";
