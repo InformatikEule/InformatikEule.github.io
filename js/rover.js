@@ -4,13 +4,14 @@
 let searchBRov = document.querySelector("#submitRov");
 
 searchBRov.addEventListener("click", () => {
+  console.log(document.getElementById("earthDate").value);
   reqRov();
 });
 
 function rovCam() {
-  //sol 2553 auf cam "MAHLI" lohnt! (panoramaaufnahme)
+  //sol 2553 (12.11.2019)auf cam "MAHLI" lohnt! (panoramaaufnahme)
   //sol 0 cam MARDI!
-  return "MARDI";
+  return "MAHLI";
   // if (document.getElementById("fhaz").checked) {
   //   //console.log("Fhaz");
   //   return "FHAZ";
@@ -22,19 +23,55 @@ function rovCam() {
   // }
 }
 
-function rovSol() {
+function getSol() {
   var sol = document.getElementById("sol").value;
-  //console.log(sol);
   return sol;
 }
 
+function getEarthDate() {
+  const dateAll = new Date();
+  const month = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  // Geben Indexbassiert den Monat zurück.
+  const month2 = month[dateAll.getMonth()];
+  // Fügen die Datums-variablen zusammen...
+  const dateToday =
+    dateAll.getUTCFullYear() + "-" + month2 + "-" + dateAll.getUTCDate();
+  // ...und können dann den User-Input mit dem echten Datum vergleichen.
+  if (
+    document.getElementById("earthDate").value > dateToday ||
+    document.getElementById("earthDate").value < "1995-06-15"
+  ) {
+    alert("Date must be between Jun 16, 1995 and Today!");
+    throw new Error(
+      "Unfortunately, iam not able to predict the Future. sadface.jpg"
+    );
+  } else {
+    return document.getElementById("earthDate").value;
+  }
+}
+
 async function reqRov() {
-  const sol = rovSol();
+  const sol = getSol();
+  const earthDate = getEarthDate();
   const cam = rovCam();
   let respRov = await fetch(
     //working string:
     //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=900&camera=fhaz&api_key=DEMO_KEY
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=${cam}&api_key=DEMO_KEY`
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earthDate}&camera=${cam}&api_key=DEMO_KEY`
+    //`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=${cam}&api_key=DEMO_KEY`
     //rovSol() +
     //"&camera=" +
     //rovCam() +
