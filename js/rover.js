@@ -10,7 +10,8 @@ searchBRov.addEventListener("click", () => {
 
 function rovCam() {
   //sol 2553 (12.11.2019)auf cam "MAHLI" lohnt! (panoramaaufnahme)
-  //sol 0 cam MARDI!
+  //sol 0 cam MARDI  (landing!)!
+  //sol 1512 (06.11.2016) MAHLI
   return "MAHLI";
   // if (document.getElementById("fhaz").checked) {
   //   //console.log("Fhaz");
@@ -52,9 +53,11 @@ function getEarthDate() {
   // ...und können dann den User-Input mit dem echten Datum vergleichen.
   if (
     document.getElementById("earthDate").value > dateToday ||
-    document.getElementById("earthDate").value < "1995-06-15"
+    document.getElementById("earthDate").value < "2012-08-05"
   ) {
-    alert("Date must be between Jun 16, 1995 and Today!");
+    alert(
+      "Curiosity landed on the 6th, August 2012. No Pictures before that date!"
+    );
     throw new Error(
       "Unfortunately, iam not able to predict the Future. sadface.jpg"
     );
@@ -63,19 +66,21 @@ function getEarthDate() {
   }
 }
 
+// function getSolOrEarthDate(){
+//   if (document.getElementById("sol").value == "0") {
+//     getEarthDate();
+//   } else {
+//   }
+// }
+
 async function reqRov() {
   const sol = getSol();
   const earthDate = getEarthDate();
   const cam = rovCam();
+
   let respRov = await fetch(
-    //working string:
-    //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=900&camera=fhaz&api_key=DEMO_KEY
     `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earthDate}&camera=${cam}&api_key=DEMO_KEY`
     //`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=${cam}&api_key=DEMO_KEY`
-    //rovSol() +
-    //"&camera=" +
-    //rovCam() +
-    //"&api_key=DEMO_KEY"
   );
   if (respRov.status >= 200 && respRov.status < 400) {
     const dataRov = await respRov.json();
@@ -97,7 +102,8 @@ function useDataRov(dataRov) {
     console.log(results);
     const img = document.createElement("img");
     img.src = result.img_src;
-    //der anchor macht das bild klcikbar
+    //der anchor macht das bild klickbar und verlinkt auf die source.
+    //TODO: vollbild statt source
     const imgLink = document.createElement("a");
     imgLink.href = result.img_src;
     imgLink.target = "_blank";
