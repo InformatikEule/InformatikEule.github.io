@@ -56,7 +56,7 @@ function getEarthDate() {
     document.getElementById("earthDate").value < "2012-08-05"
   ) {
     alert(
-      "Curiosity landed on the 6th, August 2012. No Pictures before that date!"
+      "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
     );
     throw new Error(
       "Unfortunately, iam not able to predict the Future. sadface.jpg"
