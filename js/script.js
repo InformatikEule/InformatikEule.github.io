@@ -93,6 +93,7 @@ function useData(data) {
 
   //routine zum prüfen ob ein bild oder video zurückkommt.
   //anlegen der Elemente und zu einem Array zufügen.
+  console.log(data);
   title.innerHTML = data.title;
   caption.innerHTML = data.explanation;
   img.src = data.url;
