@@ -24,10 +24,10 @@ function rovCam() {
   // }
 }
 
-function getSol() {
-  var sol = document.getElementById("sol").value;
-  return sol;
-}
+// function getSol() {
+//   var sol = document.getElementById("sol").value;
+//   return sol;
+// }
 
 function getEarthDate() {
   const dateAll = new Date();
@@ -74,7 +74,7 @@ function getEarthDate() {
 // }
 
 async function reqRov() {
-  const sol = getSol();
+  //const sol = getSol();
   const earthDate = getEarthDate();
   const cam = rovCam();
 
