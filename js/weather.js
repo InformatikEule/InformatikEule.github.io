@@ -1,6 +1,10 @@
 ////
 // weather.html
 ////
+const weatherCard = document.createElement("div");
+weatherCard.id = "weatherCard";
+const searchWeather = document.createElement("div");
+searchWeather.id = "searchWeather";
 const weatherImg = document.createElement("img");
 const temp = document.createElement("h1");
 const city = document.createElement("h2");
@@ -37,6 +41,9 @@ async function fetchWeather() {
 }
 
 function useData(data) {
+  //classes: container -> weatherCard -> searchweather
+  document.getElementById("test123").appendChild(weatherCard);
+  document.getElementById("weatherCard").appendChild(searchWeather);
   temp.innerHTML = "Temperature: " + data.main.temp + " &degC.";
   document.getElementById("searchWeather").appendChild(temp);
   console.log(data);
