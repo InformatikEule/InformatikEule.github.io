@@ -7,13 +7,17 @@ weatherB.addEventListener("click", () => {
   fetchWeather();
 });
 
+function getCity() {
+  const cityName = document.getElementById("cityName").value;
+  console.log(cityName);
+  return cityName;
+}
+
 async function fetchWeather() {
+  const city = getCity();
   let resp = await fetch(
-    "https://api.openweathermap.org/data/3.0/onecall?units=metric&q=leipzig&appid=4b4deb0d15407521515a92a00bc6cf97" +
-      apiKey
-    //https://api.openweathermap.org/data/3.0/onecall?q=leipzig&appid=4b4deb0d15407521515a92a00bc6cf97
+    `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`
     //https://api.openweathermap.org/data/2.5/weather?q=leipzig&appid=4b4deb0d15407521515a92a00bc6cf97
-    //https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=4b4deb0d15407521515a92a00bc6cf97
   );
   //prüfen ob der server einen fehler meldet:
   console.log(resp);
@@ -32,4 +36,6 @@ async function fetchWeather() {
   }
 }
 
-function useData(data) {}
+function useData(data) {
+  console.log(data);
+}
