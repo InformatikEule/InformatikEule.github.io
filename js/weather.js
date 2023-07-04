@@ -1,7 +1,9 @@
 ////
 // weather.html
 ////
-const test123 = document.createElement("p");
+const weatherImg = document.createElement("img");
+const temp = document.createElement("h1");
+const city = document.createElement("h2");
 const weatherB = document.querySelector("#weatherBtn");
 const apiKey = "4b4deb0d15407521515a92a00bc6cf97";
 weatherB.addEventListener("click", () => {
@@ -35,7 +37,7 @@ async function fetchWeather() {
 }
 
 function useData(data) {
-  test123.innerHTML = "Temperature: " + data.main.temp + ".C";
-  document.getElementById("weather").appendChild(test123);
+  temp.innerHTML = "Temperature: " + data.main.temp + " &degC.";
+  document.getElementById("searchWeather").appendChild(temp);
   console.log(data);
 }

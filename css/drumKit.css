@@ -20,37 +20,37 @@ footer {
 }
 
 .w {
-  background-image: url("images/tom1.png");
+  background-image: url("images/drumkit/tom1.png");
   cursor: pointer;
 }
 
 .a {
-  background-image: url("images/tom2.png");
+  background-image: url("images/drumkit/tom2.png");
   cursor: pointer;
 }
 
 .s {
-  background-image: url("imgs/tom3.png");
+  background-image: url("imgs/drumkit/tom3.png");
   cursor: pointer;
 }
 
 .d {
-  background-image: url("images/tom4.png");
+  background-image: url("images/drumkit/tom4.png");
   cursor: pointer;
 }
 
 .j {
-  background-image: url("images/snare.png");
+  background-image: url("images/drumkit/snare.png");
   cursor: pointer;
 }
 
 .k {
-  background-image: url("images/crash.png");
+  background-image: url("images/drumkit/crash.png");
   cursor: pointer;
 }
 
 .l {
-  background-image: url("images/kick.png");
+  background-image: url("images/drumkit/kick.png");
   cursor: pointer;
 }
 
