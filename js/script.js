@@ -94,12 +94,12 @@ function useData(data) {
   //routine zum prüfen ob ein bild oder video zurückkommt.
   //anlegen der Elemente und zu einem Array zufügen.
   console.log(data);
-  title.innerHTML = data.title;
-  caption.innerHTML = data.explanation;
+  title.textContent = data.title;
+  caption.textContent = data.explanation;
   img.src = data.url;
-  mediaType.innerHTML = "Media-Type: " + data.media_type;
+  mediaType.textContent = "Media-Type: " + data.media_type;
   vid.src = data.url;
-  copy.innerHTML = "Copyright: " + data.copyright;
+  copy.textContent = "Copyright: " + data.copyright;
   if (data.media_type == "image") {
     apodArr.push(title, img, caption, copy, mediaType);
     apodArr.forEach((element) => {
