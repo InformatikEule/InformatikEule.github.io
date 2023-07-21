@@ -12,10 +12,6 @@ a:visited {
   color: #fff;
 }
 
-.active2:hover {
-  pointer-events: none;
-}
-
 header {
   background-color: rgba(236, 7, 95, 0.55);
 }
@@ -25,14 +21,6 @@ footer {
   margin-top: 40px;
   opacity: 100;
 }
-
-.byeMsg {
-  color: #fff;
-}
-
-/*.card {
-  height: 20rem;
-}*/
 
 .Montserrat {
   font-family: "Montserrat-Black";
