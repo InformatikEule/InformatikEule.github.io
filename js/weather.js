@@ -46,23 +46,26 @@ function useData(data) {
   tempDisplay.textContent = "Temperature:";
   document.getElementById("container2").appendChild(tempDisplay);
   const temp = document.createElement("h5");
-  temp.innerHTML = data.main.temp;
+  temp.innerHTML = data.main.temp + " &degC.  ";
   document.getElementById("container2").appendChild(temp);
 
   const windDisplay = document.createElement("h5");
   windDisplay.textContent = "Windspeed:";
   document.getElementById("container2").appendChild(windDisplay);
   const wind = document.createElement("h5");
-  wind.innerHTML = data.wind.speed;
+  wind.innerHTML = data.wind.speed + " km/h";
   document.getElementById("container2").appendChild(wind);
 
   const humidityDisplay = document.createElement("h5");
   humidityDisplay.textContent = "Humidity:";
   document.getElementById("container2").appendChild(humidityDisplay);
   const humidity = document.createElement("h5");
-  humidity.innerHTML = data.main.humidity;
+  humidity.innerHTML = data.main.humidity + " %";
   document.getElementById("container2").appendChild(humidity);
 
+  const weatherDescDisplay = document.createElement("h5");
+  weatherDescDisplay.textContent = "short Weather description:";
+  document.getElementById("container2").appendChild(weatherDesc);
   const weatherDesc = document.createElement("h5");
   weatherDesc.textContent = data.weather[0].description;
   document.getElementById("container2").appendChild(weatherDesc);
