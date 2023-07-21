@@ -45,4 +45,4 @@ console.log("Yukon: " + YukonTime);
 console.log(`The current time in Berlin is: ${berlinTime}`);
 document.getElementById("berlinTime").textContent = "Leipzig: " + berlinTime;
 document.getElementById("vancouverTime").textContent =
-  "Vancouver: " + PacificTime;
+  "Vancouver/Williams Lake: " + PacificTime;
