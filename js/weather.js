@@ -39,7 +39,7 @@ function useData(data) {
   cityNameDisplay.textContent = "City Name:";
   document.getElementById("container2").appendChild(cityNameDisplay);
   const cityName = document.createElement("h5");
-  cityNameDisplay.textContent = data.name;
+  cityName.textContent = data.name;
   document.getElementById("container2").appendChild(cityName);
 
   const tempDisplay = document.createElement("h5");
