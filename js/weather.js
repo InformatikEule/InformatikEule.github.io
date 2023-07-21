@@ -65,7 +65,7 @@ function useData(data) {
 
   const weatherDescDisplay = document.createElement("h5");
   weatherDescDisplay.textContent = "short Weather description:";
-  document.getElementById("container2").appendChild(weatherDesc);
+  document.getElementById("container2").appendChild(weatherDescDisplay);
   const weatherDesc = document.createElement("h5");
   weatherDesc.textContent = data.weather[0].description;
   document.getElementById("container2").appendChild(weatherDesc);
