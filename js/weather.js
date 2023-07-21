@@ -1,60 +1,11 @@
 ////
 // weather.html
 ////
-const weatherB = document.querySelector("#weatherBtn");
+const weatherButton = document.querySelector("#weatherBtn");
 const apiKey = "4b4deb0d15407521515a92a00bc6cf97";
-weatherB.addEventListener("click", () => {
+weatherButton.addEventListener("click", () => {
   fetchWeather();
 });
-
-function createDivWeatherCard() {
-  const weatherCard = document.createElement("div");
-  weatherCard.id = "weatherCard";
-  weatherCard.style.width = "90%";
-  weatherCard.style.maxwidth = "450px";
-  weatherCard.style.background = "linear-gradient(135deg, #200122, #6f0000)";
-  weatherCard.style.color = "#fff";
-  weatherCard.style.margin = "50px auto 0";
-  weatherCard.style.borderradius = "20px";
-  weatherCard.style.padding = "40px 35px";
-  weatherCard.style.textalign = "center";
-  return weatherCard;
-}
-
-function createDivSearchWeather() {
-  const searchWeather = document.createElement("div");
-  searchWeather.id = "searchWeather";
-  searchWeather.style.width = "100%";
-  searchWeather.style.display = "flex";
-  searchWeather.style.alignitems = "center";
-  searchWeather.style.justifycontent = "space-between";
-  return searchWeather;
-}
-
-function createWeatherImg() {
-  const weatherImg = document.createElement("img");
-  weatherImg.id = "weatherImg";
-  weatherImg.style.width = "170px";
-  weatherImg.style.marginTop = "30px";
-  return weatherImg;
-}
-
-function createTempDisplay() {
-  const temp = document.createElement("h1");
-  temp.id = "temp";
-  temp.style.fontSize = "80px";
-  temp.style.fontWeight = "500";
-  return temp;
-}
-
-function createCityDisplay() {
-  const city = document.createElement("h2");
-  city.id = "city";
-  city.style.fontSize = "45px";
-  city.style.fontWeight = "400";
-  city.style.marginTop = "-10px";
-  return city;
-}
 
 function getCity() {
   const cityName = document.getElementById("cityName").value;
@@ -83,19 +34,36 @@ async function fetchWeather() {
 }
 
 function useData(data) {
-  weatherCard = createDivWeatherCard();
-  document.getElementById("test123").appendChild(weatherCard);
-  searchWeather = createDivSearchWeather();
-  document.getElementById("weatherCard").appendChild(searchWeather);
-  weatherImg = createWeatherImg();
-  weatherImg.src = "imgs/weather/snow.png";
-  document.getElementById("searchWeather").appendChild(weatherImg);
-  temp = createTempDisplay();
-  temp.innerHTML = "Temperature: " + data.main.temp + " &degC.";
-  document.getElementById("weatherImg").appendChild(temp);
-  city = createCityDisplay();
-  city.innerHTML = data.name;
-  document.getElementById("temp").appendChild(city);
-  console.log(city.innerHTML);
   console.log(data);
+  const cityNameDisplay = document.createElement("h5");
+  cityNameDisplay.textContent = "City Name:";
+  document.getElementById("container2").appendChild(cityNameDisplay);
+  const cityName = document.createElement("h5");
+  cityNameDisplay.textContent = data.name;
+  document.getElementById("container2").appendChild(cityName);
+
+  const tempDisplay = document.createElement("h5");
+  tempDisplay.textContent = "Temperature:";
+  document.getElementById("container2").appendChild(tempDisplay);
+  const temp = document.createElement("h5");
+  temp.innerHTML = data.main.temp;
+  document.getElementById("container2").appendChild(temp);
+
+  const windDisplay = document.createElement("h5");
+  windDisplay.textContent = "Windspeed:";
+  document.getElementById("container2").appendChild(windDisplay);
+  const wind = document.createElement("h5");
+  wind.innerHTML = data.wind.speed;
+  document.getElementById("container2").appendChild(wind);
+
+  const humidityDisplay = document.createElement("h5");
+  humidityDisplay.textContent = "Humidity:";
+  document.getElementById("container2").appendChild(humidityDisplay);
+  const humidity = document.createElement("h5");
+  humidity.innerHTML = data.main.humidity;
+  document.getElementById("container2").appendChild(humidity);
+
+  const weatherDesc = document.createElement("h5");
+  weatherDesc.textContent = data.weather[0].description;
+  document.getElementById("container2").appendChild(weatherDesc);
 }
