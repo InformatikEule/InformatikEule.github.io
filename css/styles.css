@@ -1,7 +1,13 @@
+/*try  ,html and height 100%*/
 body {
   object-fit: fill;
   background-image: url("../imgs/bg-cards.jpg");
   height: 600px;
+}
+/*new stuff*/
+.bg {
+  width: 100%;
+  height: auto;
 }
 
 .welcMsg {
