@@ -7,6 +7,14 @@ body {
   box-sizing: border-box;
 }
 
+#weatherContainer{
+  padding: 10, 10, 10, 10;
+  background-color: #9b2525;
+  border: #9b2560;
+  border-color: #9b2560;
+  border-radius: 25px;
+}
+
 .container {
   margin-top: 20px;
 }
