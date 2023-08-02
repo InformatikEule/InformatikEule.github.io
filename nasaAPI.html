@@ -36,7 +36,7 @@
   <div class="container">
     <div class="row">
       <div class="col container text-center text-white">
-        <div class="singleApod">
+        <div class="apodContainer singleApod">
           <!--fetch a single APOD-->
           <h5 class="containerüberschrift userInput">Pick a Date <input class="body" type="date" name="date" id="date">
             and hit send
@@ -44,10 +44,9 @@
               type="submit">Send</button>
           </h5>
         </div>
-        <br>
         <!--fetch multiple APOD's-->
-        <div class="multipleApod">
-          <h4 class="text-danger">This doesn't work yet! Use the function for individual images (above!)</h4>
+        <div class="apodContainer multipleApod">
+          <h4 class="text-danger">This doesn't work yet! Use the function for individual images (left)!</h4>
           <h5 class="userInputMultiple">Pick a start-Date <input class="body" type="date" name="getStartDate"
               id="getStartDate"> and an end-Date <input class="body" type="date" name="fetchMultipleApod"
               id="fetchMultipleApod">,
