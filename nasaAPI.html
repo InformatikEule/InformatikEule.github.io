@@ -38,21 +38,17 @@
       <div class="col container text-center text-white">
         <div class="apodContainer singleApod">
           <!--fetch a single APOD-->
-          <h5 class="containerüberschrift userInput">Pick a Date <input class="body" type="date" name="date" id="date">
-            and hit send
-            to see the APOD. <button class="body btn btn-secondary" name="fetchSingleApod" id="fetchSingleApod"
-              type="submit">Send</button>
-          </h5>
+          <h5 class="containerüberschrift userInput">Get the Apod from a specific day:</h5>
+          <input class="body" type="date" name="date" id="date">
+          <button class="body btn btn-secondary" name="fetchSingleApod" id="fetchSingleApod" type="submit">Send</button>
         </div>
         <!--fetch multiple APOD's-->
         <div class="apodContainer multipleApod">
-          <h4 class="text-danger">This doesn't work yet! Use the function for individual images (left)!</h4>
-          <h5 class="userInputMultiple">Pick a start-Date <input class="body" type="date" name="getStartDate"
-              id="getStartDate"> and an end-Date <input class="body" type="date" name="fetchMultipleApod"
-              id="fetchMultipleApod">,
-            to see all Apod's between your selected Dates. <button class="body btn btn-secondary" name="getEndDate"
-              id="getEndDate" type="submit">Send</button>
-          </h5>
+          <h5>Or search for multiple Apod's</h5>
+          <p>Start Date: <input class="body" type="date" name="getStartDate" id="getStartDate">
+            End Date: <input class="body" type="date" name="fetchMultipleApod" id="fetchMultipleApod">
+            <button class="body btn btn-secondary" name="getEndDate" id="getEndDate" type="submit">Send</button>
+          </p>
         </div>
         <div class="container text-center text-white" id="apodPic">
           <div class="col">
