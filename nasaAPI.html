@@ -36,9 +36,18 @@
   <div class="container">
     <div class="row">
       <div class="col container text-center text-white">
+        <!--fetch a single APOD-->
         <h5 class="containerüberschrift userInput">Pick a Date <input class="body" type="date" name="date" id="date">
           and hit send
-          to see the APOD. <button class="body btn btn-secondary" name="submit" id="submit" type="submit">Send</button>
+          to see the APOD. <button class="body btn btn-secondary" name="fetchSingleApod" id="fetchSingleApod"
+            type="submit">Send</button>
+        </h5>
+        <!--fetch multiple APOD's-->
+        <h5 class="userInputMultiple">Pick a start-Date <input class="body" type="date" name="getStartDate"
+            id="getStartDate"> and an end-Date <input class="body" type="date" name="fetchMultipleApod"
+            id="fetchMultipleApod">,
+          to see all Apod's between your selected Dates. <button class="body btn btn-secondary" name="getEndDate"
+            id="getEndDate" type="submit">Send</button>
         </h5>
         <div class="container text-center text-white" id="apodPic">
           <div class="col">

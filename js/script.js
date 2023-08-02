@@ -9,9 +9,9 @@ img.setAttribute("id", "pic");
 const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
-const searchB = document.querySelector("#submit");
+const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
 
-searchB.addEventListener("click", () => {
+fetchSingleApodButton.addEventListener("click", () => {
   fetchApod();
 });
 
