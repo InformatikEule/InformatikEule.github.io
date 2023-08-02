@@ -12,7 +12,7 @@ const copy = document.createElement("p");
 const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
 
 fetchSingleApodButton.addEventListener("click", () => {
-  fetchApod();
+  fetchSingleApod();
 });
 
 function getDate() {
@@ -53,7 +53,7 @@ function getDate() {
   }
 }
 
-async function fetchApod() {
+async function fetchSingleApod() {
   //https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2022-11-22
   let resp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
@@ -65,9 +65,9 @@ async function fetchApod() {
   //prüfen ob der server einen fehler meldet:
   console.log(resp);
   if (resp.status >= 200 && resp.status < 400) {
-    let data = await resp.json();
-    console.log(data);
-    useData(data);
+    let dataSingleApod = await resp.json();
+    console.log(dataSingleApod);
+    useData(dataSingleApod);
   } else {
     console.log("Error, Status code: " + resp.status);
     alert(
@@ -79,7 +79,7 @@ async function fetchApod() {
   }
 }
 
-function useData(data) {
+function useData(dataSingleApod) {
   ///// WIP:
   //const houstonTime = new Date().toLocaleString("en-US", {
   //timeZone: "America/Chicago",
@@ -93,28 +93,28 @@ function useData(data) {
 
   //routine zum prüfen ob ein bild oder video zurückkommt.
   //anlegen der Elemente und zu einem Array zufügen.
-  console.log(data);
-  title.textContent = data.title;
-  caption.textContent = data.explanation;
-  img.src = data.url;
-  mediaType.textContent = "Media-Type: " + data.media_type;
-  vid.src = data.url;
-  copy.textContent = "Copyright: " + data.copyright;
-  if (data.media_type == "image") {
+  console.log(dataSingleApod);
+  title.textContent = dataSingleApod.title;
+  caption.textContent = dataSingleApod.explanation;
+  img.src = dataSingleApod.url;
+  mediaType.textContent = "Media-Type: " + dataSingleApod.media_type;
+  vid.src = dataSingleApod.url;
+  copy.textContent = "Copyright: " + dataSingleApod.copyright;
+  if (dataSingleApod.media_type == "image") {
     apodArr.push(title, img, caption, copy, mediaType);
     apodArr.forEach((element) => {
       document.getElementById("apodPic").appendChild(element);
     });
-  } else if (data.media_type == "video") {
+  } else if (dataSingleApod.media_type == "video") {
     apodArr.push(title, vid, caption, copy, mediaType);
     apodArr.forEach((element) => {
       document.getElementById("apodPic").appendChild(element);
     });
   } else {
-    console.log("unknown media format: " + data.media_type);
+    console.log("unknown media format: " + dataSingleApod.media_type);
     alert(
       "unknown media type. Server returns: " +
-        data.media_type +
+        dataSingleApod.media_type +
         ". Dont know what to do with that."
     );
   }
