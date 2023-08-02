@@ -20,7 +20,7 @@ function getDate() {
   // Date() gibt Monate leider nur als Zahl 0-11 aus. Dies lässt sich mit dem Userinput nicht direkt vergleichen...
   const dateAll = new Date();
   // ...also schreiben wir ein Array mit den passenden Zahlen.
-  const month = [
+  const monthCheck = [
     "01",
     "02",
     "03",
@@ -35,16 +35,16 @@ function getDate() {
     "12",
   ];
   // Geben Indexbassiert den Monat zurück.
-  const month2 = month[dateAll.getMonth()];
+  const monthInput = monthCheck[dateAll.getMonth()];
   // Fügen die Datums-variablen zusammen...
   const dateToday =
-    dateAll.getUTCFullYear() + "-" + month2 + "-" + dateAll.getUTCDate();
+    dateAll.getUTCFullYear() + "-" + monthInput + "-" + dateAll.getUTCDate();
   // ...und können dann den User-Input mit dem echten Datum vergleichen.
   if (
     document.getElementById("date").value > dateToday ||
     document.getElementById("date").value < "1995-06-15"
   ) {
-    alert("Date must be between Jun 16, 1995 and Today!");
+    alert("Date must be between June 16, 1995 and Today!");
     throw new Error(
       "Unfortunately, iam not able to predict the Future. sadface.jpg"
     );
