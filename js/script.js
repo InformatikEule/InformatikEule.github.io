@@ -1,6 +1,9 @@
 ////
 // nasaAPI.html
 ////
+////////////////
+//remember DRY//
+////////////////
 const apodArr = [];
 const title = document.createElement("h3");
 const caption = document.createElement("p");
@@ -157,12 +160,12 @@ async function fetchMultipleApods() {
   );
   //prüfen ob der server einen fehler meldet:
   console.log(multipleResp);
-  if (multipleResp.status >= 200 && mulitpleResp.status < 400) {
+  if (multipleResp.status >= 200 && multipleResp.status < 400) {
     let dataMultipleApods = await multipleResp.json();
     console.log(dataMultipleApods);
-    useSingleData(dataMultipleApods);
+    useDataMultiple(dataMultipleApods);
   } else {
-    console.log("Error, Status code: " + mutlipleResp.status);
+    console.log("Error, Status code: " + multipleResp.status);
     alert(
       "Error, Server returns status-code: " +
         multipleResp.status +
@@ -172,4 +175,6 @@ async function fetchMultipleApods() {
   }
 }
 
-function useDataMultiple(dataMultipleApods) {}
+function useDataMultiple(dataMultipleApods) {
+  console.log(dataMultipleApods);
+}
