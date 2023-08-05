@@ -10,9 +10,14 @@ const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
 const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
+const fetchMultipleApodButton = document.querySelector("#fetchMultipleApod");
+
+fetchMultipleApodButton.addEventListener("click", () => {
+  fetchSingleApod();
+});
 
 fetchSingleApodButton.addEventListener("click", () => {
-  fetchSingleApod();
+  fetchMultipleApods();
 });
 
 function getDate() {
@@ -123,6 +128,7 @@ function useSingleData(dataSingleApod) {
 ////
 // Multiple Apods Part:
 ////
+//TODO: DRY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getStartDate() {
   var today = new Date();
   var day = today.getUTCDate;
@@ -139,7 +145,7 @@ function getEndDate() {
   return endDate;
 }
 
-async function getMultipleApods() {
+async function fetchMultipleApods() {
   let multipleResp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
       "api_key=" +
