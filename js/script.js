@@ -136,17 +136,18 @@ function useSingleData(dataSingleApod) {
 ////
 //TODO: DRY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getStartDate() {
-  var today = new Date();
-  var day = today.getUTCDate();
-  var month = today.getUTCMonth() + 1;
-  var year = today.getUTCFullYear();
-  var startDate = day + "-" + month + "-" + year;
+  var startDate = document.getElementById("getStartDate").value;
   console.log(startDate);
   return startDate;
 }
 
 function getEndDate() {
-  var endDate = new Date();
+  // var today = new Date();
+  // var day = today.getUTCDate();
+  // var month = today.getUTCMonth() + 1;
+  // var year = today.getUTCFullYear();
+  // var endDate = day + "-" + month + "-" + year;
+  var endDate = document.getElementById("getEndDate").value;
   console.log(endDate);
   return endDate;
 }
