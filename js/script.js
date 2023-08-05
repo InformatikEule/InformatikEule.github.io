@@ -152,6 +152,10 @@ function getEndDate() {
   return endDate;
 }
 
+function weUseGithub() {
+  console.log("alles was du für github brauchst!");
+}
+
 async function fetchMultipleApods() {
   let multipleResp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
