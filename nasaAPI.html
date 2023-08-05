@@ -27,7 +27,7 @@
   </nav>
   <div class="container text-center text-white">
     <h1 class="apod">Astronomy Picture of the Day (APOD):</h1>
-    <h5 class="desc">What is an API? Why can i get Data from the NASA on your site?</h5>
+    <h5 class="desc">Why can i get Data from NASA on your site?</h5>
     <h5 class="desc">Let me explain it with the words of NASA: "Welcome to the NASA API portal. The objective of this
       site is to make NASA data, including imagery, eminently accessible to application developers."</h5>
   </div>
@@ -38,9 +38,10 @@
         <!--fetch a single APOD-->
         <div class="apodContainer singleApod">
           <h2>Get the Apod from a specific day:</h3>
-            <input class="body" type="date" name="date" id="date">
-            <button class="body btn btn-secondary" name="fetchSingleApod" id="fetchSingleApod"
-              type="submit">Send</button>
+            <p>Enter a date and press send: <input class="body" type="date" name="date" id="date">
+              <button class="body btn btn-secondary" name="fetchSingleApod" id="fetchSingleApod"
+                type="submit">Send</button>
+            </p>
         </div>
         <!--fetch multiple APOD's-->
         <div class="apodContainer multipleApod">
@@ -51,6 +52,7 @@
               type="submit">Send</button>
           </p>
         </div>
+        <!--display container-->
         <div class="container text-center text-white" id="apodPic">
           <div class="col">
           </div>

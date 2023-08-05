@@ -29,19 +29,19 @@ body {
   width: 100%;
 }
 
-#apodPic{
+#apodPic {
   margin-top: 120px;
 }
 
-.singleApod{
+.singleApod {
   position: absolute;
-  left: 10px;
+  left: 100px;
   width: 50%;
 }
 
 .multipleApod {
   position: absolute;
-  right: 10px;
+  right: 100px;
   width: 50%;
 }
 

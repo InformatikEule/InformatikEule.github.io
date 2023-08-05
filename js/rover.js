@@ -30,6 +30,11 @@ function rovCam() {
 // }
 
 function getEarthDate() {
+  // var today = new Date();
+  // var day = today.getUTCDate();
+  // var month = today.getUTCMonth() + 1;
+  // var year = today.getUTCFullYear();
+  // var endDate = day + "-" + month + "-" + year;
   const dateAll = new Date();
   const month = [
     "01",
