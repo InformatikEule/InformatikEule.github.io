@@ -15,11 +15,11 @@ const copy = document.createElement("p");
 const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
 const fetchMultipleApodButton = document.querySelector("#fetchMultipleApod");
 
-fetchMultipleApodButton.addEventListener("click", () => {
+fetchSingleApodButton.addEventListener("click", () => {
   fetchSingleApod();
 });
 
-fetchSingleApodButton.addEventListener("click", () => {
+fetchMultipleApodButton.addEventListener("click", () => {
   fetchMultipleApods();
 });
 
