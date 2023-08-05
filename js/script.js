@@ -24,6 +24,9 @@ fetchMultipleApodButton.addEventListener("click", () => {
 });
 
 function getDate() {
+  //unnötigste Datums-überprüfung aller zeiten. Das fällt wohl unter programming warcrimes.
+  //mein blick als ich zum ersten mal month() + 1 sah... :-D
+  //egal, bleibt erstmal drinne weil funny!
   // Überprüfung des Datums auf Zukunft/Vergangenheit.
   // Date() gibt Monate leider nur als Zahl 0-11 aus. Dies lässt sich mit dem Userinput nicht direkt vergleichen...
   const dateAll = new Date();
@@ -134,9 +137,9 @@ function useSingleData(dataSingleApod) {
 //TODO: DRY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getStartDate() {
   var today = new Date();
-  var day = today.getUTCDate;
-  var month = today.getUTCMonth;
-  var year = today.getUTCFullYear;
+  var day = today.getUTCDate();
+  var month = today.getUTCMonth() + 1;
+  var year = today.getUTCFullYear();
   var startDate = day + "-" + month + "-" + year;
   console.log(startDate);
   return startDate;
