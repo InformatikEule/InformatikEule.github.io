@@ -55,7 +55,7 @@ function getDate() {
 
 async function fetchSingleApod() {
   //https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2022-11-22
-  let resp = await fetch(
+  let singleResp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
       "api_key=" +
       "BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0" +
@@ -63,23 +63,23 @@ async function fetchSingleApod() {
       getDate()
   );
   //prüfen ob der server einen fehler meldet:
-  console.log(resp);
-  if (resp.status >= 200 && resp.status < 400) {
-    let dataSingleApod = await resp.json();
+  console.log(singleResp);
+  if (singleResp.status >= 200 && singleResp.status < 400) {
+    let dataSingleApod = await singleResp.json();
     console.log(dataSingleApod);
-    useData(dataSingleApod);
+    useSingleData(dataSingleApod);
   } else {
-    console.log("Error, Status code: " + resp.status);
+    console.log("Error, Status code: " + singleResp.status);
     alert(
       "Error, Server returns status-code: " +
-        resp.status +
+        singleResp.status +
         "! Status-Text: " +
-        resp.statusText
+        singleResp.statusText
     );
   }
 }
 
-function useData(dataSingleApod) {
+function useSingleData(dataSingleApod) {
   ///// WIP:
   //const houstonTime = new Date().toLocaleString("en-US", {
   //timeZone: "America/Chicago",
@@ -119,3 +119,51 @@ function useData(dataSingleApod) {
     );
   }
 }
+
+////
+// Multiple Apods Part:
+////
+function getStartDate() {
+  var today = new Date();
+  var day = today.getUTCDate;
+  var month = today.getUTCMonth;
+  var year = today.getUTCFullYear;
+  var startDate = day + "-" + month + "-" + year;
+  console.log(startDate);
+  return startDate;
+}
+
+function getEndDate() {
+  var endDate = new Date();
+  console.log(endDate);
+  return endDate;
+}
+
+async function getMultipleApods() {
+  let multipleResp = await fetch(
+    "https://api.nasa.gov/planetary/apod?" +
+      "api_key=" +
+      "BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0" +
+      "&start_date=" +
+      getStartDate() +
+      "&end_date=" +
+      getEndDate()
+  );
+  //prüfen ob der server einen fehler meldet:
+  console.log(multipleResp);
+  if (multipleResp.status >= 200 && mulitpleResp.status < 400) {
+    let dataMultipleApods = await multipleResp.json();
+    console.log(dataMultipleApods);
+    useSingleData(dataMultipleApods);
+  } else {
+    console.log("Error, Status code: " + mutlipleResp.status);
+    alert(
+      "Error, Server returns status-code: " +
+        multipleResp.status +
+        "! Status-Text: " +
+        multipleResp.statusText
+    );
+  }
+}
+
+function useDataMultiple(dataMultipleApods) {}
