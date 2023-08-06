@@ -30,34 +30,10 @@ function rovCam() {
 // }
 
 function getEarthDate() {
-  // var today = new Date();
-  // var day = today.getUTCDate();
-  // var month = today.getUTCMonth() + 1;
-  // var year = today.getUTCFullYear();
-  // var endDate = day + "-" + month + "-" + year;
-  const dateAll = new Date();
-  const month = [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-  ];
-  // Geben Indexbassiert den Monat zurück.
-  const month2 = month[dateAll.getMonth()];
-  // Fügen die Datums-variablen zusammen...
-  const dateToday =
-    dateAll.getUTCFullYear() + "-" + month2 + "-" + dateAll.getUTCDate();
-  // ...und können dann den User-Input mit dem echten Datum vergleichen.
+  var dateToday = new Date();
+  var dateFormatted = dateToday.toISOString().slice(0, 10);
   if (
-    document.getElementById("earthDate").value > dateToday ||
+    document.getElementById("earthDate").value > dateFormatted ||
     document.getElementById("earthDate").value < "2012-08-05"
   ) {
     alert(
@@ -70,6 +46,10 @@ function getEarthDate() {
     return document.getElementById("earthDate").value;
   }
 }
+
+// function getHTTPCats() {
+//   "https://http.cat/" + dataSingleApod.status;
+// }
 
 // function getSolOrEarthDate(){
 //   if (document.getElementById("sol").value == "0") {
@@ -92,12 +72,8 @@ async function reqRov() {
     useDataRov(dataRov);
   } else {
     console.log("Error, Status code: " + respRov.status);
-    alert(
-      "Error, Server returns status-code: " +
-        respRov.status +
-        "! Status-Text: " +
-        respRov.statusText
-    );
+    alert("Error, Server returns status-code: " + respRov.status);
+    //+ getHTTPCats()
   }
 }
 

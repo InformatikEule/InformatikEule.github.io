@@ -24,35 +24,43 @@ fetchMultipleApodButton.addEventListener("click", () => {
 });
 
 function getDate() {
-  //unnötigste Datums-überprüfung aller zeiten. Das fällt wohl unter programming warcrimes.
-  //mein blick als ich zum ersten mal month() + 1 sah... :-D
-  //egal, bleibt erstmal drinne weil funny!
-  // Überprüfung des Datums auf Zukunft/Vergangenheit.
-  // Date() gibt Monate leider nur als Zahl 0-11 aus. Dies lässt sich mit dem Userinput nicht direkt vergleichen...
-  const dateAll = new Date();
-  // ...also schreiben wir ein Array mit den passenden Zahlen.
-  const monthCheck = [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-  ];
-  // Geben Indexbassiert den Monat zurück.
-  const monthInput = monthCheck[dateAll.getMonth()];
-  // Fügen die Datums-variablen zusammen...
-  const dateToday =
-    dateAll.getUTCFullYear() + "-" + monthInput + "-" + dateAll.getUTCDate();
-  // ...und können dann den User-Input mit dem echten Datum vergleichen.
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // My old solution for date comparison. I'll leave it commented out in here because I'm proud to have come up with it, but somehow it falls under programming warcrimes ;-D//
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // const dateAll = new Date();
+  // const monthCheck = [
+  //   "01",
+  //   "02",
+  //   "03",
+  //   "04",
+  //   "05",
+  //   "06",
+  //   "07",
+  //   "08",
+  //   "09",
+  //   "10",
+  //   "11",
+  //   "12",
+  // ];
+  // const monthInput = monthCheck[dateAll.getMonth()];
+  // const dateToday =
+  //   dateAll.getUTCFullYear() + "-" + monthInput + "-" + dateAll.getUTCDate();
+  // if (
+  //   document.getElementById("date").value > dateToday ||
+  //   document.getElementById("date").value < "1995-06-15"
+  // ) {
+  //   alert("Date must be between June 16, 1995 and Today!");
+  //   throw new Error(
+  //     "Unfortunately, iam not able to predict the Future. sadface.jpg"
+  //   );
+  // } else {
+  //   return document.getElementById("date").value;
+  // }
+
+  var dateToday = new Date();
+  var dateFormatted = dateToday.toISOString().slice(0, 10);
   if (
-    document.getElementById("date").value > dateToday ||
+    document.getElementById("date").value > dateFormatted ||
     document.getElementById("date").value < "1995-06-15"
   ) {
     alert("Date must be between June 16, 1995 and Today!");
@@ -81,12 +89,8 @@ async function fetchSingleApod() {
     useSingleData(dataSingleApod);
   } else {
     console.log("Error, Status code: " + singleResp.status);
-    alert(
-      "Error, Server returns status-code: " +
-        singleResp.status +
-        "! Status-Text: " +
-        singleResp.statusText
-    );
+    alert("Error, Server returns status-code: " + singleResp.status);
+    // + getHTTPCats()
   }
 }
 
@@ -137,23 +141,12 @@ function useSingleData(dataSingleApod) {
 //TODO: DRY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getStartDate() {
   var startDate = document.getElementById("getStartDate").value;
-  console.log(startDate);
   return startDate;
 }
 
 function getEndDate() {
-  // var today = new Date();
-  // var day = today.getUTCDate();
-  // var month = today.getUTCMonth() + 1;
-  // var year = today.getUTCFullYear();
-  // var endDate = day + "-" + month + "-" + year;
   var endDate = document.getElementById("getEndDate").value;
-  console.log(endDate);
   return endDate;
-}
-
-function weUseGithub() {
-  console.log("alles was du für github brauchst!");
 }
 
 async function fetchMultipleApods() {

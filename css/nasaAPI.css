@@ -35,13 +35,13 @@ body {
 
 .singleApod {
   position: absolute;
-  left: 100px;
+  left: 80px;
   width: 50%;
 }
 
 .multipleApod {
   position: absolute;
-  right: 100px;
+  right: 80px;
   width: 50%;
 }
 
