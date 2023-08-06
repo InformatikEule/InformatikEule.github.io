@@ -164,7 +164,8 @@ async function fetchMultipleApods() {
   if (multipleResp.status >= 200 && multipleResp.status < 400) {
     let dataMultipleApods = await multipleResp.json();
     console.log(dataMultipleApods);
-    useDataMultiple(dataMultipleApods);
+    turnMultipleApodsToArrays(dataMultipleApods);
+    //useDataMultiple(dataMultipleApods);
   } else {
     console.log("Error, Status code: " + multipleResp.status);
     alert(
@@ -176,6 +177,26 @@ async function fetchMultipleApods() {
   }
 }
 
-function useDataMultiple(dataMultipleApods) {
-  console.log(dataMultipleApods);
+function turnMultipleApodsToArrays(dataMultipleApods) {
+  let titles = [];
+  let captions = [];
+  let imgs = [];
+  let mediaTypes = [];
+  let vids = [];
+  let copyrights = [];
+  dataMultipleApods.forEach((elements) => {
+    titles.push(elements.title);
+    captions.push(elements.explanation);
+    imgs.push(elements.url);
+    mediaTypes.push(elements.media_type);
+    vids.push(elements.url);
+    copyrights.push(elements.copyright);
+  });
+  return titles, captions, imgs, mediaTypes, vids, copyrights;
+}
+
+function useDataMultiple(titles, captions, imgs, mediaTypes, vids, copyrights) {
+  titles.forEach((elements) => {
+    console.log("arg " + titles.length);
+  });
 }
