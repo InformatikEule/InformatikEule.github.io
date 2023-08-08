@@ -52,6 +52,10 @@ body {
     width: 40%;
   }
 
+  #apodPic {
+    margin-top: 170px;
+  }
+
   .multipleApod {
     position: absolute;
     right: 10px;
