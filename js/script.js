@@ -20,8 +20,13 @@ fetchSingleApodButton.addEventListener("click", () => {
 });
 
 fetchMultipleApodButton.addEventListener("click", () => {
-  fetchMultipleApods();
+  //fetchMultipleApods();
+  showDisclaimer();
 });
+
+function showDisclaimer() {
+  alert("not working at the moment, use the single APOD!");
+}
 
 function getDate() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
