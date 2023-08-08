@@ -46,28 +46,19 @@ body {
 }
 
 @media (max-width: 980px) {
-  #title {
-    text-align: center;
+  .singleApod {
+    position: absolute;
+    left: 10px;
+    width: 40%;
   }
 
-  .modal {
-    orientation: landscape;
-  }
-
-  .apodcaption {
-    font-size: 1rem;
-  }
-
-  #btnHdy {
-    scale: 1.3;
-    size: 1.3%;
+  .multipleApod {
+    position: absolute;
+    right: 10px;
+    width: 40%;
   }
 
   .apod {
     font-size: 2rem;
-  }
-
-  .apodelement {
-    font-size: 1rem;
   }
 }
