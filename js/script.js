@@ -65,9 +65,9 @@ function getDate() {
   // }
   if (
     document.getElementById("date").value > dateFormatted ||
-    document.getElementById("date").value < "1995-06-15"
+    document.getElementById("date").value < "1995-06-20"
   ) {
-    alert("Date must be between June 16, 1995 and Today!");
+    alert("Date must be between June 20, 1995 and Today!");
     throw new Error(
       "Unfortunately, iam not able to predict the Future. sadface.jpg"
     );
@@ -145,16 +145,25 @@ function useSingleData(dataSingleApod) {
 //TODO: DRY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getStartDate() {
   var startDate = document.getElementById("getStartDate").value;
-  return startDate;
+  if (startDate < "1995-20-06" || startDate > dateFormatted) {
+    alert(
+      "The start date must not be lower than 1995-20-06 and not higher than " +
+        dateFormatted +
+        "!"
+    );
+    throw new Error("apod api startet on 20.June, 1995!");
+  } else {
+    return startDate;
+  }
 }
 
 function getEndDate() {
   var endDate = document.getElementById("getEndDate").value;
-  if (endDate > dateFormatted) {
+  if (endDate > dateFormatted || endDate < "1995-21-06") {
     alert(
       "The end date must not be higher than " +
         dateFormatted +
-        " and not lower than 1995-17-06!"
+        " and not lower than 1995-21-06!"
     );
     throw new Error("dude, i cant show you tomorows picture...");
   } else {
