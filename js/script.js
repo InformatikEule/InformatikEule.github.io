@@ -123,12 +123,12 @@ function useSingleData(dataSingleApod) {
   if (dataSingleApod.media_type == "image") {
     apodArr.push(title, img, caption, copy, mediaType);
     apodArr.forEach((element) => {
-      document.getElementById("apodPic").appendChild(element);
+      document.getElementById("apodDataDisplay").appendChild(element);
     });
   } else if (dataSingleApod.media_type == "video") {
     apodArr.push(title, vid, caption, copy, mediaType);
     apodArr.forEach((element) => {
-      document.getElementById("apodPic").appendChild(element);
+      document.getElementById("apodDataDisplay").appendChild(element);
     });
   } else {
     console.log("unknown media format: " + dataSingleApod.media_type);
@@ -170,7 +170,6 @@ async function fetchMultipleApods() {
     let dataMultipleApods = await multipleResp.json();
     console.log(dataMultipleApods);
     useDataMultiple(dataMultipleApods);
-    //useDataMultiple(dataMultipleApods);
   } else {
     console.log("Error, Status code: " + multipleResp.status);
     alert(
@@ -182,38 +181,21 @@ async function fetchMultipleApods() {
   }
 }
 
-// function turnMultipleApodsToArrays(dataMultipleApods) {
-//   let titles = [];
-//   let captions = [];
-//   let imgs = [];
-//   let mediaTypes = [];
-//   let vids = [];
-//   let copyrights = [];
-//   dataMultipleApods.forEach((elements) => {
-//     titles.push(elements.title);
-//     captions.push(elements.explanation);
-//     imgs.push(elements.url);
-//     mediaTypes.push(elements.media_type);
-//     vids.push(elements.url);
-//     copyrights.push(elements.copyright);
-//   });
-//   return titles, captions, imgs, mediaTypes, vids, copyrights;
-// }
-
 function useDataMultiple(dataMultipleApods) {
-  const display = document.querySelector("#apodPic");
+  const display = document.querySelector("#apodDataDisplay");
+  const displayPic = document.getElementById("#pic");
   let showData = dataMultipleApods.map((object) => {
-    const { title, media_type, url, copyright } = object;
-    return `
-    <h3>Title: ${title}</h3>
-    <img id="pic"> ${url}</img>
-    <p>${caption}</p>
-    <br>
-    <p class="text-center text-white">Copyright: ${copyright}</p>
-    <br>
-    <p class="text-center text-white">Media-Type: ${media_type}</p>
-    `;
+    const { title, url, explanation, media_type, copyright } = object;
+    //const { url } = object12;
+    if (media_type == "image") {
+      return `
+      <h3>Title: ${title}</h3>
+      <img src="${url}" id="pic"></img>
+      <p>${explanation}</p>
+      <p class="text-center text-white">Copyright: ${copyright}</p>
+      <p class="text-center text-white">Media-Type: ${media_type}</p>
+      `;
+    }
   });
-
   display.innerHTML = showData;
 }
