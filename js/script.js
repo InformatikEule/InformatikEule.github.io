@@ -14,6 +14,8 @@ const vid = document.createElement("iframe");
 const copy = document.createElement("p");
 const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
 const fetchMultipleApodButton = document.querySelector("#fetchMultipleApod");
+const dateToday = new Date();
+const dateFormatted = dateToday.toISOString().slice(0, 10);
 
 fetchSingleApodButton.addEventListener("click", () => {
   fetchSingleApod();
@@ -61,9 +63,6 @@ function getDate() {
   // } else {
   //   return document.getElementById("date").value;
   // }
-
-  var dateToday = new Date();
-  var dateFormatted = dateToday.toISOString().slice(0, 10);
   if (
     document.getElementById("date").value > dateFormatted ||
     document.getElementById("date").value < "1995-06-15"
@@ -151,7 +150,16 @@ function getStartDate() {
 
 function getEndDate() {
   var endDate = document.getElementById("getEndDate").value;
-  return endDate;
+  if (endDate > dateFormatted) {
+    alert(
+      "The end date must not be higher than " +
+        dateFormatted +
+        " and not lower than 1995-17-06!"
+    );
+    throw new Error("dude, i cant show you tomorows picture...");
+  } else {
+    return endDate;
+  }
 }
 
 async function fetchMultipleApods() {
