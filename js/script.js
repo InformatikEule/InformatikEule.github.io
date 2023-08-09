@@ -20,8 +20,8 @@ fetchSingleApodButton.addEventListener("click", () => {
 });
 
 fetchMultipleApodButton.addEventListener("click", () => {
-  //fetchMultipleApods();
-  showDisclaimer();
+  fetchMultipleApods();
+  //showDisclaimer();
 });
 
 function showDisclaimer() {
@@ -169,7 +169,7 @@ async function fetchMultipleApods() {
   if (multipleResp.status >= 200 && multipleResp.status < 400) {
     let dataMultipleApods = await multipleResp.json();
     console.log(dataMultipleApods);
-    turnMultipleApodsToArrays(dataMultipleApods);
+    useDataMultiple(dataMultipleApods);
     //useDataMultiple(dataMultipleApods);
   } else {
     console.log("Error, Status code: " + multipleResp.status);
@@ -182,26 +182,38 @@ async function fetchMultipleApods() {
   }
 }
 
-function turnMultipleApodsToArrays(dataMultipleApods) {
-  let titles = [];
-  let captions = [];
-  let imgs = [];
-  let mediaTypes = [];
-  let vids = [];
-  let copyrights = [];
-  dataMultipleApods.forEach((elements) => {
-    titles.push(elements.title);
-    captions.push(elements.explanation);
-    imgs.push(elements.url);
-    mediaTypes.push(elements.media_type);
-    vids.push(elements.url);
-    copyrights.push(elements.copyright);
-  });
-  return titles, captions, imgs, mediaTypes, vids, copyrights;
-}
+// function turnMultipleApodsToArrays(dataMultipleApods) {
+//   let titles = [];
+//   let captions = [];
+//   let imgs = [];
+//   let mediaTypes = [];
+//   let vids = [];
+//   let copyrights = [];
+//   dataMultipleApods.forEach((elements) => {
+//     titles.push(elements.title);
+//     captions.push(elements.explanation);
+//     imgs.push(elements.url);
+//     mediaTypes.push(elements.media_type);
+//     vids.push(elements.url);
+//     copyrights.push(elements.copyright);
+//   });
+//   return titles, captions, imgs, mediaTypes, vids, copyrights;
+// }
 
-function useDataMultiple(titles, captions, imgs, mediaTypes, vids, copyrights) {
-  titles.forEach((elements) => {
-    console.log("arg " + titles.length);
+function useDataMultiple(dataMultipleApods) {
+  const display = document.querySelector("#apodPic");
+  let showData = dataMultipleApods.map((object) => {
+    const { title, media_type, url, copyright } = object;
+    return `
+    <h3>Title: ${title}</h3>
+    <img id="pic"> ${url}</img>
+    <p>${caption}</p>
+    <br>
+    <p class="text-center text-white">Copyright: ${copyright}</p>
+    <br>
+    <p class="text-center text-white">Media-Type: ${media_type}</p>
+    `;
   });
+
+  display.innerHTML = showData;
 }
