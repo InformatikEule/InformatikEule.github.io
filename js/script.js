@@ -23,12 +23,7 @@ fetchSingleApodButton.addEventListener("click", () => {
 
 fetchMultipleApodButton.addEventListener("click", () => {
   fetchMultipleApods();
-  //showDisclaimer();
 });
-
-function showDisclaimer() {
-  alert("not working at the moment, use the single APOD!");
-}
 
 function getDate() {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -200,17 +195,16 @@ async function fetchMultipleApods() {
 
 function useDataMultiple(dataMultipleApods) {
   const display = document.querySelector("#apodDataDisplay");
-  const displayPic = document.getElementById("#pic");
   let showData = dataMultipleApods
-    .map((object) => {
-      const { title, url, explanation, media_type, copyright } = object;
+    .map((data) => {
+      const { title, url, media_type, explanation, date, copyright } = data;
       if (media_type == "image") {
         return `
         <h3>Title: ${title}</h3>
         <img src="${url}" id="pic"></img>
         <p>${explanation}</p>
         <p class="text-center text-white">Copyright: ${copyright}</p>
-        <p class="text-center text-white">Media-Type: ${media_type}</p>
+        <p class="text-center text-white">Date: ${date}</p>
         <hr>
       `;
       } else if (media_type == "video") {
@@ -219,7 +213,7 @@ function useDataMultiple(dataMultipleApods) {
         <iframe src="${url}" id="vid"></iframe>
         <p>${explanation}</p>
         <p class="text-center text-white">Copyright: ${copyright}</p>
-        <p class="text-center text-white">Media-Type: ${media_type}</p>
+        <p class="text-center text-white">Date: ${date}</p>
         <hr>
       `;
       }
