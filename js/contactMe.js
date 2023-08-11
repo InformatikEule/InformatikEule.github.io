@@ -8,7 +8,7 @@ function sendAMailToMe() {
   const serviceId = "service_j59bd2x";
   const templateId = "template_301y19v";
 
-  emailJS
+  emailjs
     .send(serviceId, templateId, dataMail)
     .then((resp) => {
       document.getElementById("mailFrom").value = "";
@@ -18,4 +18,8 @@ function sendAMailToMe() {
       alert("You send a Mail to me!");
     })
     .catch((errorMail) => alert("Error: " + errorMail));
+}
+
+function notWorking() {
+  alert("this function is not working atm.");
 }
