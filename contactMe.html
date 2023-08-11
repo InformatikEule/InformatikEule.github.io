@@ -10,8 +10,15 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/nasaAPI.css">
+    <link rel="stylesheet" href="css/contactMe.css">
     <script defer src="js/contactMe.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("00wExlBqkfwTb6vIG");
+        })();
+    </script>
 
 </head>
 
@@ -26,6 +33,25 @@
         </div>
     </nav>
     <div class="container">
+        <form>
+            <div class="mailArea">
+                <div class="form-group">
+                    <h4 for="mailFrom" class="text-white">Your Name:</h2>
+                        <input type="text" class="form-control" id="mailFrom" placeholder="Name:" />
+                </div>
+
+                <div class="form-group">
+                    <h4 for="mailAddress" class="text-white">Your E-Mail:</h2>
+                        <input type="email" class="form-control" id="mailAddress" placeholder="E-Mail:" />
+                </div>
+
+                <div class="form-group">
+                    <h4 for="mailMessage" class="text-white">Your Message:</h2>
+                        <textarea id="mailMessage" rows="15" class="form-control"></textarea>
+                </div>
+            </div>
+            <button class="btn btn-secondary">Send</button>
+        </form>
     </div>
 </body>
 
