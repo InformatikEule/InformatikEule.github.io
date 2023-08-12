@@ -16,8 +16,30 @@
     </script>
     <script type="text/javascript">
         (function () {
-            emailJS.init("00wExlBqkfwTb6vIG");
+            emailjs.init("00wExlBqkfwTb6vIG");
         })();
+        function sendAMailToMe() {
+
+            var dataMail = {
+                mailFrom: document.getElementById("mailFrom").value,
+                mailAddress: document.getElementById("mailAddress").value,
+                mailMessage: document.getElementById("mailMessage").value,
+            };
+
+            const serviceId = "service_j59bd2x";
+            const templateId = "template_301y19v";
+
+            emailjs
+                .send(serviceId, templateId, dataMail)
+                .then((resp) => {
+                    document.getElementById("mailFrom").value = "";
+                    document.getElementById("mailAddress").value = "";
+                    document.getElementById("mailMessage").value = "";
+                    console.log(resp);
+                    alert("You send a Mail to me!");
+                })
+                .catch((errorMail) => alert("Error: " + errorMail));
+        }
     </script>
 
 </head>
@@ -50,7 +72,7 @@
                         <textarea id="mailMessage" rows="15" class="form-control"></textarea>
                 </div>
             </div>
-            <button class="btn btn-secondary" onclick="notWorking()">Send</button>
+            <button class="btn btn-secondary" onclick="sendAMailToMe()">Send</button>
         </form>
     </div>
 </body>
