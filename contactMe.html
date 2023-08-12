@@ -18,23 +18,29 @@
         (function () {
             emailjs.init("00wExlBqkfwTb6vIG");
         })();
-        function sendAMailToMe() {
 
+        function log() {
+            console.log("as")
+        }
+
+        function sendAMailToMe() {
+            log();
             var dataMail = {
-                mailFrom: document.getElementById("mailFrom").value,
-                mailAddress: document.getElementById("mailAddress").value,
-                mailMessage: document.getElementById("mailMessage").value,
+                name: document.getElementById("mailFrom").value,
+                email: document.getElementById("mailAddress").value,
+                message: document.getElementById("mailMessage").value,
             };
 
             const serviceId = "service_j59bd2x";
             const templateId = "template_301y19v";
 
+            console.log(serviceId, templateId, dataMail);
             emailjs
                 .send(serviceId, templateId, dataMail)
                 .then((resp) => {
-                    document.getElementById("mailFrom").value = "";
-                    document.getElementById("mailAddress").value = "";
-                    document.getElementById("mailMessage").value = "";
+                    // document.getElementById("mailFrom").value = "";
+                    // document.getElementById("mailAddress").value = "";
+                    // document.getElementById("mailMessage").value = "";
                     console.log(resp);
                     alert("You send a Mail to me!");
                 })
