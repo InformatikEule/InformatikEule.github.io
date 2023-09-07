@@ -194,14 +194,6 @@ async function fetchMultipleApods() {
   }
 }
 
-const orderedList = document.createElement("ol");
-orderedList.setAttribute("class", "list-group list-group-numbered");
-const listItem = document.createElement("li");
-listItem.setAttribute(
-  "class",
-  "list-group-item d-flex justify-content-between align-items-start"
-);
-
 function useDataMultiple(dataMultipleApods) {
   const display = document.querySelector("#apodDataDisplay");
   let showData = dataMultipleApods
@@ -211,7 +203,7 @@ function useDataMultiple(dataMultipleApods) {
         return `
         <!--asdf-->
         <ol class="list-group list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
+          <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
               <div class="fw-bold text-center text-white">
                 <h3>Title: ${title}</h3>
@@ -222,13 +214,12 @@ function useDataMultiple(dataMultipleApods) {
               <p class="text-center text-white">Date: ${date}</p>
           </div>
           </li>
-          <hr>
         </ol>
       `;
       } else if (media_type == "video") {
         return `
         <ol class="list-group list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
+          <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
               <div class="fw-bold text-center text-white">
                 <h3>Title: ${title}</h3>
@@ -241,7 +232,6 @@ function useDataMultiple(dataMultipleApods) {
               <p class="text-center text-white">Date: ${date}</p>
             </div>
           </li>
-          <hr>
         </ol>
       `;
       }
