@@ -9,6 +9,7 @@ const title = document.createElement("h3");
 const caption = document.createElement("p");
 const img = document.createElement("img");
 img.setAttribute("id", "pic");
+img.setAttribute("class", "rounded img-fluid");
 const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
@@ -193,6 +194,14 @@ async function fetchMultipleApods() {
   }
 }
 
+const orderedList = document.createElement("ol");
+orderedList.setAttribute("class", "list-group list-group-numbered");
+const listItem = document.createElement("li");
+listItem.setAttribute(
+  "class",
+  "list-group-item d-flex justify-content-between align-items-start"
+);
+
 function useDataMultiple(dataMultipleApods) {
   const display = document.querySelector("#apodDataDisplay");
   let showData = dataMultipleApods
@@ -200,21 +209,40 @@ function useDataMultiple(dataMultipleApods) {
       const { title, url, media_type, explanation, date, copyright } = data;
       if (media_type == "image") {
         return `
-        <h3>Title: ${title}</h3>
-        <img src="${url}" id="pic"></img>
-        <p>${explanation}</p>
-        <p class="text-center text-white">Copyright: ${copyright}</p>
-        <p class="text-center text-white">Date: ${date}</p>
-        <hr>
+        <!--asdf-->
+        <ol class="list-group list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto text-center text-white">
+              <div class="fw-bold text-center text-white">
+                <h3>Title: ${title}</h3>
+              </div>
+              <img src="${url}" id="pic"></img>
+              <p>${explanation}</p>
+              <p class="text-center text-white">Copyright: ${copyright}</p>
+              <p class="text-center text-white">Date: ${date}</p>
+          </div>
+          </li>
+          <hr>
+        </ol>
       `;
       } else if (media_type == "video") {
         return `
-        <h3>Title: ${title}</h3>
-        <iframe src="${url}" id="vid"></iframe>
-        <p>${explanation}</p>
-        <p class="text-center text-white">Copyright: ${copyright}</p>
-        <p class="text-center text-white">Date: ${date}</p>
-        <hr>
+        <ol class="list-group list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto text-center text-white">
+              <div class="fw-bold text-center text-white">
+                <h3>Title: ${title}</h3>
+              </div>
+              <div class="ratio ratio-16x9">
+                <iframe src="${url}" id="vid" allowfullscreen></iframe>
+              </div>
+              <p>${explanation}</p>
+              <p class="text-center text-white">Copyright: ${copyright}</p>
+              <p class="text-center text-white">Date: ${date}</p>
+            </div>
+          </li>
+          <hr>
+        </ol>
       `;
       }
     })

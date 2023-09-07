@@ -45,6 +45,10 @@ body {
   width: 50%;
 }
 
+.list-group-item {
+  background-color: #212121;
+}
+
 @media (max-width: 980px) {
   .singleApod {
     position: absolute;

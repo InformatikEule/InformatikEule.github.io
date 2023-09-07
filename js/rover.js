@@ -5,8 +5,8 @@ let searchBRov = document.querySelector("#submitRov");
 
 searchBRov.addEventListener("click", () => {
   //console.log(document.getElementById("earthDate").value);
-  //reqRov();
-  outOfOrder();
+  reqRov();
+  //outOfOrder();
 });
 
 function outOfOrder() {
@@ -73,8 +73,8 @@ async function reqRov() {
     //`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=${cam}&api_key=DEMO_KEY`
   );
   if (respRov.status >= 200 && respRov.status < 400) {
-    //let dataRov = await respRov.json();
-    var dataRov = JSON.parse(respRov.responseText);
+    let dataRov = await respRov.json();
+    //var dataRov = JSON.parse(respRov.responseText);
     console.log(dataRov);
     useDataRov(dataRov);
   } else {
@@ -96,7 +96,7 @@ function useDataRov(dataRov) {
   //const results = dataRov.photos[0].img_src;
   let showdata = dataRov.map((result) => {
     const { img_src } = result;
-    console.log(img_src);
+    console.log(result);
     //const { img_src } = result;
     //return result;
   });
