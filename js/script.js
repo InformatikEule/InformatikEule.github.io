@@ -118,6 +118,9 @@ function useSingleData(dataSingleApod) {
   if (dataSingleApod.media_type == "image") {
     apodArr.push(title, img, caption, copy, mediaType);
     apodArr.forEach((element) => {
+      document
+        .getElementById("apodDataDisplay")
+        .setAttribute("class", "border border-secondary");
       document.getElementById("apodDataDisplay").appendChild(element);
     });
   } else if (dataSingleApod.media_type == "video") {
@@ -216,7 +219,7 @@ function useDataMultiple(dataMultipleApods) {
           </li>
         </ol>
       `;
-      } else if (media_type == "video") {
+      } else {
         return `
         <ol class="list-group list-group">
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
