@@ -8,8 +8,6 @@ const apodArr = [];
 const title = document.createElement("h3");
 const caption = document.createElement("p");
 const img = document.createElement("img");
-img.setAttribute("id", "pic");
-img.setAttribute("class", "rounded img-fluid");
 const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
@@ -205,13 +203,13 @@ function useDataMultiple(dataMultipleApods) {
       if (media_type == "image") {
         return `
         <!--asdf-->
-        <ol class="list-group list-group">
+        <ol class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
               <div class="fw-bold text-center text-white">
                 <h3>Title: ${title}</h3>
               </div>
-              <img src="${url}" id="pic"></img>
+              <img src="${url}" id="pic" class="rounded img-fluid"></img>
               <p>${explanation}</p>
               <p class="text-center text-white">Copyright: ${copyright}</p>
               <p class="text-center text-white">Date: ${date}</p>
@@ -221,7 +219,7 @@ function useDataMultiple(dataMultipleApods) {
       `;
       } else {
         return `
-        <ol class="list-group list-group">
+        <ol class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
               <div class="fw-bold text-center text-white">
