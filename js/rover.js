@@ -60,10 +60,10 @@ function useDataRov(dataRov) {
     "#marsRoverDescriptiveDisplay"
   );
 
-  let roverData = dataRov.photos.rover[0];
-  (displayDescriptive.innerHTML = "Rover Name: " + roverData.name),
-    ". Landing Date: " + roverData.landing_date,
-    ". Last day with available Photos: " + roverData.max_date;
+  // let roverData = dataRov.photos.rover[0];
+  // (displayDescriptive.innerHTML = "Rover Name: " + roverData.name),
+  //   ". Landing Date: " + roverData.landing_date,
+  //   ". Last day with available Photos: " + roverData.max_date;
 
   let showData = dataRov.photos
     .map((data) => {
