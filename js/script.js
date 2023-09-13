@@ -8,6 +8,7 @@ const apodArr = [];
 const title = document.createElement("h3");
 const caption = document.createElement("p");
 const img = document.createElement("img");
+img.setAttribute("class", "img-fluid");
 const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
