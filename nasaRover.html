@@ -26,18 +26,34 @@
         </div>
     </nav>
     <div class="container rovDesc text-white">
-        <h1 class="rov text-white">Curiosity on Mars:</h1>
-        <h5 class="rovdesc text-white"></h5>
-        <h5 class="rovdesc text-danger">This Page is Work in Progress! May not work and/or throw unexpected errors.</h5>
-        <h5 class="rovdesc text-white">Curiosity has many rover tasks to do and cannot take a picture every day. Try a
-            different date if there is no response. November 6th 2016 or November 12th 2019 has beautiful images!</h5>
+        <div class="row border border-secondary">
+            <div class="col-10">
+                <h3 class="rov text-white">Pictures from Curiosity:</h3>
+                <h4 class="rovdesc text-white">Here you can explore the fascinating images captured by
+                    the Mars rover. But how
+                    do these images end up here?
+
+                    It's quite simple: I utilize the NASA API. NASA, the United States' national space agency,
+                    generously
+                    provides the world with these valuable images and data for free. Dive in and uncover the beauty and
+                    mysteries of our neighboring planet, thanks to the generous provision of free NASA data. Welcome to
+                    the
+                    world of Mars rovers and the NASA API!</h4>
+            </div>
+            <div class="col-2">
+                <img class="img-fluid" src="imgs/Cur_mars.JPG"></img>
+            </div>
+        </div>
     </div>
     <br>
     <div class="container">
         <div class="row">
             <div class="col text-white">
-                <h4>You can search via Earth-Date or via sol &#40Mars Days since Landing&#41. Curiositys Landing Date
-                    &#40sol 0&#41 is 5. August 2012!</h4>
+                <h5 class="text-danger">Attention:</h5>
+                <p>Today and yesterday probably won't work as the data isn't available yet. Try a few days earlier! The
+                    earliest available date is August 6, 2012.</p>
+                <p>Attention for mobile users: More than 4000 images per day can be returned! Be careful with your data!
+                </p>
                 <h5 class="text-white">Pick a Date <input class="body" type="date" name="date" id="earthDate">
                     and hit send to see the Pictures.
                 </h5>
