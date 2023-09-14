@@ -41,7 +41,7 @@ async function reqRov() {
   const earthDate = getEarthDate();
 
   let respRov = await fetch(
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earthDate}&api_key=DEMO_KEY`
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
   );
   if (respRov.status >= 200 && respRov.status < 400) {
     let dataRov = await respRov.json();
