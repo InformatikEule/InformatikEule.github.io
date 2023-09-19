@@ -72,7 +72,7 @@ function useDataRov(dataRov) {
       return `
       <div class="col-sm-3">
         <div class="card bg-dark border-secondary">
-          <a href="#modalFullScreen" data-bs-toggle="modal" data-bs-target="#modalFullScreen" data-toggle="modal" id="modalFullScreen">
+          <a href="#modalFullScreen" data-bs-toggle="modal" data-bs-target="#modalFullScreen" data-toggle="modal">
             <img src="${img_src}" class="card-img-top"></img>
           </a>
           <div class="card-body">
@@ -80,39 +80,23 @@ function useDataRov(dataRov) {
           </div>
         </div>
 
-      </div>
-      <div class="modal fade" id="modalFullScreen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalLabel"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <img src="${img_src}>" alt="" id="apod_pic_modal" class="img-fluid picFull">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+        <div class="modal fade" id="modalFullScreen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="${img_src}" alt="" id="apod_pic_modal" class="img-fluid picFull">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-        <!--<p>adsre</p><div id="modalFullScreen" class="modal" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-              </div>
-              <div class="modal-body">
-                <img src="${img_src}"></img>
-              </div>
-              <div class="modal-footer">
-              </div>
-            </div>
-          </div>
-        </div>-->
       `;
     })
     .join("");
