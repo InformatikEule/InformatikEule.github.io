@@ -210,13 +210,27 @@ function useDataMultiple(dataMultipleApods) {
               <div class="fw-bold text-center text-white">
                 <h3>Title: ${title}</h3>
               </div>
-              <img src="${url}" id="pic" class="rounded img-fluid"></img>
+              <a href="#modalFullScreen" data-bs-toggle="modal" data-bs-target="#modalFullScreen" data-toggle="modal">
+                <img src="${url}" id="pic" class="rounded img-fluid"></img>
+              </a>
               <p>${explanation}</p>
               <p class="text-center text-white">Copyright: ${copyright}</p>
               <p class="text-center text-white">Date: ${date}</p>
           </div>
           </li>
         </ol>
+
+      <div id="modalFullScreen" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <img src="${url}"></img>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
       `;
       } else {
         return `
