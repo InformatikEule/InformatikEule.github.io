@@ -88,7 +88,7 @@ function useDataRov(dataRov) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src="${img_src}" alt="" id="apod_pic_modal" class="img-fluid picFull">
+                <img src="${img_src}" alt="" id="apod_pic_modal" class="img-fluid">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
