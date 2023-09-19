@@ -60,11 +60,6 @@ function useDataRov(dataRov) {
     "#marsRoverDescriptiveDisplay"
   );
 
-  // let roverData = dataRov.photos.rover[0];
-  // (displayDescriptive.innerHTML = "Rover Name: " + roverData.name),
-  //   ". Landing Date: " + roverData.landing_date,
-  //   ". Last day with available Photos: " + roverData.max_date;
-
   let showData = dataRov.photos
     .map((data) => {
       const { img_src, rover, camera } = data;
@@ -73,7 +68,7 @@ function useDataRov(dataRov) {
       <div class="col-sm-3">
         <div class="card bg-dark border-secondary">
           <a href="#modalFullScreen" data-bs-toggle="modal" data-bs-target="#modalFullScreen" data-toggle="modal">
-            <img src="${img_src}" class="card-img-top"></img>
+            <img src="${img_src}" alt="a pic from mars" class="card-img-top img-fluid"></img>
           </a>
           <div class="card-body">
             <p class="text-center text-white">Camera: ${camera.name}</p>
@@ -88,10 +83,10 @@ function useDataRov(dataRov) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src="${img_src}" alt="" id="apod_pic_modal" class="img-fluid">
+                <img src="${img_src}" alt="a pic from mars" id="apod_pic_modal" class="img-fluid">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn-close btn-dark" data-bs-dismiss="modal"></button>
               </div>
             </div>
           </div>

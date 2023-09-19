@@ -219,18 +219,6 @@ function useDataMultiple(dataMultipleApods) {
           </div>
           </li>
         </ol>
-
-      <div id="modalFullScreen" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-          </div>
-          <div class="modal-body">
-            <img src="${url}"></img>
-          </div>
-          <div class="modal-footer">
-          </div>
-        </div>
-      </div>
       `;
       } else {
         return `

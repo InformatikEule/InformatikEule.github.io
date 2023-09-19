@@ -3,10 +3,6 @@ body {
   background-color: #283149;
 }
 
-header {
-  background-color: rgba(236, 7, 95, 0.55);
-}
-
 h1 {
   font-size: 5rem;
   color: #dbedf3;
@@ -20,37 +16,37 @@ footer {
 }
 
 .w {
-  background-image: url("images/drumkit/tom1.png");
+  background-image: url("../imgs/drumkit/tom1.png");
   cursor: pointer;
 }
 
 .a {
-  background-image: url("images/drumkit/tom2.png");
+  background-image: url("../imgs/drumkit/tom2.png");
   cursor: pointer;
 }
 
 .s {
-  background-image: url("imgs/drumkit/tom3.png");
+  background-image: url("../imgs/drumkit/tom3.png");
   cursor: pointer;
 }
 
 .d {
-  background-image: url("images/drumkit/tom4.png");
+  background-image: url("../imgs/drumkit/tom4.png");
   cursor: pointer;
 }
 
 .j {
-  background-image: url("images/drumkit/snare.png");
+  background-image: url("../imgs/drumkit/snare.png");
   cursor: pointer;
 }
 
 .k {
-  background-image: url("images/drumkit/crash.png");
+  background-image: url("../imgs/drumkit/crash.png");
   cursor: pointer;
 }
 
 .l {
-  background-image: url("images/drumkit/kick.png");
+  background-image: url("../imgs/drumkit/kick.png");
   cursor: pointer;
 }
 
