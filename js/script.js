@@ -1,9 +1,6 @@
 ////
 // nasaAPI.html
 ////
-////////////////
-//remember DRY//
-////////////////
 const apodArr = [];
 const title = document.createElement("h3");
 const caption = document.createElement("p");
@@ -72,7 +69,6 @@ function getDate() {
 }
 
 async function fetchSingleApod() {
-  //https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2022-11-22
   let singleResp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
       "api_key=" +
@@ -94,17 +90,6 @@ async function fetchSingleApod() {
 }
 
 function useSingleData(dataSingleApod) {
-  ///// WIP:
-  //const houstonTime = new Date().toLocaleString("en-US", {
-  //timeZone: "America/Chicago",
-  //});
-  //const berlinTime = new Date().toLocaleString("en-US", {
-  //timeZone: "Europe/Berlin",
-  //});
-  //console.log(`The current time in Houston is: ${houstonTime}`);
-  //console.log(`The current time in Berlin is: ${berlinTime}`);
-  /////
-
   //routine zum prüfen ob ein bild oder video zurückkommt.
   //anlegen der Elemente und zu einem Array zufügen.
   console.log(dataSingleApod);
@@ -203,7 +188,6 @@ function useDataMultiple(dataMultipleApods) {
       const { title, url, media_type, explanation, date, copyright } = data;
       if (media_type == "image") {
         return `
-        <!--asdf-->
         <ol class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
@@ -216,7 +200,7 @@ function useDataMultiple(dataMultipleApods) {
               <p>${explanation}</p>
               <p class="text-center text-white">Copyright: ${copyright}</p>
               <p class="text-center text-white">Date: ${date}</p>
-          </div>
+            </div>
           </li>
         </ol>
       `;
