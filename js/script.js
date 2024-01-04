@@ -1,6 +1,8 @@
+import { helloTest } from "./apiCall.js";
 ////
 // nasaAPI.html
 ////
+
 const apodArr = [];
 const title = document.createElement("h3");
 const caption = document.createElement("p");
@@ -15,6 +17,7 @@ const dateToday = new Date();
 const dateFormatted = dateToday.toISOString().slice(0, 10);
 
 fetchSingleApodButton.addEventListener("click", () => {
+  console.log(helloTest);
   fetchSingleApod();
 });
 

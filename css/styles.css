@@ -1,20 +1,16 @@
 body {
   position: relative;
   min-height: 100%;
-  background-image: url("../imgs/earth2.jpg");
+  /*background-image: url("../imgs/earth2.jpg");*/
 }
 
 a:visited {
   color: #fff;
 }
 
-header {
-  background-color: rgba(236, 7, 95, 0.55);
-}
-
-footer {
-  background-color: rgba(236, 7, 95, 0.55);
-  position: relative;
+#title {
+  background-image: url("../imgs/earth2.jpg");
+  height: 800px;
 }
 
 .Montserrat {
@@ -26,8 +22,7 @@ a {
 }
 
 #cards {
-  /*background-image: url("/imgs/bg-cards.jpg");*/
-  /*background-color: #212121;*/
+  background-color: #212121;
   /*min-height: 900px;*/
   z-index: 1;
 }
@@ -66,5 +61,15 @@ a {
   .title-img {
     position: static;
     transform: rotate(0);
+  }
+}
+
+#features {
+  height: 300px;
+}
+
+@media (max-width: 980px) {
+  #features {
+    min-height: 70vh;
   }
 }
