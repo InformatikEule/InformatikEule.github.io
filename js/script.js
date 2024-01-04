@@ -1,4 +1,4 @@
-import { helloTest } from "./apiCall.js";
+//import { helloTest } from "./apiCall.js";
 ////
 // nasaAPI.html
 ////
@@ -17,7 +17,7 @@ const dateToday = new Date();
 const dateFormatted = dateToday.toISOString().slice(0, 10);
 
 fetchSingleApodButton.addEventListener("click", () => {
-  console.log(helloTest);
+  //console.log(helloTest);
   fetchSingleApod();
 });
 
