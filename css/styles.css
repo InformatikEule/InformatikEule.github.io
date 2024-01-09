@@ -67,9 +67,3 @@ a {
 #features {
   height: 40vh;
 }
-
-@media (max-width: 980px) {
-  #features {
-    min-height: 70vh;
-  }
-}
