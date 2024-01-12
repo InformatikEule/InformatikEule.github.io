@@ -37,6 +37,10 @@ a {
   z-index: 2;
 }
 
+#features {
+  background-color: #212121;
+}
+
 .img-fluid {
   width: auto;
   height: 200px;

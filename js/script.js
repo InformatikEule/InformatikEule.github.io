@@ -1,6 +1,7 @@
 const themesBtn = document.querySelector("#themesBtn");
 
 themesBtn.addEventListener("Click", () => {
+  alert("hi");
   toggleTheme();
 });
 
@@ -9,13 +10,13 @@ function toggleTheme() {
   // elements.
   // Select your element using indexing.
   alert("Hallo");
-  let theme = document.getElementsByTagName("link")[0];
+  // var theme = document.getElementsByTagName("link")[0];
 
-  // Change the value of href attribute
-  // to change the css sheet.
-  if (theme.getAttribute("href") == "styles.css") {
-    theme.setAttribute("href", "stylesDark.css");
-  } else {
-    theme.setAttribute("href", "styles.css");
-  }
+  // // Change the value of href attribute
+  // // to change the css sheet.
+  // if (theme.getAttribute("href") == "styles.css") {
+  //   theme.setAttribute("href", "stylesDark.css");
+  // } else {
+  //   theme.setAttribute("href", "styles.css");
+  // }
 }
