@@ -20,6 +20,14 @@ a:visited {
   font-family: "Montserrat-Black";
 }
 
+.color1 {
+  color: #4a3b43;
+}
+
+.color2 {
+  color: #723b43;
+}
+
 a {
   text-decoration: none;
 }
