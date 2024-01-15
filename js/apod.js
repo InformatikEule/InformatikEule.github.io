@@ -15,11 +15,11 @@ const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
 const fetchMultipleApodButton = document.querySelector("#fetchMultipleApod");
 const dateToday = new Date();
 const dateFormatted = dateToday.toISOString().slice(0, 10);
-var btn = document.querySelector("test");
-btn.addEventListener("Click", () => {
-  alert("hi");
-  console.log("asd");
-});
+// var btn = document.querySelector("test");
+// btn.addEventListener("Click", () => {
+//   alert("hi");
+//   console.log("asd");
+// });
 fetchSingleApodButton.addEventListener("click", () => {
   //console.log(helloTest);
   fetchSingleApod();
