@@ -1,10 +1,9 @@
-body {
-  min-height: 100%;
-  overflow-x: hidden;
-}
-
 a:visited {
   color: #fff;
+}
+
+body {
+  background-color: #212121;
 }
 
 #title {
@@ -25,13 +24,13 @@ a {
 }
 
 #cards {
-  background-color: #9c1616;
+  margin: 0;
+  background-color: #212121;
 }
 
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0rem 0rem 1rem 1rem rgba(236, 7, 95, 0.55);
-  z-index: 2;
 }
 
 .img-fluid {
@@ -66,5 +65,15 @@ a {
 }
 
 #footer {
+  height: 2px;
   background-color: #212121;
+}
+
+/*colors for front page text*/
+.color1 {
+  color: #771460;
+}
+
+.color2 {
+  color: #a51383;
 }
