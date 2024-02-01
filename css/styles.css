@@ -63,7 +63,7 @@ a {
 
 @media (max-width: 980px) {
   #title {
-    height: 60vh;
+    height: 50vh;
     background-size: cover;
     max-width: 100%;
     resize: horizontal;
@@ -71,12 +71,12 @@ a {
   }
 
   #cards {
-    height: 50vh;
+    height: 48vh;
   }
 
   #footer {
     background-color: #212121;
-    margin-top: 1000px;
+    height: 2vh;
   }
 }
 
