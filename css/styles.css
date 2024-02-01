@@ -75,6 +75,7 @@ a {
   }
 
   #footer {
+    margin-top: 0px;
     background-color: #212121;
     height: 1vh;
   }
