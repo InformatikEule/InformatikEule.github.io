@@ -41,12 +41,21 @@ async function reqRov() {
   const earthDate = getEarthDate();
 
   let respRov = await fetch(
+    //earth_date: "2023-03-06"
+    //`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
     `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
   );
   if (respRov.status >= 200 && respRov.status < 400) {
     let dataRov = await respRov.json();
-    console.log(dataRov);
     useDataRov(dataRov);
+    console.log(dataRov);
+    if (Object.keys(dataRov.photos).length == 0) {
+      alert("No Pictures today. ");
+    } else {
+      console.log(dataRov);
+      alert(Object.keys(dataRov.photos).length);
+      useDataRov(dataRov);
+    }
   } else {
     console.log("Error, Status code: " + respRov.status);
     alert("Error, Server returns status-code: " + respRov.status);
