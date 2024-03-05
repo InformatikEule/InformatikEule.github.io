@@ -11,7 +11,6 @@ function getEarthDate() {
   var dateToday = new Date();
   var dateFormatted = dateToday.toISOString().slice(0, 10);
   var spiritRIPdate = "2010-03-22";
-  alert(spiritRIPdate);
 
   if (document.getElementById("curiosity").checked) {
     if (
