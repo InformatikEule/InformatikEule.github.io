@@ -10,18 +10,78 @@ searchBRov.addEventListener("click", () => {
 function getEarthDate() {
   var dateToday = new Date();
   var dateFormatted = dateToday.toISOString().slice(0, 10);
-  if (
-    document.getElementById("earthDate").value > dateFormatted ||
-    document.getElementById("earthDate").value < "2012-08-05"
-  ) {
-    alert(
-      "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
-    );
-    throw new Error(
-      "Unfortunately, iam not able to predict the Future. sadface.jpg"
-    );
+  var spiritRIPdate = "2010-03-22";
+  alert(spiritRIPdate);
+
+  if (document.getElementById("curiosity").checked) {
+    if (
+      document.getElementById("earthDate").value > dateFormatted ||
+      document.getElementById("earthDate").value < "2012-08-05"
+    ) {
+      alert(
+        "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+      );
+      throw new Error(
+        "Unfortunately, iam not able to predict the Future. sadface.jpg"
+      );
+    } else {
+      return document.getElementById("earthDate").value;
+    }
+    //
+  } else if (document.getElementById("perseverance").checked) {
+    if (
+      document.getElementById("earthDate").value > dateFormatted ||
+      document.getElementById("earthDate").value < "2021-02-18"
+    ) {
+      alert(
+        "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+      );
+      throw new Error(
+        "Unfortunately, iam not able to predict the Future. sadface.jpg"
+      );
+    } else {
+      return document.getElementById("earthDate").value;
+    }
+    //
+  } else if (document.getElementById("spirit").checked) {
+    if (
+      document.getElementById("earthDate").value > spiritRIPdate ||
+      document.getElementById("earthDate").value < "2004-01-04"
+    ) {
+      alert(
+        "Spirit landed on January 4, 2004, and last transmitted data on March 22, 2010. No pictures beyond these dates! P.S. RIP Spirit :C"
+      );
+      throw new Error(
+        "Unfortunately, iam not able to predict the Future. sadface.jpg"
+      );
+    } else {
+      return document.getElementById("earthDate").value;
+    }
+  }
+  // if (
+  //   document.getElementById("earthDate").value > dateFormatted ||
+  //   document.getElementById("earthDate").value < "2012-08-05"
+  // ) {
+  //   alert(
+  //     "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+  //   );
+  //   throw new Error(
+  //     "Unfortunately, iam not able to predict the Future. sadface.jpg"
+  //   );
+  // } else {
+  //   return document.getElementById("earthDate").value;
+  // }
+}
+
+function getRover() {
+  if (document.getElementById("curiosity").checked) {
+    return "curiosity";
+  } else if (document.getElementById("perseverance").checked) {
+    return "perseverance";
+  } else if (document.getElementById("spirit").checked) {
+    return "spirit";
   } else {
-    return document.getElementById("earthDate").value;
+    alert("select a rover!");
   }
 }
 
@@ -39,11 +99,12 @@ function getEarthDate() {
 async function reqRov() {
   //const sol = getSol();
   const earthDate = getEarthDate();
+  const rover = getRover();
 
   let respRov = await fetch(
     //earth_date: "2023-03-06"
     //`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
   );
   if (respRov.status >= 200 && respRov.status < 400) {
     let dataRov = await respRov.json();
@@ -52,8 +113,6 @@ async function reqRov() {
     if (Object.keys(dataRov.photos).length == 0) {
       alert("No Pictures today. ");
     } else {
-      console.log(dataRov);
-      alert(Object.keys(dataRov.photos).length);
       useDataRov(dataRov);
     }
   } else {

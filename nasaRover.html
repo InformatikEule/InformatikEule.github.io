@@ -29,17 +29,14 @@
     <div class="container rovDesc text-white">
         <div class="row border border-secondary">
             <div class="col-10">
-                <h3 class="rov text-white">Pictures from Curiosity:</h3>
-                <h4 class="rovdesc text-white">Here you can explore the fascinating images captured by
-                    the Mars rover. But how
-                    do these images end up here?
-
-                    It's quite simple: I utilize the NASA API. NASA, the United States' national space agency,
-                    generously
-                    provides the world with these valuable images and data for free. Dive in and uncover the beauty and
-                    mysteries of our neighboring planet, thanks to the generous provision of free NASA data. Welcome to
-                    the
-                    world of Mars rovers and the NASA API!</h4>
+                <h3 class="rov text-white">Pictures from another Planet...</h3>
+                <h4 class="rovdesc text-white">On this page, it is possible to view the pictures taken by the Mars
+                    rovers. The three rovers operated by NASA are equipped with cameras that daily transmit their
+                    captured images to Earth. These pictures are freely provided by NASA and can be obtained from an
+                    internet interface (API).</h4>
+                <h5 class="text-danger">Attention:</h5>
+                <p>More than 4000 images per day can be returned! Be careful with your Mobile-data!
+                </p>
             </div>
             <div class="col-2">
                 <img class="img-fluid" src="imgs/Cur_mars.JPG">
@@ -49,19 +46,25 @@
     <div class="container">
         <div class="row">
             <div class="col text-white">
-                <h5 class="text-danger">Attention:</h5>
-                <p>Today and yesterday probably won't work as the data isn't available yet. Try a few days earlier! The
-                    earliest available date is August 6, 2012.</p>
-                <p>Attention for mobile users: More than 4000 images per day can be returned! Be careful with your data!
-                </p>
-                <h5 class="text-white">Pick a Date <input class="body" type="date" name="date" id="earthDate">
-                    and hit send to see the Pictures. <button class="btn btn-secondary" name="submitRov" id="submitRov"
-                        type="sumbmitRov">Send</button>
-                </h5>
-                <div class="container-fluid" id="marsRoverDescriptiveDisplay"></div>
-                <div class="container-fluid">
-                    <div class="row" id="marsRoverDisplay"></div>
-                </div>
+                <h4 class="text-white">Lets go:</h4>
+                <h5 class="text-white">First, choose the rover from which you would like to see pictures:</br><input
+                        class="" type="radio" name="curiosity" value="curiosity" id="curiosity"> Curiosity <input
+                        class="" type="radio" name="perseverance" value="Perseverance" id="perseverance"> Perseverance
+                    <input class="" type="radio" name="spirit" value="Spirit" id="spirit"> Spirit<a
+                        style="font-size: medium;"> (operative from
+                        2004-01-04 to 2010-03-22. No pictures between those dates.)
+                    </a>
+                    <h5>
+
+                        <h5 class="text-white">Then, select a date: <input class="body" type="date" name="date"
+                                id="earthDate">
+                            and press send to see the Pictures. <button class="btn btn-secondary" name="submitRov"
+                                id="submitRov" type="sumbmitRov">Send</button>
+                        </h5>
+                        <div class="container-fluid" id="marsRoverDescriptiveDisplay"></div>
+                        <div class="container-fluid">
+                            <div class="row" id="marsRoverDisplay"></div>
+                        </div>
             </div>
         </div>
     </div>
