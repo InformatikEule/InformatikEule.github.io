@@ -47,24 +47,32 @@
         <div class="row">
             <div class="col text-white">
                 <h4 class="text-white">Lets go:</h4>
-                <h5 class="text-white">First, choose the rover from which you would like to see pictures:</br><input
-                        class="" type="radio" name="curiosity" value="curiosity" id="curiosity"> Curiosity <input
-                        class="" type="radio" name="perseverance" value="Perseverance" id="perseverance"> Perseverance
-                    <input class="" type="radio" name="spirit" value="Spirit" id="spirit"> Spirit<a
-                        style="font-size: medium;"> (operative from
-                        2004-01-04 to 2010-03-22. No pictures between those dates.)
-                    </a>
-                    <h5>
+                <div class="specificRover border border-secondary">
+                    <h5 class="text-white">First, choose the rover from which you would like to see pictures:<br><input
+                            class="" type="radio" name="roverRadio" value="curiosity" id="curiosity"> Curiosity <input
+                            class="" type="radio" name="roverRadio" value="Perseverance" id="perseverance">
+                        Perseverance
+                        <input class="" type="radio" name="roverRadio" value="Spirit" id="spirit"> Spirit<a
+                            style="font-size: medium;"> (operative only from
+                            2004-01-04 to 2010-03-22!)
+                        </a>
+                    </h5>
 
-                        <h5 class="text-white">Then, select a date: <input class="body" type="date" name="date"
-                                id="earthDate">
-                            and press send to see the Pictures. <button class="btn btn-secondary" name="submitRov"
-                                id="submitRov" type="sumbmitRov">Send</button>
-                        </h5>
-                        <div class="container-fluid" id="marsRoverDescriptiveDisplay"></div>
-                        <div class="container-fluid">
-                            <div class="row" id="marsRoverDisplay"></div>
-                        </div>
+                    <h5 class="text-white">Then, select a date: <input class="body" type="date" name="date"
+                            id="earthDate">
+                        and press send to see the Pictures. <button class="btn btn-secondary" name="submitRov"
+                            id="submitRov" type="sumbmitRov">Send</button>
+                    </h5>
+                </div>
+                <div class="randomRover border border-secondary">
+                    <p>Or press this Button when my shitty code doesnt work: <button class="btn btn-secondary"
+                            name="nervScheisse" id="nervScheisse" type="sumbmitRov"
+                            onclick="makeSound('nervScheisse')">Press me!</button></p>
+                </div>
+                <div class="container-fluid" id="marsRoverDescriptiveDisplay"></div>
+                <div class="container-fluid">
+                    <div class="row" id="marsRoverDisplay"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -2,6 +2,23 @@ body {
   background-color: #212121;
 }
 
+.roverContainer {
+  display: table;
+  width: 100%;
+}
+
+.specificRover {
+  position: absolute;
+  left: 80px;
+  width: 55%;
+}
+
+.randomRover {
+  position: absolute;
+  right: 80px;
+  width: 30%;
+}
+
 @media (max-width: 980px) {
   .rov {
     font-size: large;

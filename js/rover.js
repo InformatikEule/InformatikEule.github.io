@@ -1,6 +1,13 @@
 /////
 ///Nasa-Rover-API
 /////
+let buttonNervScheisse = document.getElementById("nervScheisse");
+
+function makeSound() {
+  let nervScheisse = new Audio("sounds/click-Nervig.mp3");
+  nervScheisse.play();
+}
+
 let searchBRov = document.querySelector("#submitRov");
 
 searchBRov.addEventListener("click", () => {
@@ -11,6 +18,51 @@ function getEarthDate() {
   var dateToday = new Date();
   var dateFormatted = dateToday.toISOString().slice(0, 10);
   var spiritRIPdate = "2010-03-22";
+
+  //   if (
+  //     document.getElementsByName("roverRadio").checked &&
+  //     //document.getElementById("curiosity", "perseverance", "spirit").checked &&
+  //     document.getElementById("earthDate").value > dateFormatted
+  //   ) {
+  //     alert("Unfortunately, iam not able to predict the Future. sadface.jpg");
+  //   } else {
+  //     switch (true) {
+  //       case document.getElementById("curiosity").checked:
+  //         if (document.getElementById("earthDate").value < "2012-08-05") {
+  //           alert(
+  //             "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+  //           );
+  //         } else {
+  //           return document.getElementById("earthDate").value;
+  //         }
+  //     }
+  //   }
+  // switch (true) {
+  //   case document.getElementById("curiosity").checked:
+  //     if (document.getElementById("earthDate").value > dateFormatted) {
+  //     } else if (document.getElementById("earthDate").value < "2012-08-05") {
+  //       alert(
+  //         "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+  //       );
+  //     } else {
+  //       return document.getElementById("earthDate").value;
+  //     }
+  //     break;
+  //   case document.getElementById("perseverance").checked:
+  //     if (document.getElementById("earthDate").value > dateFormatted) {
+  //       alert(
+  //         "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+  //       );
+  //       throw new Error(
+  //         "Unfortunately, iam not able to predict the Future. sadface.jpg"
+  //       );
+  //     } else {
+  //       return document.getElementById("earthDate").value;
+  //     }
+
+  //   default:
+  //     break;
+  // }
 
   if (document.getElementById("curiosity").checked) {
     if (
@@ -57,19 +109,19 @@ function getEarthDate() {
       return document.getElementById("earthDate").value;
     }
   }
-  // if (
-  //   document.getElementById("earthDate").value > dateFormatted ||
-  //   document.getElementById("earthDate").value < "2012-08-05"
-  // ) {
-  //   alert(
-  //     "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
-  //   );
-  //   throw new Error(
-  //     "Unfortunately, iam not able to predict the Future. sadface.jpg"
-  //   );
-  // } else {
-  //   return document.getElementById("earthDate").value;
-  // }
+  if (
+    document.getElementById("earthDate").value > dateFormatted ||
+    document.getElementById("earthDate").value < "2012-08-05"
+  ) {
+    alert(
+      "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
+    );
+    throw new Error(
+      "Unfortunately, iam not able to predict the Future. sadface.jpg"
+    );
+  } else {
+    return document.getElementById("earthDate").value;
+  }
 }
 
 function getRover() {
@@ -100,6 +152,12 @@ async function reqRov() {
   const earthDate = getEarthDate();
   const rover = getRover();
 
+  //if (earthDate === "") {
+  //alert("hallo")
+  //} else {
+  //ich hab doch keine ahnung...
+  //}
+
   let respRov = await fetch(
     //earth_date: "2023-03-06"
     //`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
@@ -109,11 +167,6 @@ async function reqRov() {
     let dataRov = await respRov.json();
     useDataRov(dataRov);
     console.log(dataRov);
-    if (Object.keys(dataRov.photos).length == 0) {
-      alert("No Pictures today. ");
-    } else {
-      useDataRov(dataRov);
-    }
   } else {
     console.log("Error, Status code: " + respRov.status);
     alert("Error, Server returns status-code: " + respRov.status);
@@ -127,11 +180,14 @@ function useDataRov(dataRov) {
     "#marsRoverDescriptiveDisplay"
   );
 
-  let showData = dataRov.photos
-    .map((data) => {
-      const { img_src, rover, camera } = data;
-      //console.log(img_src);
-      return `
+  if (Object.keys(dataRov.photos).length == 0) {
+    alert("No Pictures today. ");
+  } else {
+    let showData = dataRov.photos
+      .map((data) => {
+        const { img_src, rover, camera } = data;
+        //console.log(img_src);
+        return `
       <div class="col-sm-3">
         <div class="card bg-dark border-secondary">
           <a href="#modalFullScreen" data-bs-toggle="modal" data-bs-target="#modalFullScreen" data-toggle="modal">
@@ -160,7 +216,8 @@ function useDataRov(dataRov) {
         </div>
       </div>
       `;
-    })
-    .join("");
-  display.innerHTML = showData;
+      })
+      .join("");
+    display.innerHTML = showData;
+  }
 }
