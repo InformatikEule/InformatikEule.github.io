@@ -3,13 +3,16 @@ a:visited {
 }
 
 body {
-  background: rgb(37, 2, 34);
-  background: linear-gradient(
-    90deg,
-    rgba(37, 2, 34, 1) 0%,
-    rgba(154, 20, 194, 1) 35%,
-    rgba(119, 12, 75, 1) 100%
-  );
+  height: 0px;
+  margin: 0px;
+}
+
+.Montserrat {
+  font-family: "Montserrat-Black";
+}
+
+a {
+  text-decoration: none;
 }
 
 #title {
@@ -21,15 +24,16 @@ body {
   overflow: hidden;
 }
 
-.Montserrat {
-  font-family: "Montserrat-Black";
-}
-
-a {
-  text-decoration: none;
+#upcomingLaunches {
+  height: 20vh;
+  background-color: #212121 !important;
+  margin-bottom: 0px;
 }
 
 #cards {
+  height: 90vh;
+  overflow: hidden;
+  margin-top: 0px;
   background: rgb(37, 2, 34);
   background: linear-gradient(
     90deg,
@@ -39,13 +43,17 @@ a {
   );
 }
 
+#footer {
+  background-color: #212121;
+}
+
 .card:hover {
   transform: scale(1.05);
   /*box-shadow: 0rem 0rem 1rem 1rem rgba(236, 7, 95, 0.55);*/
   box-shadow: 0rem 0rem 1rem 1rem rgba(253, 29, 29, 0.55);
 }
 
-.img-fluid {
+.imgCard {
   width: auto;
   height: 200px;
   object-fit: cover;
@@ -83,11 +91,6 @@ a {
   #html {
     background-color: #212121;
   }
-}
-
-#footer {
-  margin-top: 50px;
-  background-color: #212121;
 }
 
 /*colors for front page text*/
