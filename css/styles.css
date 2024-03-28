@@ -45,9 +45,8 @@ a {
 }
 
 #cards {
-  height: 90vh;
+  padding-bottom: 10px;
   overflow: hidden;
-  margin-top: 0px;
   background: rgb(37, 2, 34);
   background: linear-gradient(
     90deg,
