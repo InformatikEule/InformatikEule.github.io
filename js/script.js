@@ -13,6 +13,8 @@ async function upcomingLaunches() {
   if (resp.status >= 200 && resp.status < 400) {
     let launchData = await resp.json();
     useLaunchData(launchData);
+  } else if (resp.status == 429) {
+    alert("Too many requests.");
   } else {
     console.log("Error, Status code: " + resp.status);
     alert(
@@ -22,6 +24,19 @@ async function upcomingLaunches() {
         resp.statusText
     );
   }
+
+  // if (resp.status >= 200 && resp.status < 400) {
+  //   let launchData = await resp.json();
+  //   useLaunchData(launchData);
+  // } else {
+  //   console.log("Error, Status code: " + resp.status);
+  //   alert(
+  //     "Error, Server returns status-code: " +
+  //       resp.status +
+  //       "! Status-Text: " +
+  //       resp.statusText
+  //   );
+  // }
 }
 
 function useLaunchData(launchData) {
