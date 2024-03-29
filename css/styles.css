@@ -32,7 +32,9 @@ a {
 }
 
 /*Elements in #upcomingLaunches*/
-#launchImg {
+.launchImg {
+  height: 150px;
+  width: 150px;
   max-height: 150px;
 }
 
@@ -62,6 +64,7 @@ a {
   background-color: #212121;
 }
 
+/*card styling*/
 .card:hover {
   transform: scale(1.05);
   /*box-shadow: 0rem 0rem 1rem 1rem rgba(236, 7, 95, 0.55);*/
@@ -82,6 +85,34 @@ a {
 
 .card-black {
   background-color: black;
+}
+
+/*skeleton animation*/
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+/*skeleton-pseudo-text-loading*/
+.skeleton-text {
+  width: 100%;
+  height: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+  margin-bottom: 0;
 }
 
 @media (max-width: 980px) {
