@@ -32,13 +32,9 @@ a {
 }
 
 /*Elements in #upcomingLaunches*/
-.launchImg {
-  height: 150px;
-  width: 300px;
-  max-height: 150px;
-}
-
+.launchImg,
 .launchImg2 {
+  border-radius: 3%;
   height: 150px;
   width: 300px;
   max-height: 150px;
@@ -80,6 +76,7 @@ a {
   width: auto;
   height: 200px;
   object-fit: cover;
+  border-radius: 1%;
 }
 
 .card-img-top {
