@@ -5,7 +5,7 @@ a:visited {
 body {
   height: 0px;
   margin: 0px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .Montserrat {
@@ -61,8 +61,7 @@ a {
     rgba(154, 20, 194, 1) 35%,
     rgba(119, 12, 75, 1) 100%
   );
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 40px;
 }
 
 #footer {
