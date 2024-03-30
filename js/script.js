@@ -33,17 +33,24 @@ async function upcomingLaunches() {
 //       resp.statusText
 //   );
 // }
-
+clearSkeleton = document.getElementsByClassName("skeleton-text");
 function useLaunchData(launchData) {
   console.log(launchData.results[1].name);
   console.log(launchData.results[1].pad.name);
   console.log(launchData.results[1].image);
+  /*var clearSkeleton = document.getElementsByClassName("skeleton-text");
+  clearSkeleton.style.display = "none";*/
+  document.getElementsByClassName("skeleton-text").hidden = true;
   const launchImg = document.getElementById("launchImg");
-  launchImg.src = launchData.results[1].image;
+  launchImg.src = launchData.results[0].image;
   const rocketType = document.getElementById("rocketType");
-  rocketType.innerHTML = "";
-  rocketType.innerHTML = launchData.results[1].name;
+  rocketType.innerHTML = launchData.results[0].name;
   const spacePort = document.getElementById("spacePort");
-  spacePort.innerHTML = "";
-  spacePort.textContent = launchData.results[1].pad.name;
+  spacePort.textContent = launchData.results[0].pad.name;
+  const launchImg2 = document.getElementById("launchImg2");
+  launchImg2.src = launchData.results[1].image;
+  const rocketType2 = document.getElementById("rocketType2");
+  rocketType2.innerHTML = launchData.results[1].name;
+  const spacePort2 = document.getElementById("spacePort2");
+  spacePort2.textContent = launchData.results[1].pad.name;
 }
