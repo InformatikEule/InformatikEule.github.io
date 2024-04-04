@@ -40,10 +40,7 @@ a {
   max-height: 150px;
 }
 
-#rocketType {
-  max-height: 150px;
-}
-
+#rocketType,
 #spacePort {
   max-height: 150px;
 }
@@ -110,6 +107,7 @@ a {
   height: 0.5rem;
   margin-bottom: 0.25rem;
   border-radius: 0.125rem;
+  display: none;
 }
 
 .skeleton-text:last-child {

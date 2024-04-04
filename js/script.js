@@ -33,13 +33,17 @@ async function upcomingLaunches() {
 //       resp.statusText
 //   );
 // }
-clearSkeleton = document.getElementsByClassName("skeleton-text");
 function useLaunchData(launchData) {
-  console.log(launchData.results[1].name);
-  console.log(launchData.results[1].pad.name);
-  console.log(launchData.results[1].image);
-  /*var clearSkeleton = document.getElementsByClassName("skeleton-text");
-  clearSkeleton.style.display = "none";*/
+  console.log(launchData.results[0].net);
+  var launchDay = launchData.results[0].net;
+  var launchDay2 = launchDay.slice(0, 10);
+  console.log(launchDay2);
+
+  //dateToday.toISOString().slice(0, 10);
+  //console.log(launchData.results[1].image);
+  //var clearSkeleton = document.getElementsByClassName("skeleton-text");
+  //clearSkeleton.innerHTML = "";
+  //1st upcoming Rocket Launch:
   document.getElementsByClassName("skeleton-text").hidden = true;
   const launchImg = document.getElementById("launchImg");
   launchImg.src = launchData.results[0].image;
@@ -47,10 +51,16 @@ function useLaunchData(launchData) {
   rocketType.innerHTML = launchData.results[0].name;
   const spacePort = document.getElementById("spacePort");
   spacePort.textContent = launchData.results[0].pad.name;
+  const launchTime = document.getElementById("launchTime");
+  launchTime.textContent = launchData.results[0].net;
+
+  //2nd upcoming Rocket Launch
   const launchImg2 = document.getElementById("launchImg2");
   launchImg2.src = launchData.results[1].image;
   const rocketType2 = document.getElementById("rocketType2");
   rocketType2.innerHTML = launchData.results[1].name;
   const spacePort2 = document.getElementById("spacePort2");
   spacePort2.textContent = launchData.results[1].pad.name;
+  const launchTime2 = document.getElementById("launchTime2");
+  launchTime2.textContent = launchData.results[1].net;
 }
