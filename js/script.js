@@ -33,11 +33,24 @@ async function upcomingLaunches() {
 //       resp.statusText
 //   );
 // }
+//function getLaunchDayandTime(launchData) {
+//  getLaunchDayandTime();
+//}
+
 function useLaunchData(launchData) {
-  console.log(launchData.results[0].net);
-  var launchDay = launchData.results[0].net;
-  var launchDay2 = launchDay.slice(0, 10);
-  console.log(launchDay2);
+  var launchDayTime1 = launchData.results[0].net;
+  var launchDay1 = launchDayTime1.slice(0, 10);
+  var launchTime1 = launchDayTime1.slice(11, 19);
+
+  var launchDayTime2 = launchData.results[1].net;
+  var launchDay2 = launchDayTime2.slice(0, 10);
+  var launchTime2 = launchDayTime2.slice(11, 19);
+
+  // var launchDayTime = launchData.results[0].net;
+  // var launchDay = launchDayTime.slice(0, 10);
+  // var launchTime = launchDayTime.slice(11, 19);
+  // console.log(launchDay2);
+  // console.log(launchDay3);
 
   //dateToday.toISOString().slice(0, 10);
   //console.log(launchData.results[1].image);
@@ -51,8 +64,9 @@ function useLaunchData(launchData) {
   rocketType.innerHTML = launchData.results[0].name;
   const spacePort = document.getElementById("spacePort");
   spacePort.textContent = launchData.results[0].pad.name;
-  const launchTime = document.getElementById("launchTime");
-  launchTime.textContent = launchData.results[0].net;
+  const launchTimeShow = document.getElementById("launchTime");
+  launchTimeShow.textContent =
+    launchDay1 + " " + launchTime1 + "Zulu Time (UTC +0)!";
 
   //2nd upcoming Rocket Launch
   const launchImg2 = document.getElementById("launchImg2");
@@ -61,6 +75,7 @@ function useLaunchData(launchData) {
   rocketType2.innerHTML = launchData.results[1].name;
   const spacePort2 = document.getElementById("spacePort2");
   spacePort2.textContent = launchData.results[1].pad.name;
-  const launchTime2 = document.getElementById("launchTime2");
-  launchTime2.textContent = launchData.results[1].net;
+  const launchTimeShow2 = document.getElementById("launchTime2");
+  launchTimeShow2.textContent =
+    launchDay2 + " " + launchTime2 + "Zulu Time (UTC +0)!";
 }
