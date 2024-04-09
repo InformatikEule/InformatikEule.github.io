@@ -64,9 +64,10 @@ function useLaunchData(launchData) {
   rocketType.innerHTML = launchData.results[0].name;
   const spacePort = document.getElementById("spacePort");
   spacePort.textContent = launchData.results[0].pad.name;
-  const launchTimeShow = document.getElementById("launchTime");
-  launchTimeShow.textContent =
-    launchDay1 + " " + launchTime1 + "Zulu Time (UTC +0)!";
+  const launchDayShow1 = document.getElementById("launchDay1");
+  launchDayShow1.textContent = launchDay1 + " ";
+  const launchTimeShow1 = document.getElementById("launchTime1");
+  launchTimeShow1.textContent = launchTime1 + " Zulu Time (UTC +0)!";
 
   //2nd upcoming Rocket Launch
   const launchImg2 = document.getElementById("launchImg2");
@@ -75,7 +76,8 @@ function useLaunchData(launchData) {
   rocketType2.innerHTML = launchData.results[1].name;
   const spacePort2 = document.getElementById("spacePort2");
   spacePort2.textContent = launchData.results[1].pad.name;
+  const launchDayShow2 = document.getElementById("launchDay2");
+  launchDayShow2.textContent = launchDay2;
   const launchTimeShow2 = document.getElementById("launchTime2");
-  launchTimeShow2.textContent =
-    launchDay2 + " " + launchTime2 + "Zulu Time (UTC +0)!";
+  launchTimeShow2.textContent = launchTime2 + " Zulu Time (UTC +0)!";
 }
