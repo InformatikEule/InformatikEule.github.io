@@ -21,21 +21,6 @@ async function upcomingLaunches() {
     );
   }
 }
-// if (resp.status >= 200 && resp.status < 400) {
-//   let launchData = await resp.json();
-//   useLaunchData(launchData);
-// } else {
-//   console.log("Error, Status code: " + resp.status);
-//   alert(
-//     "Error, Server returns status-code: " +
-//       resp.status +
-//       "! Status-Text: " +
-//       resp.statusText
-//   );
-// }
-//function getLaunchDayandTime(launchData) {
-//  getLaunchDayandTime();
-//}
 
 function useLaunchData(launchData) {
   var launchDayTime1 = launchData.results[0].net;
@@ -46,16 +31,6 @@ function useLaunchData(launchData) {
   var launchDay2 = launchDayTime2.slice(0, 10);
   var launchTime2 = launchDayTime2.slice(11, 19);
 
-  // var launchDayTime = launchData.results[0].net;
-  // var launchDay = launchDayTime.slice(0, 10);
-  // var launchTime = launchDayTime.slice(11, 19);
-  // console.log(launchDay2);
-  // console.log(launchDay3);
-
-  //dateToday.toISOString().slice(0, 10);
-  //console.log(launchData.results[1].image);
-  //var clearSkeleton = document.getElementsByClassName("skeleton-text");
-  //clearSkeleton.innerHTML = "";
   //1st upcoming Rocket Launch:
   document.getElementsByClassName("skeleton-text").hidden = true;
   const launchImg = document.getElementById("launchImg");
