@@ -136,6 +136,10 @@ a {
   #html {
     background-color: #212121;
   }
+
+  .textSize {
+    font-size: x-small;
+  }
 }
 
 /*colors for front page text*/
