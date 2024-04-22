@@ -19,51 +19,6 @@ function getEarthDate() {
   var dateFormatted = dateToday.toISOString().slice(0, 10);
   var spiritRIPdate = "2010-03-22";
 
-  //   if (
-  //     document.getElementsByName("roverRadio").checked &&
-  //     //document.getElementById("curiosity", "perseverance", "spirit").checked &&
-  //     document.getElementById("earthDate").value > dateFormatted
-  //   ) {
-  //     alert("Unfortunately, iam not able to predict the Future. sadface.jpg");
-  //   } else {
-  //     switch (true) {
-  //       case document.getElementById("curiosity").checked:
-  //         if (document.getElementById("earthDate").value < "2012-08-05") {
-  //           alert(
-  //             "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
-  //           );
-  //         } else {
-  //           return document.getElementById("earthDate").value;
-  //         }
-  //     }
-  //   }
-  // switch (true) {
-  //   case document.getElementById("curiosity").checked:
-  //     if (document.getElementById("earthDate").value > dateFormatted) {
-  //     } else if (document.getElementById("earthDate").value < "2012-08-05") {
-  //       alert(
-  //         "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
-  //       );
-  //     } else {
-  //       return document.getElementById("earthDate").value;
-  //     }
-  //     break;
-  //   case document.getElementById("perseverance").checked:
-  //     if (document.getElementById("earthDate").value > dateFormatted) {
-  //       alert(
-  //         "Curiosity landed on the 5th, August 2012. No Pictures before that date!"
-  //       );
-  //       throw new Error(
-  //         "Unfortunately, iam not able to predict the Future. sadface.jpg"
-  //       );
-  //     } else {
-  //       return document.getElementById("earthDate").value;
-  //     }
-
-  //   default:
-  //     break;
-  // }
-
   if (document.getElementById("curiosity").checked) {
     if (
       document.getElementById("earthDate").value > dateFormatted ||
@@ -136,30 +91,11 @@ function getRover() {
   }
 }
 
-// function getHTTPCats() {
-//   "https://http.cat/" + dataSingleApod.status;
-// }
-
-// function getSolOrEarthDate(){
-//   if (document.getElementById("sol").value == "0") {
-//     getEarthDate();
-//   } else {
-//   }
-// }
-
 async function reqRov() {
-  //const sol = getSol();
   const earthDate = getEarthDate();
   const rover = getRover();
 
-  //if (earthDate === "") {
-  //alert("hallo")
-  //} else {
-  //ich hab doch keine ahnung...
-  //}
-
   let respRov = await fetch(
-    //earth_date: "2023-03-06"
     //`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
     `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
   );
@@ -183,7 +119,6 @@ function useDataRov(dataRov) {
     let showData = dataRov.photos
       .map((data) => {
         const { img_src, rover, camera } = data;
-        //console.log(img_src);
         return `
       <div class="col-sm-3">
         <div class="card bg-dark border-secondary">
