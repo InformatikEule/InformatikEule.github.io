@@ -176,9 +176,6 @@ async function reqRov() {
 
 function useDataRov(dataRov) {
   const display = document.querySelector("#marsRoverDisplay");
-  const displayDescriptive = document.querySelector(
-    "#marsRoverDescriptiveDisplay"
-  );
 
   if (Object.keys(dataRov.photos).length == 0) {
     alert("No Pictures today. ");

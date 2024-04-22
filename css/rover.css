@@ -19,6 +19,10 @@ body {
   width: 30%;
 }
 
+#marsRoverDisplay {
+  margin-top: 10px;
+}
+
 @media (max-width: 980px) {
   .rov {
     font-size: large;
