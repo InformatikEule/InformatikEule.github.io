@@ -98,5 +98,5 @@ function useEventData(eventData) {
   const eventDateShow = document.getElementById("eventDate");
   eventDateShow.innerHTML = eventDate;
   const eventTimeShow = document.getElementById("eventTime");
-  eventTimeShow.innerHTML = eventTime;
+  eventTimeShow.innerHTML = eventTime + " Zulu Time (UTC +0)!";
 }
