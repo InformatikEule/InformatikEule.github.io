@@ -56,3 +56,41 @@ function useLaunchData(launchData) {
   const launchTimeShow2 = document.getElementById("launchTime2");
   launchTimeShow2.textContent = launchTime2 + " Zulu Time (UTC +0)!";
 }
+
+////
+// events.js
+////
+async function upcomingEvents() {
+  let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/event/upcoming/`);
+  //prüfen ob der server einen fehler meldet:
+  if (resp.status >= 200 && resp.status < 400) {
+    let eventData = await resp.json();
+    useEventData(eventData);
+    console.log(eventData);
+    //prüfen ob die 15 reqs/day abgelaufen sind
+  } else if (resp.status == 429) {
+    //error handling ändern. gib die original felder aus useLaunchData zurück und pack die fehlermeldung dort rein!
+    alert("Too many requests.");
+  } else {
+    console.log("Error, Status code: " + resp.status);
+    alert(
+      "Error, Server returns status-code: " +
+        resp.status +
+        "! Status-Text: " +
+        resp.statusText
+    );
+  }
+}
+
+function useEventData(eventData) {
+  //var eventImg = eventData.results[0].feature_image;
+  //console.log(eventData.results[0].description);
+  const eventImgShow = document.getElementById("eventImg");
+  eventImgShow.src = eventData.results[0].feature_image;
+  const eventShow = document.getElementById("event");
+  eventShow.innerHTML = eventData.results[0].description;
+  const eventLocationShow = document.getElementById("eventLocation");
+  eventLocationShow.innerHTML = eventData.results[0].location;
+  const eventDateShow = document.getElementById("eventDate");
+  eventDateShow.innerHTML = eventData.results[0].date;
+}

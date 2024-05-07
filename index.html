@@ -24,7 +24,7 @@
 
 <!--onload, fills the upcomming launches section with data.-->
 
-<body onload="upcomingLaunches()">
+<body onload="upcomingLaunches(), upcomingEvents()">
   <section id="title">
     <div class="container-fluid">
       <!-- Nav Bar -->
@@ -76,7 +76,7 @@
         <div class="col-4">
           <img src="" alt="" class="img-fluid skeleton launchImg2" id="launchImg2">
         </div>
-        <div class=" col-4">
+        <div class="col-4">
           <p class="text-white textSize">Rocket Type | Mission name:</p>
           <p class="text-white textSize">Launch facility:</p>
           <p class="text-white textSize">Launch Day:</p>
@@ -91,6 +91,21 @@
           <p class="text-white skeleton skeleton-text textSize"></p>
           <p class="text-white textSize" id="launchTime2"></p>
           <p class="text-white skeleton skeleton-text textSize"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="upcomingEvents"><!-- upComing Events-->
+    <h2 class="text-center text-white">Upcomming Events:</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <img src="" alt="" class="img-fluid skeleton eventImg" id="eventImg">
+        </div>
+        <div class="col-4">
+          <p class="text-white textSize event" id="event"></p>
+          <p class="text-white textSize eventLocation" id="eventLocation"></p>
+          <p class="text-white textSize eventDate" id="eventDate"></p>
         </div>
       </div>
     </div>
