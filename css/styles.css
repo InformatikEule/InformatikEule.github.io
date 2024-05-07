@@ -28,7 +28,8 @@ a {
 
 #upcomingLaunches {
   background-color: #212121;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #upcomingEvents {
@@ -36,19 +37,19 @@ a {
   padding-bottom: 10px;
 }
 
+/*styling for the launches/events text*/
+.highLight {
+  text-shadow: #771460 2px -2px 5px, #a51383 2px 2px 5px;
+}
+
 /*Elements in #upcomingLaunches/events*/
 .launchImg,
 .launchImg2,
 .eventImg {
   border-radius: 3%;
-  height: 200px;
+  height: 180px;
   width: 300px;
-  max-height: 200px;
-}
-
-#rocketType,
-#spacePort {
-  max-height: 200px;
+  max-height: 180px;
 }
 
 #cards {
