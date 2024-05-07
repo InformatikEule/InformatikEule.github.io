@@ -10,7 +10,9 @@ async function upcomingLaunches() {
     //prüfen ob die 15 reqs/day abgelaufen sind
   } else if (resp.status == 429) {
     //error handling ändern. gib die original felder aus useLaunchData zurück und pack die fehlermeldung dort rein!
-    alert("Too many requests.");
+    alert(
+      "Too many requests. Upcoming Launches wont show Data for the next hour"
+    );
   } else {
     console.log("Error, Status code: " + resp.status);
     alert(
@@ -70,7 +72,7 @@ async function upcomingEvents() {
     //prüfen ob die 15 reqs/day abgelaufen sind
   } else if (resp.status == 429) {
     //error handling ändern. gib die original felder aus useLaunchData zurück und pack die fehlermeldung dort rein!
-    alert("Too many requests.");
+    alert("Too many requests. Events wont show Data for the next hour");
   } else {
     console.log("Error, Status code: " + resp.status);
     alert(
@@ -83,8 +85,10 @@ async function upcomingEvents() {
 }
 
 function useEventData(eventData) {
-  //var eventImg = eventData.results[0].feature_image;
-  //console.log(eventData.results[0].description);
+  var eventDateTime = eventData.results[0].date;
+  var eventDate = eventDateTime.slice(0, 10);
+  var eventTime = eventDateTime.slice(11, 19);
+
   const eventImgShow = document.getElementById("eventImg");
   eventImgShow.src = eventData.results[0].feature_image;
   const eventShow = document.getElementById("event");
@@ -92,5 +96,7 @@ function useEventData(eventData) {
   const eventLocationShow = document.getElementById("eventLocation");
   eventLocationShow.innerHTML = eventData.results[0].location;
   const eventDateShow = document.getElementById("eventDate");
-  eventDateShow.innerHTML = eventData.results[0].date;
+  eventDateShow.innerHTML = eventDate;
+  const eventTimeShow = document.getElementById("eventTime");
+  eventTimeShow.innerHTML = eventTime;
 }
