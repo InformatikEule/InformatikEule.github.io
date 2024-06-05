@@ -15,9 +15,8 @@ async function upcomingLaunches() {
   if (resp.status >= 200 && resp.status < 400) {
     let launchData = await resp.json();
     useLaunchData(launchData);
-    //prüfen ob die 15 reqs/day abgelaufen sind
+    //prüfen ob die 15 reqs/day abgelaufen sind:
   } else if (resp.status == 429) {
-    //error handling ändern. gib die original felder aus useLaunchData zurück und pack die fehlermeldung dort rein!
     const tooManyRequestsLaunches1 = document.getElementById("rocketType");
     tooManyRequestsLaunches1.innerHTML =
       "Too many requests. Upcoming Launches wont show Data for the next hour";
@@ -25,13 +24,12 @@ async function upcomingLaunches() {
     tooManyRequestsLaunches2.innerHTML =
       "Too many requests. Upcoming Launches wont show Data for the next hour";
   } else {
-    console.log("Error, Status code: " + resp.status);
-    alert(
-      "Error, Server returns status-code: " +
-        resp.status +
-        "! Status-Text: " +
-        resp.statusText
-    );
+    const tooManyRequests = document.getElementById("event");
+    tooManyRequests.innerHTML =
+      "Error, Server returns status-code" +
+      resp.status +
+      "! Status-Text: " +
+      resp.statusText;
   }
 }
 
@@ -74,7 +72,9 @@ function useLaunchData(launchData) {
 // events.js
 ////
 async function upcomingEvents() {
-  let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/event/upcoming/`);
+  let resp = await fetch(
+    `https://ll.thespacedevs.com/2.2.0/event/upcoming/abc`
+  );
   //prüfen ob der server einen fehler meldet:
   if (resp.status >= 200 && resp.status < 400) {
     let eventData = await resp.json();
@@ -82,19 +82,17 @@ async function upcomingEvents() {
     console.log(eventData);
     //prüfen ob die 15 reqs/day abgelaufen sind
   } else if (resp.status == 429) {
-    //error handling ändern. gib die original felder aus useLaunchData zurück und pack die fehlermeldung dort rein!
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Too many requests. Events wont show Data for the next hour";
     //alert("Too many requests. Events wont show Data for the next hour");
   } else {
-    console.log("Error, Status code: " + resp.status);
-    alert(
-      "Error, Server returns status-code: " +
-        resp.status +
-        "! Status-Text: " +
-        resp.statusText
-    );
+    const tooManyRequests = document.getElementById("event");
+    tooManyRequests.innerHTML =
+      "Error, Server returns status-code" +
+      resp.status +
+      "! Status-Text: " +
+      resp.statusText;
   }
 }
 
