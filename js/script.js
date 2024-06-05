@@ -72,9 +72,7 @@ function useLaunchData(launchData) {
 // events.js
 ////
 async function upcomingEvents() {
-  let resp = await fetch(
-    `https://ll.thespacedevs.com/2.2.0/event/upcoming/abc`
-  );
+  let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/event/upcoming/`);
   //prüfen ob der server einen fehler meldet:
   if (resp.status >= 200 && resp.status < 400) {
     let eventData = await resp.json();
@@ -87,12 +85,11 @@ async function upcomingEvents() {
       "Too many requests. Events wont show Data for the next hour";
     //alert("Too many requests. Events wont show Data for the next hour");
   } else {
+    console.log(resp.statusText);
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
-      "Error, Server returns status-code" +
-      resp.status +
-      "! Status-Text: " +
-      resp.statusText;
+      "Error, Server returns status-code " + resp.status + "!";
+    //resp.statusText;
   }
 }
 
