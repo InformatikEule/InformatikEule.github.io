@@ -2,6 +2,10 @@
 ////
 // nasaAPI.html
 ////
+const titleOnLoad = document.createElement("h3");
+const captionOnLoad = document.createElement("p");
+const imgOnLoad = document.createElement("img");
+imgOnLoad.setAttribute("class", "img-fluid");
 
 const apodArr = [];
 const title = document.createElement("h3");
@@ -20,6 +24,33 @@ const dateFormatted = dateToday.toISOString().slice(0, 10);
 //   alert("hi");
 //   console.log("asd");
 // });
+// function onLoadasd() {
+//   apodOnLoad();
+// }
+
+// async function apodOnLoad() {
+//   let apodResp = await fetch(
+//     "https://api.nasa.gov/planetary/apod?" +
+//       "api_key=" +
+//       "BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0" +
+//       "&date=" +
+//       dateFormatted
+//   );
+//   //prüfen ob der server einen fehler meldet:
+//   if (apodResp.status >= 200 && apodResp.status < 400) {
+//     let dataSingleApod = await apodResp.json();
+//     console.log(dataSingleApod);
+//     useSingleData(dataSingleApod);
+//   } else {
+//     console.log("Error, Status code: " + apodResp.status);
+//     alert("Error, Server returns status-code: " + apodResp.status);
+//     // + getHTTPCats()
+//   }
+//   titleOnLoad.textContent = dataSingleApod.title;
+//   captionOnLoad.textContent = dataSingleApod.explanation;
+//   imgOnLoad.src = dataSingleApod.url;
+// }
+
 fetchSingleApodButton.addEventListener("click", () => {
   //console.log(helloTest);
   fetchSingleApod();

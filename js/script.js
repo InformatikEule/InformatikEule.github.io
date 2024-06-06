@@ -85,7 +85,6 @@ async function upcomingEvents() {
       "Too many requests. Events wont show Data for the next hour";
     //alert("Too many requests. Events wont show Data for the next hour");
   } else {
-    console.log(resp.statusText);
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Error, Server returns status-code " + resp.status + "!";
