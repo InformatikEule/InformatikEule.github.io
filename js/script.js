@@ -110,3 +110,12 @@ function useEventData(eventData) {
   const eventTimeShow = document.getElementById("eventTime");
   eventTimeShow.innerHTML = eventTime + " Zulu Time (UTC +0)";
 }
+
+////
+// moreEvents.js
+////
+var showMoreEventsBtn = document.querySelector("btnMoreEvents");
+
+showMoreEventsBtn.addEventListener("click", () => {
+  alert("hio");
+});
