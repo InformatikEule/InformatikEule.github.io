@@ -114,8 +114,8 @@ function useEventData(eventData) {
 ////
 // moreEvents.js
 ////
-var showMoreEventsBtn = document.querySelector("btnMoreEvents");
+//var showMoreEventsBtn = document.querySelector("btnMoreEvents");
 
-showMoreEventsBtn.addEventListener("click", () => {
-  alert("hio");
-});
+//showMoreEventsBtn.addEventListener("click", () => {
+//alert("hio");
+//});
