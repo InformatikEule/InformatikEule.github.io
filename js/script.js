@@ -1,6 +1,10 @@
 ////
 // onload function:
 ////
+
+//const p = document.getElementById("foo"); // Find the paragraph element in the page
+//p.onclick = showAlert; // Add onclick function to element
+
 function pageOnLoad() {
   upcomingLaunches();
   upcomingEvents();
@@ -119,3 +123,8 @@ function useEventData(eventData) {
 //showMoreEventsBtn.addEventListener("click", () => {
 //alert("hio");
 //});
+// const weatherButton = document.querySelector("#weatherBtn");
+// weatherButton.addEventListener("click", () => {
+//   console.log("hallo");
+//   //fetchWeather();
+// });
