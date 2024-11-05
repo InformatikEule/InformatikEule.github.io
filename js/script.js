@@ -18,6 +18,7 @@ async function upcomingLaunches() {
   //prüfen ob der server einen fehler meldet:
   if (resp.status >= 200 && resp.status < 400) {
     let launchData = await resp.json();
+    console.log(launchData);
     useLaunchData(launchData);
     //prüfen ob die 15 reqs/day abgelaufen sind:
   } else if (resp.status == 429) {
