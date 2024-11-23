@@ -40,11 +40,11 @@ async function upcomingLaunches() {
 }
 
 function useLaunchData(launchData) {
-  var launchDayTime1 = launchData.results[0].net;
+  var launchDayTime1 = launchData.results[1].net;
   var launchDay1 = launchDayTime1.slice(0, 10);
   var launchTime1 = launchDayTime1.slice(11, 19);
 
-  var launchDayTime2 = launchData.results[1].net;
+  var launchDayTime2 = launchData.results[2].net;
   var launchDay2 = launchDayTime2.slice(0, 10);
   var launchTime2 = launchDayTime2.slice(11, 19);
 
@@ -100,14 +100,14 @@ async function upcomingEvents() {
 }
 
 function useEventData(eventData) {
-  var eventDateTime = eventData.results[0].date;
+  var eventDateTime = eventData.results[1].date;
   var eventDate = eventDateTime.slice(0, 10);
   var eventTime = eventDateTime.slice(11, 19);
 
   const eventImgShow = document.getElementById("eventImg");
-  eventImgShow.src = eventData.results[0].feature_image;
+  eventImgShow.src = eventData.results[1].feature_image;
   const eventShow = document.getElementById("event");
-  eventShow.innerHTML = eventData.results[0].description;
+  eventShow.innerHTML = eventData.results[1].description;
   const eventLocationShow = document.getElementById("eventLocation");
   const showMoreText = document.getElementById("showMoreText");
 
@@ -121,11 +121,11 @@ function useEventData(eventData) {
 ////
 // moreEvents.js
 ////
-//var showMoreEventsBtn = document.querySelector("btnMoreEvents");
+// var showMoreEventsBtn = document.querySelector("btnMoreEvents");
 
-//showMoreEventsBtn.addEventListener("click", () => {
-//alert("hio");
-//});
+// showMoreEventsBtn.addEventListener("click", () => {
+//   alert("hio");
+// });
 // const weatherButton = document.querySelector("#weatherBtn");
 // weatherButton.addEventListener("click", () => {
 //   console.log("hallo");

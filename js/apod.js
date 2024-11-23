@@ -186,7 +186,7 @@ function getEndDate() {
         dateFormatted +
         " and not lower than 1995-21-06!"
     );
-    throw new Error("dude, i cant show you tomorows picture...");
+    throw new Error("Kid, I can't show you pictures of tomorrow...");
   } else {
     return endDate;
   }
