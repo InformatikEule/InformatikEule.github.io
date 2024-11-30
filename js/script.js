@@ -26,11 +26,8 @@ async function upcomingLaunches() {
     const tooManyRequestsLaunches1 = document.getElementById("rocketType");
     tooManyRequestsLaunches1.innerHTML =
       "Too many requests. Upcoming Launches wont show Data for the next hour";
-    const tooManyRequestsLaunches2 = document.getElementById("rocketType2");
-    tooManyRequestsLaunches2.innerHTML =
-      "Too many requests. Upcoming Launches wont show Data for the next hour";
   } else {
-    const tooManyRequests = document.getElementById("event");
+    const tooManyRequests = document.getElementById("rocketType");
     tooManyRequests.innerHTML =
       "Error, Server returns status-code" +
       resp.status +
@@ -90,16 +87,10 @@ async function upcomingEvents() {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Too many requests. Events wont show Data for the next hour";
-    const tooManyRequests2 = document.getElementById("event2");
-    tooManyRequests2.innerHTML =
-      "Too many requests. Events wont show Data for the next hour";
     //alert("Too many requests. Events wont show Data for the next hour");
   } else {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
-      "Error, Server returns status-code " + resp.status + "!";
-    const tooManyRequests2 = document.getElementById("event2");
-    tooManyRequests2.innerHTML =
       "Error, Server returns status-code " + resp.status + "!";
     //resp.statusText;
   }
