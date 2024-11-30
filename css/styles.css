@@ -45,7 +45,8 @@ a {
 /*Elements in #upcomingLaunches/events*/
 .launchImg,
 .launchImg2,
-.eventImg {
+.eventImg,
+.eventImg2 {
   border-radius: 3%;
   height: 180px;
   width: 300px;

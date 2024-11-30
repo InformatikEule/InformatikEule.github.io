@@ -90,24 +90,33 @@ async function upcomingEvents() {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Too many requests. Events wont show Data for the next hour";
+    const tooManyRequests2 = document.getElementById("event2");
+    tooManyRequests2.innerHTML =
+      "Too many requests. Events wont show Data for the next hour";
     //alert("Too many requests. Events wont show Data for the next hour");
   } else {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
+      "Error, Server returns status-code " + resp.status + "!";
+    const tooManyRequests2 = document.getElementById("event2");
+    tooManyRequests2.innerHTML =
       "Error, Server returns status-code " + resp.status + "!";
     //resp.statusText;
   }
 }
 
 function useEventData(eventData) {
-  var eventDateTime = eventData.results[1].date;
+  var eventDateTime = eventData.results[0].date;
   var eventDate = eventDateTime.slice(0, 10);
   var eventTime = eventDateTime.slice(11, 19);
+  var eventDateTime2 = eventData.results[1].date;
+  var eventDate2 = eventDateTime2.slice(0, 10);
+  var eventTime2 = eventDateTime2.slice(11, 19);
 
   const eventImgShow = document.getElementById("eventImg");
-  eventImgShow.src = eventData.results[1].feature_image;
+  eventImgShow.src = eventData.results[0].feature_image;
   const eventShow = document.getElementById("event");
-  eventShow.innerHTML = eventData.results[1].description;
+  eventShow.innerHTML = eventData.results[0].description;
   const eventLocationShow = document.getElementById("eventLocation");
   const showMoreText = document.getElementById("showMoreText");
 
@@ -116,6 +125,19 @@ function useEventData(eventData) {
   eventDateShow.innerHTML = eventDate;
   const eventTimeShow = document.getElementById("eventTime");
   eventTimeShow.innerHTML = eventTime + " Zulu Time (UTC +0)";
+
+  const eventImgShow2 = document.getElementById("eventImg2");
+  eventImgShow2.src = eventData.results[1].feature_image;
+  const eventShow2 = document.getElementById("event2");
+  eventShow2.innerHTML = eventData.results[1].description;
+  const eventLocationShow2 = document.getElementById("eventLocation2");
+  const showMoreText2 = document.getElementById("showMoreText2");
+
+  eventLocationShow2.innerHTML = eventData.results[1].location;
+  const eventDateShow2 = document.getElementById("eventDate2");
+  eventDateShow2.innerHTML = eventDate2;
+  const eventTimeShow2 = document.getElementById("eventTime2");
+  eventTimeShow2.innerHTML = eventTime2 + " Zulu Time (UTC +0)";
 }
 
 ////
