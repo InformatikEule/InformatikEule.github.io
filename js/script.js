@@ -29,10 +29,7 @@ async function upcomingLaunches() {
   } else {
     const tooManyRequests = document.getElementById("rocketType");
     tooManyRequests.innerHTML =
-      "Error, Server returns status-code" +
-      resp.status +
-      "! Status-Text: " +
-      resp.statusText;
+      "Error, Server returns status-code " + resp.status;
   }
 }
 
