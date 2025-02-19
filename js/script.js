@@ -34,13 +34,13 @@ async function upcomingLaunches() {
 }
 
 function useLaunchData(launchData) {
-  var launchDayTime1 = launchData.results[1].net;
-  var launchDay1 = launchDayTime1.slice(0, 10);
-  var launchTime1 = launchDayTime1.slice(11, 19);
+  let launchDayTime1 = launchData.results[1].net;
+  let launchDay1 = launchDayTime1.slice(0, 10);
+  let launchTime1 = launchDayTime1.slice(11, 19);
 
-  var launchDayTime2 = launchData.results[2].net;
-  var launchDay2 = launchDayTime2.slice(0, 10);
-  var launchTime2 = launchDayTime2.slice(11, 19);
+  let launchDayTime2 = launchData.results[2].net;
+  let launchDay2 = launchDayTime2.slice(0, 10);
+  let launchTime2 = launchDayTime2.slice(11, 19);
 
   //1st upcoming Rocket Launch:
   document.getElementsByClassName("skeleton-text").hidden = true;
@@ -94,12 +94,12 @@ async function upcomingEvents() {
 }
 
 function useEventData(eventData) {
-  var eventDateTime = eventData.results[0].date;
-  var eventDate = eventDateTime.slice(0, 10);
-  var eventTime = eventDateTime.slice(11, 19);
-  var eventDateTime2 = eventData.results[1].date;
-  var eventDate2 = eventDateTime2.slice(0, 10);
-  var eventTime2 = eventDateTime2.slice(11, 19);
+  let eventDateTime = eventData.results[0].date;
+  let eventDate = eventDateTime.slice(0, 10);
+  let eventTime = eventDateTime.slice(11, 19);
+  let eventDateTime2 = eventData.results[1].date;
+  let eventDate2 = eventDateTime2.slice(0, 10);
+  let eventTime2 = eventDateTime2.slice(11, 19);
 
   const eventImgShow = document.getElementById("eventImg");
   eventImgShow.src = eventData.results[0].feature_image;
