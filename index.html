@@ -22,13 +22,13 @@
   <script src="js/script.js"></script>
 </head>
 
-<!--onload, fills the upcomming launches section with data.-->
+<!--onload (when the page is loaded), starts the functions to get data for launches/events.-->
 
 <body onload="pageOnLoad()">
   <dialog data-modal>
 
   </dialog>
-  <!-- First Part-->
+  <!-- Intro, still ugly. i have no idea what to put here... -->
   <section id="title">
     <div class="container-fluid">
       <!-- Nav Bar -->
@@ -83,18 +83,13 @@
           <p class="text-white skeleton skeleton-text textSize"></p>
         </div>
       </div>
-      <!--<button class="btn btn-secondary" name="submitWeather" id="weatherBtn" onclick="showMoreEvents">Send</button>
-      <p id="foo">click on this element.</p>
-      <button class="btn btn-secondary showMoreLaunches" id="showMoreLaunches" name="showMoreLaunches"
-        type="submit">Show
-        more</button>-->
+      <button class="btn btn-secondary myNewButton" name="submitWeather" id="weatherBtn"
+        onclick="showMoreEvents">Send</button>
     </div>
   </section>
   <!-- upComing Events-->
   <section id="upcomingEvents">
     <h4 class="text-center text-white highLight">Upcoming Space Events:</h4>
-    <!--<a href="" class="btnMoreEvents">Show more Space Events</a>
-    <button class="text-center btnMoreEvents" id="btnMoreEvents">Show more Space Events</button>-->
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-4">
@@ -121,6 +116,7 @@
       </div>
     </div>
   </section>
+  <!-- subPages: -->
   <section id="cards">
     <div id="card">
       <div class="container mt-5">

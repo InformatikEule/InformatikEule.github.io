@@ -1,10 +1,4 @@
-////
-// onload function:
-////
-
-//const p = document.getElementById("foo"); // Find the paragraph element in the page
-//p.onclick = showAlert; // Add onclick function to element
-
+//pageOnLoad wird ausgeführt sobald die seite geladen wurde und füllt den Launches/Events Berreich mit Daten
 function pageOnLoad() {
   upcomingLaunches();
   upcomingEvents();
@@ -21,7 +15,7 @@ async function upcomingLaunches() {
     console.log("LaunchData:");
     console.log(launchData);
     useLaunchData(launchData);
-    //prüfen ob die 15 reqs/day abgelaufen sind:
+    //prüfen ob die 15 requests per day abgelaufen sind:
   } else if (resp.status == 429) {
     const tooManyRequestsLaunches1 = document.getElementById("rocketType");
     tooManyRequestsLaunches1.innerHTML =
@@ -79,17 +73,15 @@ async function upcomingEvents() {
     useEventData(eventData);
     console.log("EventData:");
     console.log(eventData);
-    //prüfen ob die 15 reqs/day abgelaufen sind
+    //prüfen ob die 15 requests per day abgelaufen sind
   } else if (resp.status == 429) {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Too many requests. Events wont show Data for the next hour";
-    //alert("Too many requests. Events wont show Data for the next hour");
   } else {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Error, Server returns status-code " + resp.status + "!";
-    //resp.statusText;
   }
 }
 
@@ -127,17 +119,3 @@ function useEventData(eventData) {
   const eventTimeShow2 = document.getElementById("eventTime2");
   eventTimeShow2.innerHTML = eventTime2 + " Zulu Time (UTC +0)";
 }
-
-////
-// moreEvents.js
-////
-// var showMoreEventsBtn = document.querySelector("btnMoreEvents");
-
-// showMoreEventsBtn.addEventListener("click", () => {
-//   alert("hio");
-// });
-// const weatherButton = document.querySelector("#weatherBtn");
-// weatherButton.addEventListener("click", () => {
-//   console.log("hallo");
-//   //fetchWeather();
-// });

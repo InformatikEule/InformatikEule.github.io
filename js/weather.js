@@ -16,7 +16,6 @@ async function fetchWeather() {
   const city = getCity();
   let resp = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`
-    //https://api.openweathermap.org/data/2.5/weather?q=leipzig&appid=4b4deb0d15407521515a92a00bc6cf97
   );
   //prüfen ob der server einen fehler meldet:
   if (resp.status >= 200 && resp.status < 400) {
