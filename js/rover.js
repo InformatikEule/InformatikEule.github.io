@@ -98,13 +98,13 @@ async function reqRov() {
   let respRov = await fetch(
     `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
   );
-  if (respRov.status >= 200 && respRov.status < 400) {
+  if (!respRov.status.ok) {
+    console.log("Error, Status code: " + respRov.status);
+    alert("Error, Server returns status-code: " + respRov.status);
+  } else {
     let dataRov = await respRov.json();
     useDataRov(dataRov);
     console.log(dataRov);
-  } else {
-    console.log("Error, Status code: " + respRov.status);
-    alert("Error, Server returns status-code: " + respRov.status);
   }
 }
 

@@ -18,10 +18,7 @@ async function fetchWeather() {
     `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`
   );
   //prüfen ob der server einen fehler meldet:
-  if (resp.status >= 200 && resp.status < 400) {
-    let weatherData = await resp.json();
-    useWeatherData(weatherData);
-  } else {
+  if (resp.status.ok) {
     console.log("Error, Status code: " + resp.status);
     alert(
       "Error, Server returns status-code: " +
@@ -29,6 +26,9 @@ async function fetchWeather() {
         "! Status-Text: " +
         resp.statusText
     );
+  } else {
+    let weatherData = await resp.json();
+    useWeatherData(weatherData);
   }
 }
 

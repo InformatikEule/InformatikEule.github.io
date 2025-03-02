@@ -10,20 +10,22 @@ function pageOnLoad() {
 async function upcomingLaunches() {
   let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/`);
   //prüfen ob der server einen fehler meldet:
-  if (resp.status >= 200 && resp.status < 400) {
-    let launchData = await resp.json();
-    console.log("LaunchData:");
-    console.log(launchData);
-    useLaunchData(launchData);
+  //i just learned about the .ok method... :D
+  if (!resp.status.ok) {
+    // >= 200 && resp.status < 400) {
     //prüfen ob die 15 requests per day abgelaufen sind:
+    const tooManyRequests = document.getElementById("rocketType");
+    tooManyRequests.innerHTML =
+      "Error, Server returns status-code " + resp.status;
   } else if (resp.status == 429) {
     const tooManyRequestsLaunches1 = document.getElementById("rocketType");
     tooManyRequestsLaunches1.innerHTML =
       "Too many requests. Upcoming Launches wont show Data for the next hour";
   } else {
-    const tooManyRequests = document.getElementById("rocketType");
-    tooManyRequests.innerHTML =
-      "Error, Server returns status-code " + resp.status;
+    let launchData = await resp.json();
+    console.log("LaunchData:");
+    console.log(launchData);
+    useLaunchData(launchData);
   }
 }
 
@@ -68,20 +70,20 @@ function useLaunchData(launchData) {
 async function upcomingEvents() {
   let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/event/upcoming/`);
   //prüfen ob der server einen fehler meldet:
-  if (resp.status >= 200 && resp.status < 400) {
-    let eventData = await resp.json();
-    useEventData(eventData);
-    console.log("EventData:");
-    console.log(eventData);
+  if (!resp.status.ok) {
+    const tooManyRequests = document.getElementById("event");
+    tooManyRequests.innerHTML =
+      "Error, Server returns status-code " + resp.status + "!";
     //prüfen ob die 15 requests per day abgelaufen sind
   } else if (resp.status == 429) {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Too many requests. Events wont show Data for the next hour";
   } else {
-    const tooManyRequests = document.getElementById("event");
-    tooManyRequests.innerHTML =
-      "Error, Server returns status-code " + resp.status + "!";
+    let eventData = await resp.json();
+    useEventData(eventData);
+    console.log("EventData:");
+    console.log(eventData);
   }
 }
 

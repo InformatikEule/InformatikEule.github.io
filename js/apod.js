@@ -82,14 +82,15 @@ async function fetchSingleApod() {
   );
   //prüfen ob der server einen fehler meldet:
   console.log(singleResp);
-  if (singleResp.status >= 200 && singleResp.status < 400) {
-    let dataSingleApod = await singleResp.json();
-    console.log(dataSingleApod);
-    useSingleData(dataSingleApod);
-  } else {
+  if (!singleResp.status.ok) {
+    //>= 200 && singleResp.status < 400) {
     console.log("Error, Status code: " + singleResp.status);
     alert("Error, Server returns status-code: " + singleResp.status);
     // + getHTTPCats()
+  } else {
+    let dataSingleApod = await singleResp.json();
+    console.log(dataSingleApod);
+    useSingleData(dataSingleApod);
   }
 }
 
@@ -103,6 +104,7 @@ function useSingleData(dataSingleApod) {
   mediaType.textContent = "Media-Type: " + dataSingleApod.media_type;
   vid.src = dataSingleApod.url;
   copy.textContent = "Copyright: " + dataSingleApod.copyright;
+  //falls bild:
   if (dataSingleApod.media_type == "image") {
     apodArr.push(title, img, caption, copy, mediaType);
     apodArr.forEach((element) => {
@@ -111,11 +113,13 @@ function useSingleData(dataSingleApod) {
         .setAttribute("class", "border border-secondary");
       document.getElementById("apodDataDisplay").appendChild(element);
     });
+    //falls video:
   } else if (dataSingleApod.media_type == "video") {
     apodArr.push(title, vid, caption, copy, mediaType);
     apodArr.forEach((element) => {
       document.getElementById("apodDataDisplay").appendChild(element);
     });
+    //unwahrscheinlicher edge case:
   } else {
     console.log("unknown media format: " + dataSingleApod.media_type);
     alert(
@@ -170,11 +174,8 @@ async function fetchMultipleApods() {
   );
   //prüfen ob der server einen fehler meldet:
   console.log(multipleResp);
-  if (multipleResp.status >= 200 && multipleResp.status < 400) {
-    let dataMultipleApods = await multipleResp.json();
-    console.log(dataMultipleApods);
-    useDataMultiple(dataMultipleApods);
-  } else {
+  if (!multipleResp.status.ok) {
+    //>= 200 && multipleResp.status < 400) {
     console.log("Error, Status code: " + multipleResp.status);
     alert(
       "Error, Server returns status-code: " +
@@ -182,6 +183,10 @@ async function fetchMultipleApods() {
         "! Status-Text: " +
         multipleResp.statusText
     );
+  } else {
+    let dataMultipleApods = await multipleResp.json();
+    console.log(dataMultipleApods);
+    useDataMultiple(dataMultipleApods);
   }
 }
 
