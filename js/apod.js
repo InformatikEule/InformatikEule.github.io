@@ -82,15 +82,13 @@ async function fetchSingleApod() {
   );
   //prüfen ob der server einen fehler meldet:
   console.log(singleResp);
-  if (!singleResp.status.ok) {
-    //>= 200 && singleResp.status < 400) {
-    console.log("Error, Status code: " + singleResp.status);
-    alert("Error, Server returns status-code: " + singleResp.status);
-    // + getHTTPCats()
-  } else {
+  if (!singleResp.ok) {
     let dataSingleApod = await singleResp.json();
     console.log(dataSingleApod);
     useSingleData(dataSingleApod);
+  } else {
+    console.log("Error, Status code: " + singleResp.status);
+    alert("Error, Server returns status-code: " + singleResp.status);
   }
 }
 
@@ -174,7 +172,7 @@ async function fetchMultipleApods() {
   );
   //prüfen ob der server einen fehler meldet:
   console.log(multipleResp);
-  if (!multipleResp.status.ok) {
+  if (!multipleResp.ok) {
     //>= 200 && multipleResp.status < 400) {
     console.log("Error, Status code: " + multipleResp.status);
     alert(

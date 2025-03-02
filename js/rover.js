@@ -98,7 +98,7 @@ async function reqRov() {
   let respRov = await fetch(
     `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earthDate}&api_key=BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0`
   );
-  if (!respRov.status.ok) {
+  if (!respRov.ok) {
     console.log("Error, Status code: " + respRov.status);
     alert("Error, Server returns status-code: " + respRov.status);
   } else {

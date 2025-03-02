@@ -11,7 +11,7 @@ async function upcomingLaunches() {
   let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/`);
   //prüfen ob der server einen fehler meldet:
   //i just learned about the .ok method... :D
-  if (!resp.status.ok) {
+  if (!resp.ok) {
     // >= 200 && resp.status < 400) {
     //prüfen ob die 15 requests per day abgelaufen sind:
     const tooManyRequests = document.getElementById("rocketType");
@@ -70,7 +70,7 @@ function useLaunchData(launchData) {
 async function upcomingEvents() {
   let resp = await fetch(`https://ll.thespacedevs.com/2.2.0/event/upcoming/`);
   //prüfen ob der server einen fehler meldet:
-  if (!resp.status.ok) {
+  if (!resp.ok) {
     const tooManyRequests = document.getElementById("event");
     tooManyRequests.innerHTML =
       "Error, Server returns status-code " + resp.status + "!";
