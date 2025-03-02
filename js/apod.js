@@ -83,12 +83,12 @@ async function fetchSingleApod() {
   //prüfen ob der server einen fehler meldet:
   console.log(singleResp);
   if (!singleResp.ok) {
+    console.log("Error, Status code: " + singleResp.status);
+    alert("Error, Server returns status-code: " + singleResp.status);
+  } else {
     let dataSingleApod = await singleResp.json();
     console.log(dataSingleApod);
     useSingleData(dataSingleApod);
-  } else {
-    console.log("Error, Status code: " + singleResp.status);
-    alert("Error, Server returns status-code: " + singleResp.status);
   }
 }
 
