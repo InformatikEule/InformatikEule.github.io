@@ -17,5 +17,5 @@ async function getRawData() {
 
 function useRawData(dataRaw) {
   //komme hier grad nicht weiter sadface.jpg
-  console.log("hier" + dataRaw.results[0]);
+  console.log(dataRaw);
 }
