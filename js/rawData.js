@@ -11,11 +11,24 @@ async function getRawData() {
   } else {
     let dataRaw = await data.json();
     console.log(dataRaw);
-    useRawData(dataRaw);
+    //useRawData(dataRaw);
+    const dataRawList = document.querySelector("ul");
+    dataRaw.results.forEach((element) => {
+      console.log(element);
+      // dataRawList.insertAdjacentElement(
+      //   "beforeend",
+      //   "<li>${element.name}</li>"
+      // );
+    });
   }
 }
 
-function useRawData(dataRaw) {
-  //komme hier grad nicht weiter sadface.jpg
-  console.log(dataRaw);
-}
+//function useRawData(dataRaw) {
+
+//zeigt den namen der ersten rakete...
+//console.log(dataRaw.results[0].name);
+//dataRaw.forEach((element) => {
+//console.log("ji");
+//dataRawList.insertAdjacentElement("beforeend", `<li>${element.name}</li>`);
+//});
+//}
