@@ -13,7 +13,10 @@ async function getRawData() {
     console.log(dataRaw);
     const dataRawList = document.querySelector("ul");
     dataRaw.results.forEach((element) => {
-      dataRawList.insertAdjacentHTML(`beforeend`, `<li>${element.name}</li>`);
+      dataRawList.insertAdjacentHTML(
+        `beforeend`,
+        `<li>${element.name}<ul><img class="img-fluid launchImg" src="${element.image}"></img></ul><ul>${element.net}</ul><ul>${element.mission.description}</ul></li>`
+      );
     });
   }
 }

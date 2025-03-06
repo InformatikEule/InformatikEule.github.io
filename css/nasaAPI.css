@@ -71,3 +71,12 @@ body {
     font-size: 2rem;
   }
 }
+
+.launchImg,
+.launchImg2,
+.eventImg,
+.eventImg2 {
+  border-radius: 3%;
+  height: 480px;
+  width: 640px;
+}
