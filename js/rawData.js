@@ -20,7 +20,7 @@ async function getRawData() {
         }"></img><li>${element.net.slice(0, 10)}<li>${element.net.slice(
           11,
           19
-        )}</li></li><li>${element.mission.description}</li></ul></li>`
+        )}</li></li><li>${element.mission.description}</li></ul></li><br>`
         //`<li>${element.name}<ul><img class="img-fluid launchImg" src="${element.image}"></img></ul><ul>${element.net}</ul><ul>${element.mission.description}</ul></li>`
       );
     });
