@@ -11,11 +11,11 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/nasaAPI.css">
-    <script defer src="js/rawData.js"></script>
+    <script defer src="js/moreLaunches.js"></script>
 
 </head>
 
-<body>
+<body onload="getMoreLaunches()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -25,19 +25,13 @@
             </a>
         </div>
     </nav>
-    <div class="text-center text-danger">
-        <h2>My goal with this website has been, among other things, to make certain NASA resources more accessible to
-            the average user and to present them in an appealing way. However, since I also use this site myself to stay
-            updated on the latest space-related information, I am introducing a new section. This one focuses less on
-            colorful and stylized interfaces and instead provides pure data! </h2>
-        <h4>coming soon (tm):</h4>
-        <button type="submit" class="btn-danger" id="getRawData">Show Data Raw!</button>
-        <!--<pre>{JSON.stringify(json, null, 2)}</pre>-->
-    </div>
     <div>
         <ul class="text-white">
-
+            <!-- Hier wird der content aufgelistet.-->
         </ul>
+    </div>
+    <div>
+        <!--anchor der wieder nach oben leitet-->
     </div>
 </body>
 
