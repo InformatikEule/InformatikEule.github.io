@@ -49,7 +49,7 @@ function useLaunchData(launchData) {
   const launchDayShow1 = document.getElementById("launchDay1");
   launchDayShow1.textContent = launchDay1 + " ";
   const launchTimeShow1 = document.getElementById("launchTime1");
-  launchTimeShow1.textContent = launchTime1 + " Zulu Time (UTC +0)";
+  launchTimeShow1.textContent = launchTime1 + " Zulu Time (UTC)";
 
   //2nd upcoming Rocket Launch
   const launchImg2 = document.getElementById("launchImg2");
@@ -61,7 +61,7 @@ function useLaunchData(launchData) {
   const launchDayShow2 = document.getElementById("launchDay2");
   launchDayShow2.textContent = launchDay2;
   const launchTimeShow2 = document.getElementById("launchTime2");
-  launchTimeShow2.textContent = launchTime2 + " Zulu Time (UTC +0)";
+  launchTimeShow2.textContent = launchTime2 + " Zulu Time (UTC)";
 }
 
 ////
@@ -106,7 +106,7 @@ function useEventData(eventData) {
   const eventDateShow = document.getElementById("eventDate");
   eventDateShow.innerHTML = eventDate;
   const eventTimeShow = document.getElementById("eventTime");
-  eventTimeShow.innerHTML = eventTime + " Zulu Time (UTC +0)";
+  eventTimeShow.innerHTML = eventTime + " Zulu Time (UTC)";
 
   const eventImgShow2 = document.getElementById("eventImg2");
   eventImgShow2.src = eventData.results[1].feature_image;
@@ -119,5 +119,5 @@ function useEventData(eventData) {
   const eventDateShow2 = document.getElementById("eventDate2");
   eventDateShow2.innerHTML = eventDate2;
   const eventTimeShow2 = document.getElementById("eventTime2");
-  eventTimeShow2.innerHTML = eventTime2 + " Zulu Time (UTC +0)";
+  eventTimeShow2.innerHTML = eventTime2 + " Zulu Time (UTC)";
 }

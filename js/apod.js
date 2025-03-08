@@ -14,124 +14,66 @@ img.setAttribute("class", "img-fluid");
 const mediaType = document.createElement("p");
 const vid = document.createElement("iframe");
 const copy = document.createElement("p");
-const fetchSingleApodButton = document.querySelector("#fetchSingleApod");
 const fetchMultipleApodButton = document.querySelector("#fetchMultipleApod");
 const dateToday = new Date();
 const dateFormatted = dateToday.toISOString().slice(0, 10);
-fetchSingleApodButton.addEventListener("click", () => {
-  fetchSingleApod();
-});
 
 fetchMultipleApodButton.addEventListener("click", () => {
   fetchMultipleApods();
 });
 
-function getDate() {
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // My old solution for date comparison. I'll leave it commented out in here because I'm proud to have come up with it, but somehow it falls under "programming warcrimes" ;-D//
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // const dateAll = new Date();
-  // const monthCheck = [
-  //   "01",
-  //   "02",
-  //   "03",
-  //   "04",
-  //   "05",
-  //   "06",
-  //   "07",
-  //   "08",
-  //   "09",
-  //   "10",
-  //   "11",
-  //   "12",
-  // ];
-  // const monthInput = monthCheck[dateAll.getMonth()];
-  // const dateToday =
-  //   dateAll.getUTCFullYear() + "-" + monthInput + "-" + dateAll.getUTCDate();
-  // if (
-  //   document.getElementById("date").value > dateToday ||
-  //   document.getElementById("date").value < "1995-06-15"
-  // ) {
-  //   alert("Date must be between June 16, 1995 and Today!");
-  //   throw new Error(
-  //     "Unfortunately, iam not able to predict the Future. sadface.jpg"
-  //   );
-  // } else {
-  //   return document.getElementById("date").value;
-  // }
-  if (
-    document.getElementById("date").value > dateFormatted ||
-    document.getElementById("date").value < "1995-06-20"
-  ) {
-    alert("Date must be between June 20, 1995 and Today!");
-    throw new Error(
-      "Unfortunately, iam not able to predict the Future. sadface.jpg"
-    );
-  } else {
-    return document.getElementById("date").value;
-  }
-}
-
+//diese funktion wird ausgeführt wenn die seite fertig geladen wurde (onload)
 async function fetchSingleApod() {
   let singleResp = await fetch(
     "https://api.nasa.gov/planetary/apod?" +
       "api_key=" +
       "BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0" +
       "&date=" +
-      getDate()
+      dateFormatted
   );
-  //prüfen ob der server einen fehler meldet:
   console.log(singleResp);
+  //prüfen ob der server einen fehler meldet:
   if (!singleResp.ok) {
     console.log("Error, Status code: " + singleResp.status);
     alert("Error, Server returns status-code: " + singleResp.status);
   } else {
     let dataSingleApod = await singleResp.json();
-    console.log(dataSingleApod);
-    useSingleData(dataSingleApod);
-  }
-}
-
-function useSingleData(dataSingleApod) {
-  //routine zum prüfen ob ein bild oder video zurückkommt.
-  //anlegen der Elemente und zu einem Array zufügen.
-  console.log(dataSingleApod);
-  title.textContent = dataSingleApod.title;
-  caption.textContent = dataSingleApod.explanation;
-  img.src = dataSingleApod.url;
-  mediaType.textContent = "Media-Type: " + dataSingleApod.media_type;
-  vid.src = dataSingleApod.url;
-  copy.textContent = "Copyright: " + dataSingleApod.copyright;
-  //falls bild:
-  if (dataSingleApod.media_type == "image") {
-    apodArr.push(title, img, caption, copy, mediaType);
-    apodArr.forEach((element) => {
-      document
-        .getElementById("apodDataDisplay")
-        .setAttribute("class", "border border-secondary");
-      document.getElementById("apodDataDisplay").appendChild(element);
-    });
-    //falls video:
-  } else if (dataSingleApod.media_type == "video") {
-    apodArr.push(title, vid, caption, copy, mediaType);
-    apodArr.forEach((element) => {
-      document.getElementById("apodDataDisplay").appendChild(element);
-    });
-    //unwahrscheinlicher edge case:
-  } else {
-    console.log("unknown media format: " + dataSingleApod.media_type);
-    alert(
-      "unknown media type. Server returns: " +
-        dataSingleApod.media_type +
-        ". Dont know what to do with that."
-    );
+    title.textContent = dataSingleApod.title;
+    caption.textContent = dataSingleApod.explanation;
+    img.src = dataSingleApod.url;
+    mediaType.textContent = "Media-Type: " + dataSingleApod.media_type;
+    vid.src = dataSingleApod.url;
+    copy.textContent = "Copyright: " + dataSingleApod.copyright;
+    //falls bild:
+    if (dataSingleApod.media_type == "image") {
+      apodArr.push(title, img, caption, copy, mediaType);
+      apodArr.forEach((element) => {
+        document
+          .getElementById("apodDataDisplay")
+          .setAttribute("class", "border border-secondary");
+        document.getElementById("apodDataDisplay").appendChild(element);
+      });
+      //falls video:
+    } else if (dataSingleApod.media_type == "video") {
+      apodArr.push(title, vid, caption, copy, mediaType);
+      apodArr.forEach((element) => {
+        document.getElementById("apodDataDisplay").appendChild(element);
+      });
+      //unwahrscheinlicher edge case:
+    } else {
+      console.log("unknown media format: " + dataSingleApod.media_type);
+      alert(
+        "unknown media type. Server returns: " +
+          dataSingleApod.media_type +
+          ". Dont know what to do with that."
+      );
+    }
   }
 }
 
 ////
 // Multiple Apods Part:
 ////
-//TODO: DRY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getStartDate() {
   var startDate = document.getElementById("getStartDate").value;
   if (startDate < "1995-20-06" || startDate > dateFormatted) {
@@ -173,7 +115,6 @@ async function fetchMultipleApods() {
   //prüfen ob der server einen fehler meldet:
   console.log(multipleResp);
   if (!multipleResp.ok) {
-    //>= 200 && multipleResp.status < 400) {
     console.log("Error, Status code: " + multipleResp.status);
     alert(
       "Error, Server returns status-code: " +
@@ -234,3 +175,46 @@ function useDataMultiple(dataMultipleApods) {
     .join("");
   display.innerHTML = showData;
 }
+// My old solution for date comparison. I'll leave it commented out in here because I'm proud to have come up with it, but somehow it falls under "programming warcrimes" ;-D//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// const dateAll = new Date();
+// const monthCheck = [
+//   "01",
+//   "02",
+//   "03",
+//   "04",
+//   "05",
+//   "06",
+//   "07",
+//   "08",
+//   "09",
+//   "10",
+//   "11",
+//   "12",
+// ];
+// const monthInput = monthCheck[dateAll.getMonth()];
+// const dateToday =
+//   dateAll.getUTCFullYear() + "-" + monthInput + "-" + dateAll.getUTCDate();
+// if (
+//   document.getElementById("date").value > dateToday ||
+//   document.getElementById("date").value < "1995-06-15"
+// ) {
+//   alert("Date must be between June 16, 1995 and Today!");
+//   throw new Error(
+//     "Unfortunately, iam not able to predict the Future. sadface.jpg"
+//   );
+// } else {
+//   return document.getElementById("date").value;
+// }
+//   if (
+//     document.getElementById("date").value > dateFormatted ||
+//     document.getElementById("date").value < "1995-06-20"
+//   ) {
+//     alert("Date must be between June 20, 1995 and Today!");
+//     throw new Error(
+//       "Unfortunately, iam not able to predict the Future. sadface.jpg"
+//     );
+//   } else {
+//     return document.getElementById("date").value;
+//   }
+// }

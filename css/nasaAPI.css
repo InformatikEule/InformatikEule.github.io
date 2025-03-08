@@ -29,10 +29,6 @@ body {
   width: 100%;
 }
 
-#apodDataDisplay {
-  margin-top: 120px;
-}
-
 .singleApod {
   position: absolute;
   left: 80px;

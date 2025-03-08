@@ -14,7 +14,7 @@
   <script defer src="js/apod.js"></script>
 </head>
 
-<body>
+<body onload="fetchSingleApod()">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html#cards">
@@ -25,17 +25,10 @@
     </div>
   </nav>
   <br>
-  <div class="border border-secondary container text-center text-white">
-    <h1 class="apod">Astronomy Picture of the Day (APOD):</h1>
-    <h5 class="desc">Why can i get Data from NASA on your site?</h5>
-    <h5 class="desc">Let me explain it with the words of NASA: "Welcome to the NASA API portal. The objective of this
-      site is to make NASA data, including imagery, eminently accessible to application developers."</h5>
-  </div>
-
   <div class="container">
     <div class="row">
-      <div class="col container text-center text-white">
-        <!--fetch a single APOD-->
+      <div class="container text-center text-white">
+        <!--fetch a single APOD
         <div class="apodContainer singleApod">
           <h2>Get the Apod from a specific day:</h2>
           <p>Enter a date and press send: <input class="body" type="date" name="date" id="date">
@@ -43,15 +36,18 @@
               type="submit">Send</button>
           </p>
 
-        </div>
+        </div>-->
         <!--fetch multiple APOD's-->
-        <div class="apodContainer multipleApod">
-          <h2>Or search for multiple Apod's:</h2>
+        <div class="apodContainer">
+          <h2>Search for specific Apod's:</h2>
           <p>Start Date: <input class="body" type="date" name="getStartDate" id="getStartDate">
             End Date: <input class="body" type="date" name="getEndDate" id="getEndDate">
             <button class="body btn btn-secondary" name="fetchMultipleApod" id="fetchMultipleApod"
               type="submit">Send</button>
           </p>
+        </div>
+        <div class="border border-secondary container text-center text-white">
+          <h1 class="apod">Astronomy Picture of the Day (APOD):</h1>
         </div>
         <!--display container-->
         <div class="container text-center text-white" id="apodDataDisplay">
