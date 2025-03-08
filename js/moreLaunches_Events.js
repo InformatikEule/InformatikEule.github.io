@@ -35,13 +35,13 @@ async function getMoreEvents() {
     dataRaw.results.forEach((element) => {
       dataRawList.insertAdjacentHTML(
         `beforeend`,
-        `<li>${element.name}<ul><img class="img-fluid launchImg" src="${
-          element.feature_image
-        }"></img><li>${element.date.slice(0, 10)}<li>${element.date.slice(
-          11,
-          19
-        )}</li></li><li>${element.description}</li></ul></li><br>`
-        //`<li>${element.name}<ul><img class="img-fluid launchImg" src="${element.image}"></img></ul><ul>${element.net}</ul><ul>${element.mission.description}</ul></li>`
+        `<li><h4>${element.name}</h4><ul>
+        <img class="img-fluid launchImg" src="${element.feature_image}"></img>
+        <li>${element.date.slice(0, 10)}</li>
+        <li>${element.date.slice(11, 19)}</li>
+        <li>${element.description}</li>
+        <li>Location: <span>${element.location}</span></li>
+        <li>Type: <span>${element.type.name}</span></li></ul><br>`
       );
     });
   }
