@@ -9,7 +9,7 @@ async function getMoreLaunches() {
     const dataRawList = document.querySelector("ul");
     dataRaw.results.forEach((element) => {
       let dateFormatted = new Date(element.net.slice(0, 10)).toLocaleDateString(
-        "en-GB"
+        "de-DE"
       );
       dataRawList.insertAdjacentHTML(
         `beforeend`,
@@ -38,7 +38,7 @@ async function getMoreEvents() {
     dataRaw.results.forEach((element) => {
       let dateFormatted = new Date(
         element.date.slice(0, 10)
-      ).toLocaleDateString("en-GB");
+      ).toLocaleDateString("de-DE");
       dataRawList.insertAdjacentHTML(
         `beforeend`,
         `<li><h4>${element.name}</h4><ul>

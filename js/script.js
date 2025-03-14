@@ -31,11 +31,15 @@ async function upcomingLaunches() {
 
 function useLaunchData(launchData) {
   let launchDayTime1 = launchData.results[1].net;
-  let launchDay1 = launchDayTime1.slice(0, 10);
+  let launchDay1 = new Date(launchDayTime1.slice(0, 10)).toLocaleDateString(
+    "de-DE"
+  );
   let launchTime1 = launchDayTime1.slice(11, 19);
 
   let launchDayTime2 = launchData.results[2].net;
-  let launchDay2 = launchDayTime2.slice(0, 10);
+  let launchDay2 = new Date(launchDayTime2.slice(0, 10)).toLocaleDateString(
+    "de-DE"
+  );
   let launchTime2 = launchDayTime2.slice(11, 19);
 
   //1st upcoming Rocket Launch:
@@ -89,10 +93,14 @@ async function upcomingEvents() {
 
 function useEventData(eventData) {
   let eventDateTime = eventData.results[0].date;
-  let eventDate = eventDateTime.slice(0, 10);
+  let eventDate = new Date(eventDateTime.slice(0, 10)).toLocaleDateString(
+    "de-DE"
+  );
   let eventTime = eventDateTime.slice(11, 19);
   let eventDateTime2 = eventData.results[1].date;
-  let eventDate2 = eventDateTime2.slice(0, 10);
+  let eventDate2 = new Date(eventDateTime2.slice(0, 10)).toLocaleDateString(
+    "de-DE"
+  );
   let eventTime2 = eventDateTime2.slice(11, 19);
 
   const eventImgShow = document.getElementById("eventImg");
