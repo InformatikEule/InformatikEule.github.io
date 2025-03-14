@@ -8,13 +8,16 @@ async function getMoreLaunches() {
     console.log(dataRaw);
     const dataRawList = document.querySelector("ul");
     dataRaw.results.forEach((element) => {
+      let dateFormatted = new Date(element.net.slice(0, 10)).toLocaleDateString(
+        "en-GB"
+      );
       dataRawList.insertAdjacentHTML(
         `beforeend`,
         `<li><h4>${element.name}</h4><ul>
         <img class="img-fluid launchImg" src="${element.image}"></img>
-        <li>${element.net.slice(0, 10)}</li>
-        <li>${element.net.slice(11, 19)}</li>
-        <li>${element.mission.description}</li>
+        <li>Date: <span>${dateFormatted}</span></li>
+        <li>Time: <span>${element.net.slice(11, 19)}</span></li>
+        <li>Description: <span>${element.mission.description}</span></li>
         <li>Status: <span>${element.status.name}</span></li>
         <li>Orbit: <span>${element.mission.orbit.name}</span></li>
         <li>Type: <span>${element.mission.type}</span></li></ul><br>`
@@ -33,13 +36,16 @@ async function getMoreEvents() {
     console.log(dataRaw);
     const dataRawList = document.querySelector("ul");
     dataRaw.results.forEach((element) => {
+      let dateFormatted = new Date(element.net(11, 19)).toLocaleDateString(
+        "en-GB"
+      );
       dataRawList.insertAdjacentHTML(
         `beforeend`,
         `<li><h4>${element.name}</h4><ul>
         <img class="img-fluid launchImg" src="${element.feature_image}"></img>
-        <li>${element.date.slice(0, 10)}</li>
-        <li>${element.date.slice(11, 19)}</li>
-        <li>${element.description}</li>
+        <li>Date: <span>${dateFormatted}</span></li>
+        <li>Time: <span>${element.date.slice(11, 19)}</span></li>
+        <li>Description: <span>${element.description}</span></li>
         <li>Location: <span>${element.location}</span></li>
         <li>Type: <span>${element.type.name}</span></li></ul><br>`
       );
