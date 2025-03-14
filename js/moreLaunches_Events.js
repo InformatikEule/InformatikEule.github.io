@@ -36,9 +36,9 @@ async function getMoreEvents() {
     console.log(dataRaw);
     const dataRawList = document.querySelector("ul");
     dataRaw.results.forEach((element) => {
-      let dateFormatted = new Date(element.net(11, 19)).toLocaleDateString(
-        "en-GB"
-      );
+      let dateFormatted = new Date(
+        element.date.slice(0, 10)
+      ).toLocaleDateString("en-GB");
       dataRawList.insertAdjacentHTML(
         `beforeend`,
         `<li><h4>${element.name}</h4><ul>
