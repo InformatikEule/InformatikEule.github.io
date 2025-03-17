@@ -54,6 +54,8 @@ function useLaunchData(launchData) {
   launchDayShow1.textContent = launchDay1 + " ";
   const launchTimeShow1 = document.getElementById("launchTime1");
   launchTimeShow1.textContent = launchTime1 + " Zulu Time (UTC)";
+  const flightStatusShow1 = document.getElementById("launchStatus1");
+  flightStatusShow1.textContent = launchData.results[0].status.name;
 
   //2nd upcoming Rocket Launch
   const launchImg2 = document.getElementById("launchImg2");

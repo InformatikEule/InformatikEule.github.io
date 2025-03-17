@@ -2,7 +2,7 @@
 async function getMoreLaunches() {
   let data = await fetch(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/`);
   if (!data.ok) {
-    alert("Sum ting wroang!");
+    alert("Sum ting wroang! Server status: " + data.status);
   } else {
     let dataRaw = await data.json();
     console.log(dataRaw);
@@ -30,7 +30,7 @@ async function getMoreLaunches() {
 async function getMoreEvents() {
   let data = await fetch(`https://ll.thespacedevs.com/2.2.0/event/upcoming/`);
   if (!data.ok) {
-    alert("Sum ting wroang!");
+    alert("Sum ting wroang! Server status: " + data.status);
   } else {
     let dataRaw = await data.json();
     console.log(dataRaw);
