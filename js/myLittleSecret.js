@@ -29,9 +29,13 @@ async function loadCSV(filename) {
   const text = await response.text();
   const data = parseCSV(text);
   console.log(data);
-  const abbreviationsPage = document.getElementById("abbreviations");
-  data.array.forEach((element) => {
-    abbreviationsPage.insertAdjacentElement(`beforeend`, `<h2>${element}</h2>`);
+  const abbreviationsPage = document.querySelector("ul");
+  data.map((element) => {
+    const withOutCommas = element.join(" -> ");
+    abbreviationsPage.insertAdjacentHTML(
+      `beforeend`,
+      `<li class="text-white">${withOutCommas}</li>`
+    );
   });
 }
 
@@ -40,5 +44,5 @@ function onLoad() {
 }
 
 function parseCSV(text) {
-  return text.split("\n").map((row) => row.split(","));
+  return text.split("\n").map((row) => row.split(";"));
 }
