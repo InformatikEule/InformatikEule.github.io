@@ -36,7 +36,7 @@ async function loadCSV(filename) {
 }
 
 function onLoad() {
-  loadCSV("data.csv");
+  loadCSV("Data/data.csv");
 }
 
 function parseCSV(text) {
