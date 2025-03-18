@@ -16,23 +16,27 @@
 // document.getElementById("calgaryTime").textContent =
 //   "Calgary/Cranbrooke: " + mountainTime;
 
-window.addEventListener("DOMContentLoaded", () => {
-  //console.log("jo");
-  loadCSV("Data/data.csv");
-});
+// window.addEventListener("DOMContentLoaded", () => {
+//   //console.log("jo");
+//   loadCSV("Data/data.csv");
+// });
 
 async function loadCSV(filename) {
-  try {
-    const response = await fetch(filename);
-    if (!response.ok) {
-      throw new Error(`Fehler beim Laden der Datei: ${response.statusText}`);
-    }
-    const text = await response.text();
-    const data = parseCSV(text);
-    console.log(data); // Hier kannst du die Daten weiterverarbeiten
-  } catch (error) {
-    console.error("Fehler beim Laden der CSV-Datei:", error);
+  const response = await fetch(filename);
+  if (!response.ok) {
+    throw new Error(`Fehler beim Laden der Datei: ${response.statusText}`);
   }
+  const text = await response.text();
+  const data = parseCSV(text);
+  console.log(data);
+  const abbreviationsPage = document.getElementById("abbreviations");
+  data.array.forEach((element) => {
+    abbreviationsPage.insertAdjacentElement(`beforeend`, `<h2>${element}</h2>`);
+  });
+}
+
+function onLoad() {
+  loadCSV("data.csv");
 }
 
 function parseCSV(text) {
