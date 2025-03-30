@@ -30,13 +30,13 @@ async function upcomingLaunches() {
 }
 
 function useLaunchData(launchData) {
-  let launchDayTime1 = launchData.results[1].net;
+  let launchDayTime1 = launchData.results[0].net;
   let launchDay1 = new Date(launchDayTime1.slice(0, 10)).toLocaleDateString(
     "de-DE"
   );
   let launchTime1 = launchDayTime1.slice(11, 19);
 
-  let launchDayTime2 = launchData.results[2].net;
+  let launchDayTime2 = launchData.results[1].net;
   let launchDay2 = new Date(launchDayTime2.slice(0, 10)).toLocaleDateString(
     "de-DE"
   );
