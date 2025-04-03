@@ -2,77 +2,7 @@ body {
   background-color: #212121;
 }
 
-#pic {
-  height: 100%;
-  width: 100%;
-}
-
-.picFull:hover {
-  transform: scale(1.01);
-}
-
-.picFull {
-  transition: transform 0.5s;
-  margin-bottom: 20px;
-}
-
-.modal-content {
-  background-color: #212121;
-}
-
-.modal-title {
-  color: #000;
-}
-
-.apodContainer {
-  display: table;
-  width: 100%;
-}
-
-.singleApod {
-  position: absolute;
-  left: 80px;
-  width: 50%;
-}
-
-.multipleApod {
-  position: absolute;
-  right: 80px;
-  width: 50%;
-}
-
 .list-group-item {
   background-color: #212121;
   margin-top: 10px;
-}
-
-@media (max-width: 980px) {
-  .singleApod {
-    position: absolute;
-    left: 10px;
-    width: 40%;
-  }
-
-  #apodDataDisplay {
-    margin-top: 170px;
-  }
-
-  .multipleApod {
-    position: absolute;
-    right: 10px;
-    width: 40%;
-  }
-
-  .apod {
-    font-size: 2rem;
-  }
-}
-
-.launchImg,
-.launchImg2,
-.eventImg,
-.eventImg2 {
-  border-radius: 3%;
-  height: 600px;
-  width: 800px;
 }
