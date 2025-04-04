@@ -78,7 +78,7 @@ function getStartDate() {
   var startDate = document.getElementById("getStartDate").value;
   if (startDate < "1995-20-06" || startDate > dateFormatted) {
     alert(
-      "The start date must not be lower than 1995-20-06 and not higher than " +
+      "The start date must not be lower than 20.06.1995 and not higher than " +
         dateFormatted +
         "!"
     );
@@ -101,6 +101,14 @@ function getEndDate() {
     return endDate;
   }
 }
+
+// function test(endDate, startDate) {
+//   if (!endDate && startDate) {
+//     fetchSingleApod();
+//   } else {
+//     fetchMultipleApods();
+//   }
+// }
 
 async function fetchMultipleApods() {
   let multipleResp = await fetch(
