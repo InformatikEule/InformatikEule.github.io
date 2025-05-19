@@ -53,7 +53,7 @@ async function fetchSingleApod() {
       While we can still show you the title and description, the media itself can’t be displayed — sorry about that!
       This issue has been known since March 2024 and is being tracked here on GitHub:
       https://github.com/nasa/apod-api/issues/129`;
-    errMsg.setAttribute("class", "text-danger");
+    errMsg.setAttribute("class", "errMsg");
     //falls bild:
     if (dataSingleApod.media_type == "image") {
       apodArr.push(title, img, caption, copy, mediaType);
@@ -189,7 +189,7 @@ function useDataMultiple(dataMultipleApods) {
               <div class="fw-bold text-center text-white">
                 <h3>${title}</h3>
               </div>
-              <pre class="text-danger">
+              <pre class="errMsg">
                 Oops! Unexpected media type detected!
                 According to NASA's API docs, we should only get "image" or "video"...
                 But today we got "other".

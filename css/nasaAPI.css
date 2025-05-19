@@ -12,3 +12,7 @@ body {
   height: 480px;
   width: 640px;
 }
+
+.errMsg {
+  color: #fe0000;
+}
