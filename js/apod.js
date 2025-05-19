@@ -17,6 +17,7 @@ const copy = document.createElement("p");
 const fetchMultipleApodButton = document.querySelector("#fetchMultipleApod");
 const dateToday = new Date();
 const dateFormatted = dateToday.toISOString().slice(0, 10);
+const errMsg = document.createElement("pre");
 
 fetchMultipleApodButton.addEventListener("click", () => {
   fetchMultipleApods();
@@ -44,6 +45,23 @@ async function fetchSingleApod() {
     mediaType.textContent = "Media-Type: " + dataSingleApod.media_type;
     vid.src = dataSingleApod.url;
     copy.textContent = "Copyright: " + dataSingleApod.copyright;
+    errMsg.textContent = `Oops! Unexpected media type detected!
+According to NASA's API docs, we should only get "image" or "video"...
+But today we got "other".
+We're not saying it's aliens — but it's definitely not our bug.
+(This is a known quirk on NASA's side. Seriously.)
+While we can still show you the title and description, the media itself can’t be displayed — sorry about that!
+This issue has been known since March 2024 and is being tracked here on GitHub:
+https://github.com/nasa/apod-api/issues/129`;
+    // errMsg.textContent = `Oops! Unexpected media type detected! 
+    //   According to NASA's API docs, we should only get "image" or "video"...
+    //   But today we got "other".
+
+    //   We're not saying it's aliens — but it's definitely not our bug.
+    //   (This is a known quirk on NASA's side. Seriously.)
+
+    //   This issue has been known since March 2024 and is being tracked here on GitHub: https://github.com/nasa/apod-api/issues/129`
+    errMsg.setAttribute("class", "text-danger");
     //falls bild:
     if (dataSingleApod.media_type == "image") {
       apodArr.push(title, img, caption, copy, mediaType);
@@ -61,12 +79,16 @@ async function fetchSingleApod() {
       });
       //unwahrscheinlicher edge case:
     } else {
-      console.log("unknown media format: " + dataSingleApod.media_type);
+      apodArr.push(title, errMsg, caption, copy, mediaType);
+            apodArr.forEach((element) => {
+        document.getElementById("apodDataDisplay").appendChild(element);
+    });
+/*       console.log("unknown media format: " + dataSingleApod.media_type);
       alert(
         "unknown media type. Server returns: " +
           dataSingleApod.media_type +
           ". Dont know what to do with that."
-      );
+      ); */
     }
   }
 }
@@ -141,18 +163,36 @@ function useDataMultiple(dataMultipleApods) {
   const display = document.querySelector("#apodDataDisplay");
   let showData = dataMultipleApods
     .map((data) => {
-      const { title, url, media_type, explanation, date, copyright } = data;
+      const { title, url, media_type, explanation, date, copyright, errMsg } = data;
       if (media_type == "image") {
         return `
         <ol class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
               <div class="fw-bold text-center text-white">
-                <h3>Title: ${title}</h3>
+                <h3>${title}</h3>
               </div>
               <a href="#modalFullScreen" data-bs-toggle="modal" data-bs-target="#modalFullScreen" data-toggle="modal">
                 <img src="${url}" id="pic" class="rounded img-fluid"></img>
               </a>
+              <p>${explanation}</p>
+              <p class="text-center text-white">Copyright: ${copyright}</p>
+              <p class="text-center text-white">Date: ${date}</p>
+            </div>
+          </li>
+        </ol>
+      `;
+      } else if (media_type == "video"){
+        return `
+        <ol class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
+            <div class="ms-2 me-auto text-center text-white">
+              <div class="fw-bold text-center text-white">
+                <h3>${title}</h3>
+              </div>
+              <div class="ratio ratio-16x9">
+                <iframe src="${url}" id="vid" allowfullscreen></iframe>
+              </div>
               <p>${explanation}</p>
               <p class="text-center text-white">Copyright: ${copyright}</p>
               <p class="text-center text-white">Date: ${date}</p>
@@ -166,11 +206,16 @@ function useDataMultiple(dataMultipleApods) {
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
             <div class="ms-2 me-auto text-center text-white">
               <div class="fw-bold text-center text-white">
-                <h3>Title: ${title}</h3>
+                <h3>${title}</h3>
               </div>
-              <div class="ratio ratio-16x9">
-                <iframe src="${url}" id="vid" allowfullscreen></iframe>
-              </div>
+              <pre class="text-danger">Oops! Unexpected media type detected!
+                According to NASA's API docs, we should only get "image" or "video"...
+                But today we got "other".
+                We're not saying it's aliens — but it's definitely not our bug.
+                (This is a known quirk on NASA's side. Seriously.)
+                While we can still show you the title and description, the media itself can’t be displayed — sorry about that!
+                This issue has been known since March 2024 and is being tracked here on GitHub:
+                https://github.com/nasa/apod-api/issues/129</pre>
               <p>${explanation}</p>
               <p class="text-center text-white">Copyright: ${copyright}</p>
               <p class="text-center text-white">Date: ${date}</p>
