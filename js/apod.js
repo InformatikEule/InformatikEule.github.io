@@ -49,7 +49,6 @@ async function fetchSingleApod() {
       According to NASA's API docs, we should only get "image" or "video"...
       But today we got "other".
       We're not saying it's aliens — but it's definitely not our bug.
-      (This is a known quirk on NASA's side. Seriously.)
       While we can still show you the title and description, the media itself can’t be displayed — sorry about that!
       This issue has been known since March 2024 and is being tracked here on GitHub:
       https://github.com/nasa/apod-api/issues/129`;
@@ -194,7 +193,6 @@ function useDataMultiple(dataMultipleApods) {
                 According to NASA's API docs, we should only get "image" or "video"...
                 But today we got "other".
                 We're not saying it's aliens — but it's definitely not our bug.
-                (This is a known quirk on NASA's side. Seriously.)
                 While we can still show you the title and description, the media itself can’t be displayed — sorry about that!
                 This issue has been known since March 2024 and is being tracked here on GitHub:
                 https://github.com/nasa/apod-api/issues/129</pre>
