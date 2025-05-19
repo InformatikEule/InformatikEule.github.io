@@ -189,7 +189,8 @@ function useDataMultiple(dataMultipleApods) {
               <div class="fw-bold text-center text-white">
                 <h3>${title}</h3>
               </div>
-              <pre class="text-danger">Oops! Unexpected media type detected!
+              <pre class="text-danger">
+                Oops! Unexpected media type detected!
                 According to NASA's API docs, we should only get "image" or "video"...
                 But today we got "other".
                 We're not saying it's aliens — but it's definitely not our bug.
