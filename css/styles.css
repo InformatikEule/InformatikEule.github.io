@@ -73,7 +73,6 @@ a {
 /*card styling*/
 .card:hover {
   transform: scale(1.05);
-  /*box-shadow: 0rem 0rem 1rem 1rem rgba(236, 7, 95, 0.55);*/
   box-shadow: 0rem 0rem 1rem 1rem rgba(253, 29, 29, 0.55);
 }
 
@@ -85,8 +84,6 @@ a {
 }
 
 .card-img-top {
-  /*height: 300px;*/
-  /*object-position: center;*/
   transition: transform 0.2s ease-in-out;
 }
 
@@ -166,8 +163,6 @@ a {
   border: #771460 0.125em solid;
   border-radius: 0.25em;
   padding: 0.25em 1em;
-
   text-shadow: 0 0 0.25em hsl(0 0% 100% / 0.3), 0 0 0.6em currentColor;
-
   box-shadow: 0 0 0.5em 0 #a51383;
 }
