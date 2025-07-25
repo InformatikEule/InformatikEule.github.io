@@ -1,17 +1,4 @@
-//suchfunktion
-const searchableItems = document.querySelectorAll("li")
 
-searchableItems.forEach((li) => {
-  const searchField = document.getElementById("searchField")
-  const events = [ "keyup", "input", "paste", "cut"]
-  const listitems = document.querySelectorAll("li")
-  events.forEach((event) => {
-    searchField.addEventListener(event, ($event) => {
-      const {value} = $event.target
-      console.log(value)
-    })
-  })
-})
 
 //function um die "more Launches" page mit Daten zu füllen (wird onload ausgeführt)
 async function getMoreLaunches() {
@@ -39,7 +26,33 @@ async function getMoreLaunches() {
       );
     });
   }
+  //suchfunktion
+const searchableItems = document.querySelectorAll("li")
+
+searchableItems.forEach((li) => {
+  const searchField = document.getElementById("searchField")
+  const events = [ "keyup", "input", "paste", "cut"]
+  const listitems = document.querySelectorAll("li")
+  events.forEach((event) => {
+    searchField.addEventListener(event, ($event) => {
+      const {value} = $event.target
+      //console.log(value)
+      search(value, listitems)
+    })
+  })
+})
+
+function search(value, itemList){
+  //console.log(itemList)
+  itemList.forEach((item)=> {
+    const text = item.textContent.toLowerCase()
+    const match = text.includes(value.toLowerCase())
+    item.style.display = match ? 'block' : 'none'
+    console.log(match)
+  })
 }
+}
+
 
 //function um die "more Events" page mit Daten zu füllen (wird onload ausgeführt)
 async function getMoreEvents() {
