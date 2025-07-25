@@ -1,3 +1,18 @@
+//suchfunktion
+const searchableItems = document.querySelectorAll("li")
+
+searchableItems.forEach((li) => {
+  const searchField = document.getElementById("searchField")
+  const events = [ "keyup", "input", "paste", "cut"]
+  const listitems = document.querySelectorAll("li")
+  events.forEach((event) => {
+    searchField.addEventListener(event, ($event) => {
+      const {value} = $event.target
+      console.log(value)
+    })
+  })
+})
+
 //function um die "more Launches" page mit Daten zu füllen (wird onload ausgeführt)
 async function getMoreLaunches() {
   let data = await fetch(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/`);
