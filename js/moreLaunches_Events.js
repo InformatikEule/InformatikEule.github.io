@@ -27,30 +27,30 @@ async function getMoreLaunches() {
     });
   }
   //suchfunktion
-const searchableItems = document.querySelectorAll("li")
+  const searchableItems = document.querySelectorAll("li")
 
-searchableItems.forEach((li) => {
-  const searchField = document.getElementById("searchField")
-  const events = [ "keyup", "input", "paste", "cut"]
-  const listitems = document.querySelectorAll("li")
-  events.forEach((event) => {
-    searchField.addEventListener(event, ($event) => {
-      const {value} = $event.target
-      //console.log(value)
-      search(value, listitems)
+  searchableItems.forEach((li) => {
+    const searchField = document.getElementById("searchField")
+    const events = [ "keyup", "input", "paste", "cut"]
+    const listitems = document.querySelectorAll("li")
+    events.forEach((event) => {
+      searchField.addEventListener(event, ($event) => {
+        const {value} = $event.target
+        //console.log(value)
+        search(value, listitems)
+      })
     })
   })
-})
 
-function search(value, itemList){
-  //console.log(itemList)
-  itemList.forEach((item)=> {
-    const text = item.textContent.toLowerCase()
-    const match = text.includes(value.toLowerCase())
-    item.style.display = match ? 'block' : 'none'
-    console.log(match)
-  })
-}
+  function search(value, itemList){
+    //console.log(itemList)
+    itemList.forEach((item)=> {
+      const text = item.textContent.toLowerCase()
+      const match = text.includes(value.toLowerCase())
+      item.style.display = match ? 'block' : 'none'
+      console.log(match)
+    })
+  }
 }
 
 
@@ -78,5 +78,30 @@ async function getMoreEvents() {
         <li>Type: <span>${element.type.name}</span></li></ul><br>`
       );
     });
+  }
+    //suchfunktion
+  const searchableItems = document.querySelectorAll("li")
+
+  searchableItems.forEach((li) => {
+    const searchField = document.getElementById("searchField")
+    const events = [ "keyup", "input", "paste", "cut"]
+    const listitems = document.querySelectorAll("li")
+    events.forEach((event) => {
+      searchField.addEventListener(event, ($event) => {
+        const {value} = $event.target
+        //console.log(value)
+        search(value, listitems)
+      })
+    })
+  })
+
+  function search(value, itemList){
+    //console.log(itemList)
+    itemList.forEach((item)=> {
+      const text = item.textContent.toLowerCase()
+      const match = text.includes(value.toLowerCase())
+      item.style.display = match ? 'block' : 'none'
+      console.log(match)
+    })
   }
 }
