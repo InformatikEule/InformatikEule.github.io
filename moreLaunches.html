@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>KomischerKauz</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/nasaAPI.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/nasaAPI.css" />
     <script defer src="js/moreLaunches_Events.js"></script>
+  </head>
 
-</head>
-
-<body onload="getMoreLaunches()"> <!--getMoreLaunches()-->
+  <body onload="getMoreLaunches()">
+    <!--getMoreLaunches()-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid" id="topLaunchesPage">
-            <a class="navbar-brand" href="index.html#upcomingEvents">
-                Back to Main
-            </a>
-            <input id="searchField" class="form-control me-2 bg-dark text-white" type="search" placeholder="Search" name="search" aria-label="Search"/>
-        </div>
+      <div class="container-fluid" id="topLaunchesPage">
+        <a class="navbar-brand" href="index.html#upcomingEvents">
+          Back to Main
+        </a>
+        <input
+          id="searchField"
+          class="form-control me-2 bg-dark text-white"
+          type="search"
+          placeholder="Search"
+          name="search"
+          aria-label="Search"
+        />
+      </div>
     </nav>
     <!--hier-->
     <div>
-        <!-- Hier wird der content aufgelistet-->
-        <ul class="text-white">
-            <!--<li>Time</li>
+      <!-- Hier wird der content aufgelistet-->
+      <ul class="text-white">
+        <!--<li>Time</li>
             <li>Description</li>
             <li>Status</li>
             <li>Orbit</li>
             <li>Type</li>-->
-
-        </ul>
+      </ul>
     </div>
     <div>
-        <!--anchor der wieder nach oben leitet-->
-        <a href="#topLaunchesPage"><button class="bg-dark text-white" >Back to Top</button></a>
-        <a href="index.html#upcomingLaunches"><button class="bg-dark text-white" >Mainpage</button></a>
+      <!--anchor der wieder nach oben leitet-->
+      <a href="#topLaunchesPage"
+        ><button class="bg-dark text-white">Back to Top</button></a
+      >
+      <a href="index.html#upcomingLaunches"
+        ><button class="bg-dark text-white">Mainpage</button></a
+      >
     </div>
-</body>
-
+  </body>
 </html>

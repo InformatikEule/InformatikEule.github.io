@@ -1,233 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>KomischerKauz</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>KomischerKauz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;900&family=Ubuntu:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap"
+      rel="stylesheet"
+    />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;900&family=Ubuntu:wght@300;400;700&display=swap"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap" rel="stylesheet">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/script.js"></script>
-</head>
-<!--hallo!-->
-<!--onload (when the page is loaded), starts the functions to get data for launches/events.-->
-<body onload="pageOnLoad()">
-  <dialog data-modal>
-
-  </dialog>
-  <!-- Intro, still ugly. i have no idea what to put here... -->
-  <section id="title">
-    <div class="container-fluid">
-      <!-- Nav Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark">
-      </nav>
-      <h2 class="navbar-brand Montserrat color2 highLight">Hi, mein Name ist Felix. Willkommen auf
-        meiner Website!</h2>
-      <div class="row">
-        <div class="col-lg-6 Montserrat">
-          <h4 class="color1">Programmierer</h4>
-          <h4 class="color1">Raumfahrtfan</h4>
-          <h4 class="color1">ADHS-Athlet</h4>
-          <h4 class="color1">Nerd</h4>
-        </div>
-        <div class="col-lg-6 Montserrat">
-          <h4 class="color1"></h4>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- upComingLaunches-->
-  <section id="upcomingLaunches">
-    <h4 class="text-center text-white highLight">Upcoming Rocket Launches:</h4>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <img src="" alt="" class="img-fluid skeleton launchImg" id="launchImg">
-        </div>
-        <div class="col-4">
-          <p class="text-white rocketType textSize" id="rocketType"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="spacePort"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="launchDay1"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="launchTime1"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="launchStatus1"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-        </div>
-      </div>
-      <br>
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <img src="" alt="" class="img-fluid skeleton launchImg2" id="launchImg2">
-        </div>
-        <div class="col-4">
-          <p class="text-white rocketType2 textSize" id="rocketType2"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="spacePort2"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="launchDay2"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="launchTime2"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-          <p class="text-white textSize" id="launchStatus2"></p>
-          <p class="text-white skeleton skeleton-text textSize"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- upComing Events-->
-  <section id="upcomingEvents">
-    <h4 class="text-center text-white highLight">Upcoming Space Events:</h4>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <img src="" alt="" class="img-fluid skeleton eventImg" id="eventImg">
-        </div>
-        <div class="col-4">
-          <p class="text-white textSize event" id="event"></p>
-          <p class="text-white textSize eventLocation" id="eventLocation"></p>
-          <p class="text-white textSize eventDate" id="eventDate"></p>
-          <p class="text-white textSize eventTime" id="eventTime"></p>
-        </div>
-      </div>
-      <br>
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <img src="" alt="" class="img-fluid skeleton eventImg2" id="eventImg2">
-        </div>
-        <div class="col-4">
-          <p class="text-white textSize event" id="event2"></p>
-          <p class="text-white textSize eventLocation" id="eventLocation2"></p>
-          <p class="text-white textSize eventDate" id="eventDate2"></p>
-          <p class="text-white textSize eventTime" id="eventTime2"></p>
-        </div>
-      </div>
-      <!--mehr events/launches anzeigen-->
-      <div class="container" style="margin-top: 5px;">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <!--hallo!-->
+  <!--onload (when the page is loaded), starts the functions to get data for launches/events.-->
+  <body onload="pageOnLoad()">
+    <dialog data-modal></dialog>
+    <!-- Intro, still ugly. i have no idea what to put here... -->
+    <section id="title">
+      <div class="container-fluid">
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark"></nav>
+        <h2 class="navbar-brand Montserrat color2 highLight">
+          Hi, mein Name ist Felix. Willkommen auf meiner Website!
+        </h2>
         <div class="row">
-          <div class="col container text-center text-white">
-            <a href="moreLaunches.html">
-              <button class="btn btn-secondary highLight" type="button" style="border-color:#771460;">All
-                Launches</button>
-            </a>
-            <a href="moreEvents.html">
-              <button class="btn btn-secondary highLight" type="button" style="border-color:#771460;">All
-                Events</button>
-            </a>
+          <div class="col-lg-6 Montserrat">
+            <h4 class="color1">Programmierer</h4>
+            <h4 class="color1">Raumfahrtfan</h4>
+            <h4 class="color1">ADHS-Athlet</h4>
+            <h4 class="color1">Nerd</h4>
+          </div>
+          <div class="col-lg-6 Montserrat">
+            <h4 class="color1"></h4>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- subPages (Cards): -->
-  <section id="cards">
-    <div id="card">
-      <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-          <!-- Github -->
-          <div class="col">
-            <a href="https://github.com/InformatikEule" class="card-link">
-              <div class="card bg-dark text-white">
-                <img src="imgs/code-pic-neu001.png" loading="lazy" class="img-fluid imgCard" alt="Image showing Code">
-                <div class="card-body">
-                  <h5 class="card-title text-center Montserrat highLight">Github</h5>
-                  <p class="card-text text-center Montserrat">See my Code and some Projects</p>
-                </div>
-              </div>
-            </a>
+    </section>
+    <!-- upComingLaunches-->
+    <section id="upcomingLaunches">
+      <h4 class="text-center text-white highLight">
+        Upcoming Rocket Launches:
+      </h4>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <img
+              src=""
+              alt=""
+              class="img-fluid skeleton launchImg"
+              id="launchImg"
+            />
           </div>
-          <!-- Apod -->
-          <div class="col">
-            <a href="nasaAPI.html" class="card-link">
-              <div class="card bg-dark text-white">
-                <img src="imgs/launch-pad.jpg" class="img-fluid imgCard" loading="lazy"
-                  alt="Image with Space Shuttle on Launch Pad">
-                <div class="card-body">
-                  <h5 class="card-title text-center Montserrat highLight">Apod</h5>
-                  <p class="card-text text-center Montserrat">Astronomy Picture of the Day</p>
-                </div>
-              </div>
-            </a>
+          <div class="col-4">
+            <p class="text-white rocketType textSize" id="rocketType"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="spacePort"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="launchDay1"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="launchTime1"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="launchStatus1"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
           </div>
-          <!-- Rovers -->
-          <div class="col">
-            <a href="nasaRover.html" class="card-link">
-              <div class="card bg-dark text-white">
-                <img src="imgs/curiosity.jpg" class="img-fluid imgCard" loading="lazy"
-                  alt="Selfie from Mars Rover Curiosity">
-                <div class="card-body">
-                  <h5 class="card-title text-center Montserrat highLight">Pictures from another Planet!</h5>
-                  <p class="card-text text-center Montserrat">See the Images from the Mars-Rovers</p>
-                </div>
-              </div>
-            </a>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <img
+              src=""
+              alt=""
+              class="img-fluid skeleton launchImg2"
+              id="launchImg2"
+            />
           </div>
-          <!-- Weather -->
-          <div class="col">
-            <a href="weather.html" class="card-link">
-              <div class="card bg-dark text-white">
-                <img src="imgs/weather/weather.jpg" class="card-img-top img-fluid ratio-16x9 imgCard" loading="lazy"
-                  alt="Image with stormy weather">
-                <div class="card-body">
-                  <h5 class="card-title text-center Montserrat highLight">Weather App</h5>
-                  <p class="card-text text-center Montserrat">current weather in your city</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- Drumkit -->
-          <div class="col">
-            <a href="drumKit.html" class="card-link">
-              <div class="card text-white bg-dark">
-                <img src="imgs/earth.png" class="card-img-top img-fluid card-black ratio-16x9 imgCard" loading="lazy"
-                  alt="Image of the Eearth">
-                <div class="card-body">
-                  <h5 class="card-title text-center Montserrat highLight">Drumkit</h5>
-                  <p class="card-text text-center Montserrat">"1, 2, 3..."</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- Youtube -->
-          <div class="col">
-            <a href="https://www.youtube.com/@kaingott/videos" class="card-link">
-              <div class="card bg-dark text-white">
-                <div class="ratio ratio-16x9 card-img-top img-fluid imgCard">
-                  <iframe src="https://www.youtube.com/embed/UZrXGbjSL9Y" title="YouTube video player" frameborder="0"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title text-center Montserrat highLight">Youtube</h5>
-                  <p class="card-text card-title text-center Montserrat">I make Videos as well! Much WOW!!!</p>
-                </div>
-              </div>
-            </a>
+          <div class="col-4">
+            <p class="text-white rocketType2 textSize" id="rocketType2"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="spacePort2"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="launchDay2"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="launchTime2"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
+            <p class="text-white textSize" id="launchStatus2"></p>
+            <p class="text-white skeleton skeleton-text textSize"></p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="footer">
-    <div class="container-fluid text-center">
-      <div>
-        <a href="myLittleSecret.html" id="color1">
-          Here should be a footer
-        </a>
+    </section>
+    <!-- upComing Events-->
+    <section id="upcomingEvents">
+      <h4 class="text-center text-white highLight">Upcoming Space Events:</h4>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <img
+              src=""
+              alt=""
+              class="img-fluid skeleton eventImg"
+              id="eventImg"
+            />
+          </div>
+          <div class="col-4">
+            <p class="text-white textSize event" id="event"></p>
+            <p class="text-white textSize eventLocation" id="eventLocation"></p>
+            <p class="text-white textSize eventDate" id="eventDate"></p>
+            <p class="text-white textSize eventTime" id="eventTime"></p>
+          </div>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <img
+              src=""
+              alt=""
+              class="img-fluid skeleton eventImg2"
+              id="eventImg2"
+            />
+          </div>
+          <div class="col-4">
+            <p class="text-white textSize event" id="event2"></p>
+            <p
+              class="text-white textSize eventLocation"
+              id="eventLocation2"
+            ></p>
+            <p class="text-white textSize eventDate" id="eventDate2"></p>
+            <p class="text-white textSize eventTime" id="eventTime2"></p>
+          </div>
+        </div>
+        <!--mehr events/launches anzeigen-->
+        <div class="container" style="margin-top: 5px">
+          <div class="row">
+            <div class="col container text-center text-white">
+              <a href="moreLaunches.html">
+                <button
+                  class="btn btn-secondary highLight"
+                  type="button"
+                  style="border-color: #771460"
+                >
+                  All Launches
+                </button>
+              </a>
+              <a href="moreEvents.html">
+                <button
+                  class="btn btn-secondary highLight"
+                  type="button"
+                  style="border-color: #771460"
+                >
+                  All Events
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</body>
+    </section>
+    <!-- subPages (Cards): -->
+    <section id="cards">
+      <div id="card">
+        <div class="container mt-5">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+            <!-- Github -->
+            <div class="col">
+              <a href="https://github.com/InformatikEule" class="card-link">
+                <div class="card bg-dark text-white">
+                  <img
+                    src="imgs/code-pic-neu001.png"
+                    loading="lazy"
+                    class="img-fluid imgCard"
+                    alt="Image showing Code"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-center Montserrat highLight">
+                      Github
+                    </h5>
+                    <p class="card-text text-center Montserrat">
+                      See my Code and some Projects
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Apod -->
+            <div class="col">
+              <a href="nasaAPI.html" class="card-link">
+                <div class="card bg-dark text-white">
+                  <img
+                    src="imgs/launch-pad.jpg"
+                    class="img-fluid imgCard"
+                    loading="lazy"
+                    alt="Image with Space Shuttle on Launch Pad"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-center Montserrat highLight">
+                      Apod
+                    </h5>
+                    <p class="card-text text-center Montserrat">
+                      Astronomy Picture of the Day
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Rovers -->
+            <div class="col">
+              <a href="nasaRover.html" class="card-link">
+                <div class="card bg-dark text-white">
+                  <img
+                    src="imgs/curiosity.jpg"
+                    class="img-fluid imgCard"
+                    loading="lazy"
+                    alt="Selfie from Mars Rover Curiosity"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-center Montserrat highLight">
+                      Pictures from another Planet!
+                    </h5>
+                    <p class="card-text text-center Montserrat">
+                      See the Images from the Mars-Rovers
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Weather -->
+            <div class="col">
+              <a href="weather.html" class="card-link">
+                <div class="card bg-dark text-white">
+                  <img
+                    src="imgs/weather/weather.jpg"
+                    class="card-img-top img-fluid ratio-16x9 imgCard"
+                    loading="lazy"
+                    alt="Image with stormy weather"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-center Montserrat highLight">
+                      Weather App
+                    </h5>
+                    <p class="card-text text-center Montserrat">
+                      current weather in your city
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Drumkit -->
+            <div class="col">
+              <a href="drumKit.html" class="card-link">
+                <div class="card text-white bg-dark">
+                  <img
+                    src="imgs/earth.png"
+                    class="card-img-top img-fluid card-black ratio-16x9 imgCard"
+                    loading="lazy"
+                    alt="Image of the Eearth"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title text-center Montserrat highLight">
+                      Drumkit
+                    </h5>
+                    <p class="card-text text-center Montserrat">"1, 2, 3..."</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Youtube -->
+            <div class="col">
+              <a
+                href="https://www.youtube.com/@kaingott/videos"
+                class="card-link"
+              >
+                <div class="card bg-dark text-white">
+                  <div class="ratio ratio-16x9 card-img-top img-fluid imgCard">
+                    <iframe
+                      src="https://www.youtube.com/embed/UZrXGbjSL9Y"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title text-center Montserrat highLight">
+                      Youtube
+                    </h5>
+                    <p class="card-text card-title text-center Montserrat">
+                      I make Videos as well! Much WOW!!!
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer">
+      <div class="container-fluid text-center">
+        <div>
+          <a href="myLittleSecret.html" id="color1">
+            Here should be a footer
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
