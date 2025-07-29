@@ -1,8 +1,8 @@
-
-
 //function um die "more Launches" page mit Daten zu füllen (wird onload ausgeführt)
 async function getMoreLaunches() {
-  let data = await fetch(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/`);
+  let data = await fetch(
+    `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=25`
+  );
   if (!data.ok) {
     alert("Sum ting wroang! Server status: " + data.status);
   } else {
@@ -16,7 +16,9 @@ async function getMoreLaunches() {
       dataRawList.insertAdjacentHTML(
         `beforeend`,
         `<li><h4>${element.name}</h4><ul>
-        <img class="img-fluid launchImg" src="${element.image}"></img>
+        <img class="img-fluid launchImg" src="${
+          element.image
+        }" alt="picture could not load"></img>
         <li>Date: <span>${dateFormatted}</span></li>
         <li>Time: <span>${element.net.slice(11, 19)}</span></li>
         <li>Description: <span>${element.mission.description}</span></li>
@@ -27,32 +29,31 @@ async function getMoreLaunches() {
     });
   }
   //suchfunktion
-  const searchableItems = document.querySelectorAll("li")
+  const searchableItems = document.querySelectorAll("li");
 
   searchableItems.forEach((li) => {
-    const searchField = document.getElementById("searchField")
-    const events = [ "keyup", "input", "paste", "cut"]
-    const listitems = document.querySelectorAll("li")
+    const searchField = document.getElementById("searchField");
+    const events = ["keyup", "input", "paste", "cut"];
+    const listitems = document.querySelectorAll("li");
     events.forEach((event) => {
       searchField.addEventListener(event, ($event) => {
-        const {value} = $event.target
+        const { value } = $event.target;
         //console.log(value)
-        search(value, listitems)
-      })
-    })
-  })
+        search(value, listitems);
+      });
+    });
+  });
 
-  function search(value, itemList){
+  function search(value, itemList) {
     //console.log(itemList)
-    itemList.forEach((item)=> {
-      const text = item.textContent.toLowerCase()
-      const match = text.includes(value.toLowerCase())
-      item.style.display = match ? 'block' : 'none'
-      console.log(match)
-    })
+    itemList.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      const match = text.includes(value.toLowerCase());
+      item.style.display = match ? "block" : "none";
+      console.log(match);
+    });
   }
 }
-
 
 //function um die "more Events" page mit Daten zu füllen (wird onload ausgeführt)
 async function getMoreEvents() {
@@ -79,29 +80,29 @@ async function getMoreEvents() {
       );
     });
   }
-    //suchfunktion
-  const searchableItems = document.querySelectorAll("li")
+  //suchfunktion
+  const searchableItems = document.querySelectorAll("li");
 
   searchableItems.forEach((li) => {
-    const searchField = document.getElementById("searchField")
-    const events = [ "keyup", "input", "paste", "cut"]
-    const listitems = document.querySelectorAll("li")
+    const searchField = document.getElementById("searchField");
+    const events = ["keyup", "input", "paste", "cut"];
+    const listitems = document.querySelectorAll("li");
     events.forEach((event) => {
       searchField.addEventListener(event, ($event) => {
-        const {value} = $event.target
+        const { value } = $event.target;
         //console.log(value)
-        search(value, listitems)
-      })
-    })
-  })
+        search(value, listitems);
+      });
+    });
+  });
 
-  function search(value, itemList){
+  function search(value, itemList) {
     //console.log(itemList)
-    itemList.forEach((item)=> {
-      const text = item.textContent.toLowerCase()
-      const match = text.includes(value.toLowerCase())
-      item.style.display = match ? 'block' : 'none'
-      console.log(match)
-    })
+    itemList.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      const match = text.includes(value.toLowerCase());
+      item.style.display = match ? "block" : "none";
+      console.log(match);
+    });
   }
 }
