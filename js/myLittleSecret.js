@@ -10,8 +10,13 @@ const berlinTime = new Date().toLocaleString("en-GB", {
   timeZone: "Europe/Berlin",
 });
 
+const torontoTime = new Date().toLocaleString("en-GB", {
+  timeZone: "America/Toronto",
+});
+
 document.getElementById("berlinTime").textContent = "Leipzig: " + berlinTime;
 document.getElementById("vancouverTime").textContent =
   "Vancouver/Williams Lake: " + pacificTime;
 document.getElementById("calgaryTime").textContent =
   "Calgary/Cranbrooke: " + mountainTime;
+document.getElementById("torontoTime").textContent = "Toronto: " + torontoTime;
