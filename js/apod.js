@@ -30,7 +30,7 @@ async function fetchSingleApod() {
       "api_key=" +
       "BCFopSyeo7rFrjmb6Ecl0yubJ08rEybAE0LsgVN0" +
       "&date=" +
-      dateFormatted
+      dateFormatted,
   );
   console.log(singleResp);
   //prüfen ob der server einen fehler meldet:
@@ -71,9 +71,9 @@ async function fetchSingleApod() {
       //falsches media format:
     } else {
       apodArr.push(title, errMsg, caption, copy, mediaType);
-            apodArr.forEach((element) => {
+      apodArr.forEach((element) => {
         document.getElementById("apodDataDisplay").appendChild(element);
-    });
+      });
     }
   }
 }
@@ -87,7 +87,7 @@ function getStartDate() {
     alert(
       "The start date must not be lower than 20.06.1995 and not higher than " +
         dateFormatted +
-        "!"
+        "!",
     );
     throw new Error("apod api startet on 20.June, 1995!");
   } else {
@@ -101,7 +101,7 @@ function getEndDate() {
     alert(
       "The end date must not be higher than " +
         dateFormatted +
-        " and not lower than 1995-21-06!"
+        " and not lower than 1995-21-06!",
     );
     throw new Error("Kid, I can't show you pictures of tomorrow...");
   } else {
@@ -117,7 +117,7 @@ async function fetchMultipleApods() {
       "&start_date=" +
       getStartDate() +
       "&end_date=" +
-      getEndDate()
+      getEndDate(),
   );
   //prüfen ob der server einen fehler meldet:
   console.log(multipleResp);
@@ -127,7 +127,7 @@ async function fetchMultipleApods() {
       "Error, Server returns status-code: " +
         multipleResp.status +
         "! Status-Text: " +
-        multipleResp.statusText
+        multipleResp.statusText,
     );
   } else {
     let dataMultipleApods = await multipleResp.json();
@@ -137,7 +137,7 @@ async function fetchMultipleApods() {
 }
 
 function useDataMultiple(dataMultipleApods) {
-  const display = document.querySelector("#apodDataDisplay"); 
+  const display = document.querySelector("#apodDataDisplay");
   let showData = dataMultipleApods
     .map((data) => {
       const { title, url, media_type, explanation, date, copyright } = data;
@@ -160,8 +160,8 @@ function useDataMultiple(dataMultipleApods) {
           </li>
         </ol>
       `;
-      //falls video:
-      } else if (media_type == "video"){
+        //falls video:
+      } else if (media_type == "video") {
         return `
         <ol class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-start border-secondary">
@@ -179,7 +179,7 @@ function useDataMultiple(dataMultipleApods) {
           </li>
         </ol>
       `;
-      //falsches medien format:
+        //falsches medien format:
       } else {
         return `
         <ol class="list-group">

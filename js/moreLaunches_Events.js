@@ -1,7 +1,7 @@
 //function um die "more Launches" page mit Daten zu füllen (wird onload ausgeführt)
 async function getMoreLaunches() {
   let data = await fetch(
-    `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=25`
+    `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=40`
   );
   if (!data.ok) {
     alert("Sum ting wroang! Server status: " + data.status);

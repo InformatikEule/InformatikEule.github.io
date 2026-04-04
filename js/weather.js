@@ -15,7 +15,7 @@ function getCity() {
 async function fetchWeather() {
   const city = getCity();
   let resp = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`,
   );
   //prüfen ob der server einen fehler meldet:
   if (!resp.ok) {
@@ -24,7 +24,7 @@ async function fetchWeather() {
       "Error, Server returns status-code: " +
         resp.status +
         "! Status-Text: " +
-        resp.statusText
+        resp.statusText,
     );
   } else {
     let weatherData = await resp.json();

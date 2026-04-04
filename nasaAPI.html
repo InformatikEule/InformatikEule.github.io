@@ -1,51 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>KomischerKauz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/nasaAPI.css" />
+    <script defer src="js/apod.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>KomischerKauz</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/nasaAPI.css">
-  <script defer src="js/apod.js"></script>
-</head>
+  <!-- Die Onload function lädt automatisch das aktuelle APOD. Weitere Bilder können manuell geladen werden -->
+  <body onload="fetchSingleApod()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html#cards"> Back to Main </a>
+      </div>
+    </nav>
+    <br />
+    <div class="container">
+      <div class="row">
+        <!--Container zum anzeigen der Daten-->
+        <div class="container text-center text-white">
+          <!--fetch multiple APOD's-->
+          <div class="apodContainer">
+            <h2>Search for specific Apod's:</h2>
+            <p>
+              Start Date:
+              <input
+                class="body"
+                type="date"
+                name="getStartDate"
+                id="getStartDate"
+              />
+              End Date:
+              <input
+                class="body"
+                type="date"
+                name="getEndDate"
+                id="getEndDate"
+              />
+              <button
+                class="body btn btn-secondary"
+                name="fetchMultipleApod"
+                id="fetchMultipleApod"
+                type="submit"
+              >
+                Send
+              </button>
+            </p>
+          </div>
+          <div class="border border-secondary container text-center text-white">
+            <h1 class="apod">Astronomy Picture of the Day (APOD):</h1>
+          </div>
+          <!--display container-->
+          <div>id="topApodPage"</div>
+          <div>
+            class="container text-center text-white" id="apodDataDisplay"
+          </div>
 
-<!-- Die Onload function lädt automatisch das aktuelle APOD. Weitere Bilder können manuell geladen werden -->
-<body onload="fetchSingleApod()">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html#cards">
-        Back to Main
-      </a>
-    </div>
-  </nav>
-  <br>
-  <div class="container">
-    <div class="row">
-      <!--Container zum anzeigen der Daten-->
-      <div class="container text-center text-white">
-        <!--fetch multiple APOD's-->
-        <div class="apodContainer">
-          <h2>Search for specific Apod's:</h2>
-          <p>Start Date: <input class="body" type="date" name="getStartDate" id="getStartDate">
-            End Date: <input class="body" type="date" name="getEndDate" id="getEndDate">
-            <button class="body btn btn-secondary" name="fetchMultipleApod" id="fetchMultipleApod"
-              type="submit">Send</button>
-          </p>
-        </div>
-        <div class="border border-secondary container text-center text-white">
-          <h1 class="apod">Astronomy Picture of the Day (APOD):</h1>
-        </div>
-        <!--display container-->
-        <div class="container text-center text-white" id="apodDataDisplay">
+          <div>
+            <!--anchor der wieder nach oben leitet-->
+            <a href="#topApodPage"
+              ><button class="bg-dark text-white">Back to Top</button></a
+            >
+            <a href="index.html#upcomingEvents"
+              ><button class="bg-dark text-white">Mainpage</button></a
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
